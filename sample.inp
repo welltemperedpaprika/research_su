@@ -1,0 +1,197 @@
+$molecule
+0 1
+F       0.0000  0.0000  0.0000
+H       0.0000  0.0000  0.9168
+$end
+
+$rem
+jobtype sp ! Don't need to specify as this is default
+method ccsd(T)  ! Use method instead of specifying exchange and correlation separately. That route has been obsolete for a bit and can cause issues at times.
+xc_grid 000099000590 !no NL grid as this functional doesnt have any NL correlation
+basis aug-cc-pcVTZ
+max_scf_cycles 200 ! The default of 50 is too low. Ramp up if needed.
+thresh 14 ! Default again too low (depends on jobtype, but 8 for single points). This controls when we start neglecting integrals (14 means ones smaller than 1E-14 can be neglected etc).
+scf_convergence 8 ! Default (5) absurdly low, especially with DIIS. 5 is OK with GDM but we should aim for 7 at least when possible. Some functionals wont let us...
+scf_algorithm gdm ! Geometric Direct Minimization. Directly minimizes E vs orbital degrees of freedom theta vs SCF cycles. This is more robust by a long shot.
+symmetry false ! I'll absolutely insist that symmetry false and sym_ignore true be used. Q-Chem symmetry is broken and it often reorients molecules without warning. 
+sym_ignore true
+unrestricted true ! Precaution if spin-symmetry breaks.
+gen_scfman true ! name of SCF module (should be default by now, but just in case)
+internal_stability_iter 15 ! Checks stability of solution. Some SCF solutions are energy saddles (like RHF stretched H2) instead of minima. This finds the positive definiteness of energy hessian vs orbital degrees of freedom to confirm if minimum, and if not pushes it down the saddle to a minimum. 15 so that this is done upto 15 times. In practice 3-4 enough. 
+internal_stability_davidson_iter 200 ! Iterations for davidson diagonalization of the orbital hessian (see above)
+mem_total 64000 ! These two probably wont do much. Just in case....
+mem_static 1500 !
+n_frozen_core 0 
+$end
+
+
+@@@@@@
+$molecule
+read ! Read molecular geometry from before. 
+$end
+
+$rem
+
+jobtype sp
+method ccsd(T)
+xc_grid 000099000590
+basis aug-cc-pcVTZ
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+mem_total 64000
+mem_static 1500
+symmetry false
+sym_ignore true
+scf_guess read ! Reads orbitals from previous job.
+unrestricted true
+scf_algorithm gdm
+n_frozen_core 0 
+$end
+
+$multipole_field
+XX 0.0001
+$end
+@@@@@@
+$molecule
+read
+$end
+
+$rem
+
+jobtype sp
+method ccsd(T)
+xc_grid 000099000590
+basis aug-cc-pcVTZ
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+mem_total 64000
+mem_static 1500
+symmetry false
+sym_ignore true
+scf_guess read
+unrestricted true
+scf_algorithm gdm
+n_frozen_core 0 
+$end
+
+$multipole_field
+XX -0.0001
+$end
+
+
+
+@@@@@@
+$molecule
+read
+$end
+
+$rem
+
+jobtype sp
+method ccsd(T)
+xc_grid 000099000590
+basis aug-cc-pcVTZ
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+CC_E_CONV 8
+CC_T_CONV 6
+mem_total 64000
+mem_static 1500
+symmetry false
+sym_ignore true
+scf_guess read
+unrestricted true
+scf_algorithm gdm
+n_frozen_core 0 
+$end
+
+$multipole_field
+YY 0.0001
+$end
+
+
+@@@@@@
+$molecule
+read
+$end
+
+$rem
+
+jobtype sp
+method ccsd(T)
+xc_grid 000099000590
+basis aug-cc-pcVTZ
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+mem_total 64000
+mem_static 1500
+symmetry false
+sym_ignore true
+scf_guess read
+unrestricted true
+scf_algorithm gdm
+n_frozen_core 0 
+$end
+
+$multipole_field
+YY -0.0001
+$end
+@@@@@@
+$molecule
+read
+$end
+
+$rem
+
+jobtype sp
+method ccsd(T)
+xc_grid 000099000590
+basis aug-cc-pcVTZ
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+mem_total 64000
+mem_static 1500
+symmetry false
+sym_ignore true
+scf_guess read
+unrestricted true
+scf_algorithm gdm
+n_frozen_core 0 
+$end
+
+$multipole_field
+ZZ 0.0001
+$end
+
+@@@@@@
+$molecule
+read
+$end
+
+$rem
+
+jobtype sp
+method ccsd(T)
+xc_grid 000099000590
+basis aug-cc-pcVTZ
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+mem_total 64000
+mem_static 1500
+symmetry false
+sym_ignore true
+scf_guess read
+unrestricted true
+scf_algorithm gdm
+n_frozen_core 0 
+$end
+
+$multipole_field
+ZZ -0.0001
+$end
