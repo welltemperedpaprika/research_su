@@ -1,0 +1,881 @@
+Q-Chem Developer Version!
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 5.1, Q-Chem, Inc., Pleasanton, CA (2018)
+
+ Yihan Shao,  Zhengting Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  Jia Deng,  Xintian Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  T. Kus,  A. Landau,  
+ Jie Liu,  E. I. Proynov,  R. M. Richard,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Albrecht,  E. Alguire,  
+ S. A. Baeppler,  D. Barton,  Z. Benda,  Y. A. Bernard,  E. J. Berquist,  
+ K. B. Bravaya,  H. Burton,  D. Casanova,  Chun-Min Chang,  Yunqing Chen,  
+ A. Chien,  K. D. Closser,  M. P. Coons,  S. Coriani,  S. Dasgupta,  
+ A. L. Dempwolff,  M. Diedenhofen,  Hainam Do,  R. G. Edgar,  Po-Tung Fang,  
+ S. Faraji,  S. Fatehi,  Qingguo Feng,  K. D. Fenk,  J. Fosso-Tande,  
+ Qinghui Ge,  A. Ghysels,  G. Gidofalvi,  J. Gomes,  J. Gonthier,  A. Gunina,  
+ D. Hait,  M. W. D. Hanson-Heine,  P. H. P. Harbach,  A. W. Hauser,  
+ J. E. Herr,  E. G. Hohenstein,  Z. C. Holden,  Kerwin Hui,  B. C. Huynh,  
+ T.-C. Jagau,  Hyunjun Ji,  B. Kaduk,  K. Khistyaev,  Jaehoon Kim,  
+ P. Klunzinger,  K. Koh,  D. Kosenkov,  L. Koulias,  T. Kowalczyk,  
+ C. M. Krauter,  A. Kunitsa,  Ka Un Lao,  A. Laurent,  K. V. Lawler,  
+ Joonho Lee,  D. Lefrancois,  S. Lehtola,  D. S. Levine,  Yi-Pei Li,  
+ You-Sheng Lin,  Fenglai Liu,  E. Livshits,  A. Luenser,  P. Manohar,  
+ E. Mansoor,  S. F. Manzer,  Shan-Ping Mao,  Yuezhi Mao,  N. Mardirossian,  
+ A. V. Marenich,  T. Markovich,  L. A. Martinez-Martinez,  S. A. Maurer,  
+ N. J. Mayhall,  S. C. McKenzie,  J.-M. Mewes,  A. F. Morrison,  
+ J. W. Mullinax,  K. Nanda,  T. S. Nguyen-Beck,  R. Olivares-Amaya,  
+ J. A. Parkhill,  T. M. Perrine,  F. Plasser,  P. Pokhilko,  S. Prager,  
+ A. Prociuk,  E. Ramos,  D. R. Rehn,  F. Rob,  M. Schneider,  N. Sergueev,  
+ S. M. Sharada,  S. Sharma,  D. W. Small,  T. Stauch,  T. Stein,  
+ Yu-Chuan Su,  A. J. W. Thom,  A. Tkatchenko,  T. Tsuchimochi,  N. M. Tubman,  
+ L. Vogt,  M. L. Vidal,  O. Vydrov,  M. A. Watson,  J. Wenzel,  
+ M. de Wergifosse,  T. A. Wesolowski,  A. White,  J. Witte,  A. Yamada,  
+ Jun Yang,  K. Yao,  S. Yeganeh,  S. R. Yost,  Zhi-Qiang You,  A. Zech,  
+ Igor Ying Zhang,  Xing Zhang,  Yan Zhao,  Ying Zhu,  B. R. Brooks,  
+ G. K. L. Chan,  C. J. Cramer,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  
+ M. W. Schmidt,  C. D. Sherrill,  D. G. Truhlar,  A. Aspuru-Guzik,  R. Baer,  
+ A. T. Bell,  N. A. Besley,  Jeng-Da Chai,  A. E. DePrince, III,  
+ R. A. DiStasio Jr.,  A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  
+ Chao-Ping Hsu,  Yousung Jung,  Jing Kong,  D. S. Lambrecht,  WanZhen Liang,  
+ C. Ochsenfeld,  V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  
+ T. Van Voorhis,  J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  B. Austin,  J. Baker,  G. J. O. Beran,  K. Brandhorst,  
+ S. T. Brown,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ Siu Hung Chien,  D. M. Chipman,  D. L. Crittenden,  H. Dachsel,  
+ R. J. Doerksen,  A. D. Dutoi,  L. Fusti-Molnar,  W. A. Goddard III,  
+ A. Golubeva-Zadorozhnaya,  S. R. Gwaltney,  G. Hawkins,  A. Heyden,  
+ S. Hirata,  G. Kedziora,  F. J. Keil,  C. Kelley,  Jihan Kim,  R. A. King,  
+ R. Z. Khaliullin,  P. P. Korambath,  W. Kurlancheek,  A. M. Lee,  M. S. Lee,  
+ S. V. Levchenko,  Ching Yeh Lin,  D. Liotard,  R. C. Lochan,  I. Lotan,  
+ P. E. Maslen,  N. Nair,  D. P. O'Neill,  D. Neuhauser,  E. Neuscamman,  
+ C. M. Oana,  R. Olson,  B. Peters,  R. Peverati,  P. A. Pieniazek,  
+ Y. M. Rhee,  J. Ritchie,  M. A. Rohrdanz,  E. Rosta,  N. J. Russ,  
+ H. F. Schaefer III,  N. E. Schultz,  N. Shenvi,  A. C. Simmonett,  A. Sodt,  
+ D. Stuck,  K. S. Thanthiriwatte,  V. Vanovschi,  Tao Wang,  A. Warshel,  
+ C. F. Williams,  Q. Wu,  X. Xu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 5.1.1 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 8.300.2 (Tropical Shenanigans).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Tue Jun 23 02:12:44 2020  
+
+Host: n0087.mhg0
+0
+
+     Scratch files written to /local/scratch/users/yhljason/CH3_B97M-V_aug-pc-4.inp20200623021224//
+Input Ideriv = 2
+Curr. Ideriv = -1
+Max.  Ideriv = 2
+Input Ideriv = 1
+Curr. Ideriv = 2
+Max.  Ideriv = 1
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$molecule
+0 2
+C1 0.0000   0.0000   0.0000
+H2 1.0790   0.0000   0.0000
+H3 -0.5395  -0.9344  0.0000
+H4 -0.5395  0.9344   0.0000
+$end
+
+$rem
+jobtype sp
+method B97M-V
+xc_grid 000099000590
+basis aug-pc-4
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+unrestricted true
+gen_scfman true
+internal_stability_iter 15
+internal_stability_davidson_iter 200
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+$end
+
+
+--------------------------------------------------------------
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      C       0.0000000000     0.0000000000     0.0000000000
+    2      H       1.0790000000     0.0000000000     0.0000000000
+    3      H      -0.5395000000    -0.9344000000     0.0000000000
+    4      H      -0.5395000000     0.9344000000     0.0000000000
+ ----------------------------------------------------------------
+ Nuclear Repulsion Energy =     9.6774633775 hartrees
+ There are        5 alpha and        4 beta electrons
+ Requested basis set is aug-pc-4
+ There are 105 shells and 409 basis functions
+
+ Total QAlloc Memory Limit  64000 MB
+ Mega-Array Size      1467 MB
+ MEM_STATIC part      1500 MB
+
+                       Distance Matrix (Angstroms)
+             C (  1)   H (  2)   H (  3)
+   H (  2)  1.079000
+   H (  3)  1.078964  1.868862
+   H (  4)  1.078964  1.868862  1.868800
+ 
+ A cutoff of  1.0D-14 yielded   5532 shell pairs
+ There are     84664 function pairs (    148768 Cartesian)
+ 
+ -------------------------------------------------------
+ OpenMP Integral Computing Module                       
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ Integral Job Info:
+ Integral job number is                      11
+ Integral operator is                         1
+ short-range coefficients                     0
+ long-range coefficients              100000000
+ Omega coefficients                           0
+ if combine SR and LR in K                    0
+ Integral screening is                        0
+ Integral computing path is                   2
+ max size of driver memory is           6400000
+ size of driver memory is               5498286
+ size of scratch memory is             29792225
+ max col of scratch BK array             194481
+ max len of scratch array in speh3         5572
+ max len of scratch index in speh4           72
+ max int batch size is                      520
+ min int batch size is                       52
+ fixed nKL is                                25
+ max L of basis functions is                  5
+ order of int derivative is                   0
+ number of shells is                        105
+ number of basis is                         541
+ number of cartesian basis is               541
+ number of contracted shell pairs          5532
+ number of primitive shell pairs           9419
+ maxK2 (contraction) of shell pair          121
+ max number of K2 of shell pair               1
+ max number of CS2 of shell pair            781
+ max number of PS2 of shell pair            781
+ mem total for path MDJ                  986672
+ -------------------------------------------------------
+ Smallest overlap matrix eigenvalue = 1.41E-07
+ Linear dependence detected in AO basis
+ Number of orthogonalized atomic orbitals = 405
+ Maximum deviation from orthogonality = 3.393E-10
+
+ Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =     0.0000000002 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ SAD guess density has 9.000000 electrons
+
+ -----------------------------------------------------------------------
+  General SCF calculation program by
+  Eric Jon Sundstrom, Paul Horn, Yuezhi Mao, Dmitri Zuev, Alec White,
+  David Stuck, Shaama M.S., Shane Yost, Joonho Lee, David Small,
+  Daniel Levine, Susi Lehtola, Hugh Burton, Evgeny Epifanovsky
+ -----------------------------------------------------------------------
+ Exchange:  B97M-V      Correlation:  B97M-V
+ Using Euler-Maclaurin-Lebedev (99,590) quadrature formula
+ Nonlocal Correlation:  VV10 with C = 0.0100 and b = 6.00 and scale = 1.00000
+ Grid used for NLC:  SG-1 standard quadrature
+Running Object-Oriented UKS (UHF)
+performing a single roothaan step with Fock from read density so that orbitals are available to all algorithms
+ Nonlocal correlation = 0.037165599302
+energy of the guess density (C=0) -39.741478338996
+ Nonlocal correlation = 0.037905639263
+We will preform up to 15 macro iterations over saddle points until a stable solution is found
+Energy prior to optimization (guess energy) = -39.822941348376
+Begin Timing: Total SCF Calculation
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-08
+ Nonlocal correlation = 3.751322154127e-02
+    1     -39.8229413484      7.54e-02     00000  Descent step
+ Nonlocal correlation = 3.770320661507e-02
+    2     -39.8264340576      1.05e-01     00000  Normal BFGS step
+ Nonlocal correlation = 3.769370022430e-02
+    3     -39.8566215953      3.71e-03     00000  Normal BFGS step
+ Nonlocal correlation = 3.769429013213e-02
+    4     -39.8567268985      6.48e-04     00000  Normal BFGS step
+ Nonlocal correlation = 3.769433975456e-02
+    5     -39.8567307433      1.36e-04     00000  Normal BFGS step
+ Nonlocal correlation = 3.769440307588e-02
+    6     -39.8567309825      3.90e-05     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863484e-02
+    7     -39.8567309914      2.04e-06     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439663107e-02
+    8     -39.8567309896      6.46e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439684667e-02
+    9     -39.8567309914      6.04e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439861024e-02
+   10     -39.8567309914      3.01e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680639e-02
+   11     -39.8567309896      6.38e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864569e-02
+   12     -39.8567309914      2.04e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680194e-02
+   13     -39.8567309896      4.83e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863962e-02
+   14     -39.8567309914      1.90e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680596e-02
+   15     -39.8567309896      4.58e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680360e-02
+   16     -39.8567309914      1.87e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863092e-02
+   17     -39.8567309914      1.85e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863899e-02
+   18     -39.8567309896      6.28e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439681686e-02
+   19     -39.8567309896      4.93e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680503e-02
+   20     -39.8567309914      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864824e-02
+   21     -39.8567309914      3.60e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680353e-02
+   22     -39.8567309896      6.38e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863874e-02
+   23     -39.8567309914      2.30e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680613e-02
+   24     -39.8567309896      4.69e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680423e-02
+   25     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439865662e-02
+   26     -39.8567309914      1.97e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863684e-02
+   27     -39.8567309896      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439685243e-02
+   28     -39.8567309896      4.88e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439679627e-02
+   29     -39.8567309914      6.45e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439868278e-02
+   30     -39.8567309914      3.63e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680009e-02
+   31     -39.8567309896      6.43e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863520e-02
+   32     -39.8567309914      2.29e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680743e-02
+   33     -39.8567309896      4.71e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680407e-02
+   34     -39.8567309914      2.09e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439868063e-02
+   35     -39.8567309914      1.96e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863004e-02
+   36     -39.8567309896      6.42e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439696903e-02
+   37     -39.8567309896      4.89e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439675041e-02
+   38     -39.8567309914      6.55e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439884578e-02
+   39     -39.8567309914      3.69e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439678726e-02
+   40     -39.8567309896      6.91e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439862090e-02
+   41     -39.8567309914      2.21e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439681409e-02
+   42     -39.8567309896      4.84e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680380e-02
+   43     -39.8567309914      1.99e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439866589e-02
+   44     -39.8567309914      1.86e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863846e-02
+   45     -39.8567309896      6.49e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439682302e-02
+   46     -39.8567309896      4.95e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680654e-02
+   47     -39.8567309914      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863769e-02
+   48     -39.8567309914      3.60e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680552e-02
+   49     -39.8567309896      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863995e-02
+   50     -39.8567309914      2.30e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680454e-02
+   51     -39.8567309896      4.69e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680470e-02
+   52     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863511e-02
+   53     -39.8567309914      1.97e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439864002e-02
+   54     -39.8567309896      6.38e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680039e-02
+   55     -39.8567309896      4.87e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439681049e-02
+   56     -39.8567309914      6.38e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439861715e-02
+   57     -39.8567309914      3.62e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680971e-02
+   58     -39.8567309896      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864179e-02
+   59     -39.8567309914      2.31e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680118e-02
+   60     -39.8567309896      4.68e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680674e-02
+   61     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439855223e-02
+   62     -39.8567309914      1.98e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439865580e-02
+   63     -39.8567309896      6.52e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439659693e-02
+   64     -39.8567309896      4.90e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439685260e-02
+   65     -39.8567309914      6.81e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439851345e-02
+   66     -39.8567309914      3.73e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680997e-02
+   67     -39.8567309896      6.70e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864819e-02
+   68     -39.8567309914      2.27e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680244e-02
+   69     -39.8567309896      4.77e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680434e-02
+   70     -39.8567309914      2.06e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439862770e-02
+   71     -39.8567309914      1.92e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439864039e-02
+   72     -39.8567309896      6.41e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439679607e-02
+   73     -39.8567309896      4.91e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680848e-02
+   74     -39.8567309914      6.45e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863083e-02
+   75     -39.8567309914      3.62e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680552e-02
+   76     -39.8567309896      6.40e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864011e-02
+   77     -39.8567309914      2.30e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680461e-02
+   78     -39.8567309896      4.70e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680460e-02
+   79     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863864e-02
+   80     -39.8567309914      1.97e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863920e-02
+   81     -39.8567309896      6.38e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439681421e-02
+   82     -39.8567309896      4.87e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680399e-02
+   83     -39.8567309914      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439865382e-02
+   84     -39.8567309914      3.62e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680021e-02
+   85     -39.8567309896      6.38e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863877e-02
+   86     -39.8567309914      2.31e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680893e-02
+   87     -39.8567309896      4.68e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680152e-02
+   88     -39.8567309914      2.11e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439874216e-02
+   89     -39.8567309914      1.98e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439862265e-02
+   90     -39.8567309896      6.57e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439700083e-02
+   91     -39.8567309896      4.91e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439677612e-02
+   92     -39.8567309914      6.81e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439872267e-02
+   93     -39.8567309914      3.73e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680203e-02
+   94     -39.8567309896      6.58e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863428e-02
+   95     -39.8567309914      2.31e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680583e-02
+   96     -39.8567309896      4.72e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680482e-02
+   97     -39.8567309914      2.09e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864243e-02
+   98     -39.8567309914      1.96e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863904e-02
+   99     -39.8567309896      6.40e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439681533e-02
+  100     -39.8567309896      4.88e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680558e-02
+  101     -39.8567309914      6.38e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864244e-02
+  102     -39.8567309914      3.62e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680458e-02
+  103     -39.8567309896      6.42e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863921e-02
+  104     -39.8567309914      2.31e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680494e-02
+  105     -39.8567309896      4.69e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680461e-02
+  106     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863906e-02
+  107     -39.8567309914      1.97e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863951e-02
+  108     -39.8567309896      6.41e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680802e-02
+  109     -39.8567309896      4.87e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680771e-02
+  110     -39.8567309914      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863112e-02
+  111     -39.8567309914      3.63e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680736e-02
+  112     -39.8567309896      6.42e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863987e-02
+  113     -39.8567309914      2.31e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680268e-02
+  114     -39.8567309896      4.69e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680621e-02
+  115     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439857424e-02
+  116     -39.8567309914      1.97e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439865392e-02
+  117     -39.8567309896      6.45e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439658371e-02
+  118     -39.8567309896      4.89e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439687144e-02
+  119     -39.8567309914      6.75e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439846485e-02
+  120     -39.8567309914      3.74e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439681103e-02
+  121     -39.8567309896      6.90e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439865195e-02
+  122     -39.8567309914      2.24e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680192e-02
+  123     -39.8567309896      4.83e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680401e-02
+  124     -39.8567309914      2.02e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439862801e-02
+  125     -39.8567309914      1.88e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439864036e-02
+  126     -39.8567309896      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439679627e-02
+  127     -39.8567309896      4.93e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680845e-02
+  128     -39.8567309914      6.42e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863062e-02
+  129     -39.8567309914      3.60e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680558e-02
+  130     -39.8567309896      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864013e-02
+  131     -39.8567309914      2.30e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680454e-02
+  132     -39.8567309896      4.70e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680459e-02
+  133     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863801e-02
+  134     -39.8567309914      1.97e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863927e-02
+  135     -39.8567309896      6.38e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439681291e-02
+  136     -39.8567309896      4.88e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680429e-02
+  137     -39.8567309914      6.41e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439865221e-02
+  138     -39.8567309914      3.62e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680052e-02
+  139     -39.8567309896      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863888e-02
+  140     -39.8567309914      2.30e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680867e-02
+  141     -39.8567309896      4.69e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680166e-02
+  142     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439873773e-02
+  143     -39.8567309914      1.97e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439862264e-02
+  144     -39.8567309896      6.55e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439700939e-02
+  145     -39.8567309896      4.91e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439677166e-02
+  146     -39.8567309914      6.81e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439873357e-02
+  147     -39.8567309914      3.74e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680151e-02
+  148     -39.8567309896      6.63e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863333e-02
+  149     -39.8567309914      2.30e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680610e-02
+  150     -39.8567309896      4.73e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680481e-02
+  151     -39.8567309914      2.08e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864413e-02
+  152     -39.8567309914      1.95e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863883e-02
+  153     -39.8567309896      6.40e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439681807e-02
+  154     -39.8567309896      4.89e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680514e-02
+  155     -39.8567309914      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864413e-02
+  156     -39.8567309914      3.62e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680443e-02
+  157     -39.8567309896      6.42e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863906e-02
+  158     -39.8567309914      2.30e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680497e-02
+  159     -39.8567309896      4.69e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680461e-02
+  160     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863833e-02
+  161     -39.8567309914      1.97e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863973e-02
+  162     -39.8567309896      6.40e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680378e-02
+  163     -39.8567309896      4.87e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680981e-02
+  164     -39.8567309914      6.38e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439861854e-02
+  165     -39.8567309914      3.63e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439681115e-02
+  166     -39.8567309896      6.41e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864052e-02
+  167     -39.8567309914      2.31e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439679940e-02
+  168     -39.8567309896      4.69e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680865e-02
+  169     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439852692e-02
+  170     -39.8567309914      1.98e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439865330e-02
+  171     -39.8567309896      6.64e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439666343e-02
+  172     -39.8567309896      4.92e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439682611e-02
+  173     -39.8567309914      6.73e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439857815e-02
+  174     -39.8567309914      3.69e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680760e-02
+  175     -39.8567309896      6.48e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439864325e-02
+  176     -39.8567309914      2.31e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680385e-02
+  177     -39.8567309896      4.71e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680449e-02
+  178     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863407e-02
+  179     -39.8567309914      1.97e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863986e-02
+  180     -39.8567309896      6.38e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680335e-02
+  181     -39.8567309896      4.88e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680765e-02
+  182     -39.8567309914      6.42e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863358e-02
+  183     -39.8567309914      3.62e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680548e-02
+  184     -39.8567309896      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863996e-02
+  185     -39.8567309914      2.30e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439680457e-02
+  186     -39.8567309896      4.69e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680459e-02
+  187     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863881e-02
+  188     -39.8567309914      1.97e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439863904e-02
+  189     -39.8567309896      6.38e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439681734e-02
+  190     -39.8567309896      4.87e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439680256e-02
+  191     -39.8567309914      6.41e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439866209e-02
+  192     -39.8567309914      3.62e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439679774e-02
+  193     -39.8567309896      6.39e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439863838e-02
+  194     -39.8567309914      2.30e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439681106e-02
+  195     -39.8567309896      4.69e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439679987e-02
+  196     -39.8567309914      2.10e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439874864e-02
+  197     -39.8567309914      1.97e-07     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 7.90e-09
+ Nonlocal correlation = 3.769439862829e-02
+  198     -39.8567309896      6.68e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439692589e-02
+  199     -39.8567309896      4.93e-07     00000  Normal BFGS step
+ Nonlocal correlation = 3.769439679306e-02
+  200     -39.8567309914      6.62e-07     00000  Normal BFGS step
+max iterations reached for algorithm: GDM          
+we have reached max iterations on our final algorithm
+
+ Q-Chem fatal error occurred in module libgscf/gen_scfman/gen_scfman_hybrid_algorithm.C, line 271:
+
+ SCF failed to converge
+
+
+ Please submit a crash report at q-chem.com/reporter 
+ 
+ 
