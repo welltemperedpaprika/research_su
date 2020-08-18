@@ -1,0 +1,612 @@
+Q-Chem Developer Version!
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 5.1, Q-Chem, Inc., Pleasanton, CA (2018)
+
+ Yihan Shao,  Zhengting Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  Jia Deng,  Xintian Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  T. Kus,  A. Landau,  
+ Jie Liu,  E. I. Proynov,  R. M. Richard,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Albrecht,  E. Alguire,  
+ S. A. Baeppler,  D. Barton,  Z. Benda,  Y. A. Bernard,  E. J. Berquist,  
+ K. B. Bravaya,  H. Burton,  D. Casanova,  Chun-Min Chang,  Yunqing Chen,  
+ A. Chien,  K. D. Closser,  M. P. Coons,  S. Coriani,  S. Dasgupta,  
+ A. L. Dempwolff,  M. Diedenhofen,  Hainam Do,  R. G. Edgar,  Po-Tung Fang,  
+ S. Faraji,  S. Fatehi,  Qingguo Feng,  K. D. Fenk,  J. Fosso-Tande,  
+ Qinghui Ge,  A. Ghysels,  G. Gidofalvi,  J. Gomes,  J. Gonthier,  A. Gunina,  
+ D. Hait,  M. W. D. Hanson-Heine,  P. H. P. Harbach,  A. W. Hauser,  
+ J. E. Herr,  E. G. Hohenstein,  Z. C. Holden,  Kerwin Hui,  B. C. Huynh,  
+ T.-C. Jagau,  Hyunjun Ji,  B. Kaduk,  K. Khistyaev,  Jaehoon Kim,  
+ P. Klunzinger,  K. Koh,  D. Kosenkov,  L. Koulias,  T. Kowalczyk,  
+ C. M. Krauter,  A. Kunitsa,  Ka Un Lao,  A. Laurent,  K. V. Lawler,  
+ Joonho Lee,  D. Lefrancois,  S. Lehtola,  D. S. Levine,  Yi-Pei Li,  
+ You-Sheng Lin,  Fenglai Liu,  E. Livshits,  A. Luenser,  P. Manohar,  
+ E. Mansoor,  S. F. Manzer,  Shan-Ping Mao,  Yuezhi Mao,  N. Mardirossian,  
+ A. V. Marenich,  T. Markovich,  L. A. Martinez-Martinez,  S. A. Maurer,  
+ N. J. Mayhall,  S. C. McKenzie,  J.-M. Mewes,  A. F. Morrison,  
+ J. W. Mullinax,  K. Nanda,  T. S. Nguyen-Beck,  R. Olivares-Amaya,  
+ J. A. Parkhill,  T. M. Perrine,  F. Plasser,  P. Pokhilko,  S. Prager,  
+ A. Prociuk,  E. Ramos,  D. R. Rehn,  F. Rob,  M. Schneider,  N. Sergueev,  
+ S. M. Sharada,  S. Sharma,  D. W. Small,  T. Stauch,  T. Stein,  
+ Yu-Chuan Su,  A. J. W. Thom,  A. Tkatchenko,  T. Tsuchimochi,  N. M. Tubman,  
+ L. Vogt,  M. L. Vidal,  O. Vydrov,  M. A. Watson,  J. Wenzel,  
+ M. de Wergifosse,  T. A. Wesolowski,  A. White,  J. Witte,  A. Yamada,  
+ Jun Yang,  K. Yao,  S. Yeganeh,  S. R. Yost,  Zhi-Qiang You,  A. Zech,  
+ Igor Ying Zhang,  Xing Zhang,  Yan Zhao,  Ying Zhu,  B. R. Brooks,  
+ G. K. L. Chan,  C. J. Cramer,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  
+ M. W. Schmidt,  C. D. Sherrill,  D. G. Truhlar,  A. Aspuru-Guzik,  R. Baer,  
+ A. T. Bell,  N. A. Besley,  Jeng-Da Chai,  A. E. DePrince, III,  
+ R. A. DiStasio Jr.,  A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  
+ Chao-Ping Hsu,  Yousung Jung,  Jing Kong,  D. S. Lambrecht,  WanZhen Liang,  
+ C. Ochsenfeld,  V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  
+ T. Van Voorhis,  J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  B. Austin,  J. Baker,  G. J. O. Beran,  K. Brandhorst,  
+ S. T. Brown,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ Siu Hung Chien,  D. M. Chipman,  D. L. Crittenden,  H. Dachsel,  
+ R. J. Doerksen,  A. D. Dutoi,  L. Fusti-Molnar,  W. A. Goddard III,  
+ A. Golubeva-Zadorozhnaya,  S. R. Gwaltney,  G. Hawkins,  A. Heyden,  
+ S. Hirata,  G. Kedziora,  F. J. Keil,  C. Kelley,  Jihan Kim,  R. A. King,  
+ R. Z. Khaliullin,  P. P. Korambath,  W. Kurlancheek,  A. M. Lee,  M. S. Lee,  
+ S. V. Levchenko,  Ching Yeh Lin,  D. Liotard,  R. C. Lochan,  I. Lotan,  
+ P. E. Maslen,  N. Nair,  D. P. O'Neill,  D. Neuhauser,  E. Neuscamman,  
+ C. M. Oana,  R. Olson,  B. Peters,  R. Peverati,  P. A. Pieniazek,  
+ Y. M. Rhee,  J. Ritchie,  M. A. Rohrdanz,  E. Rosta,  N. J. Russ,  
+ H. F. Schaefer III,  N. E. Schultz,  N. Shenvi,  A. C. Simmonett,  A. Sodt,  
+ D. Stuck,  K. S. Thanthiriwatte,  V. Vanovschi,  Tao Wang,  A. Warshel,  
+ C. F. Williams,  Q. Wu,  X. Xu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 5.1.1 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 8.300.2 (Tropical Shenanigans).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Sat Aug 15 02:36:39 2020  
+
+Host: n0059.mhg0
+0
+
+     Scratch files written to /local/scratch/users/yhljason/LiCl_M06_aug-pc-4.inp20200815021137//
+Input Ideriv = 2
+Curr. Ideriv = -1
+Max.  Ideriv = 2
+Input Ideriv = 1
+Curr. Ideriv = 2
+Max.  Ideriv = 1
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$molecule
+0 1
+Li1     0.0000  0.0000  0.0000
+Cl2     0.0000  0.0000  2.0207
+$end
+
+$rem
+jobtype sp
+method M06
+xc_grid 000099000590
+basis aug-pc-4
+max_scf_cycles 200
+thresh 14
+scf_convergence 6
+scf_algorithm gdm_qls
+symmetry false
+sym_ignore true
+unrestricted true
+gen_scfman true
+internal_stability_iter 15
+internal_stability_davidson_iter 200
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+$end
+
+
+--------------------------------------------------------------
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      Li      0.0000000000     0.0000000000     0.0000000000
+    2      Cl      0.0000000000     0.0000000000     2.0207000000
+ ----------------------------------------------------------------
+ Nuclear Repulsion Energy =    13.3557864853 hartrees
+ There are       10 alpha and       10 beta electrons
+ Requested basis set is aug-pc-4
+ There are 54 shells and 224 basis functions
+
+ Total QAlloc Memory Limit  64000 MB
+ Mega-Array Size      1467 MB
+ MEM_STATIC part      1500 MB
+
+                       Distance Matrix (Angstroms)
+             Li(  1)
+   Cl(  2)  2.020700
+ 
+ A cutoff of  1.0D-14 yielded   1485 shell pairs
+ There are     25783 function pairs (     48432 Cartesian)
+ 
+ -------------------------------------------------------
+ OpenMP Integral Computing Module                       
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ Integral Job Info:
+ Integral job number is                      11
+ Integral operator is                         1
+ short-range coefficients                     0
+ long-range coefficients              100000000
+ Omega coefficients                           0
+ if combine SR and LR in K                    0
+ Integral screening is                        0
+ Integral computing path is                   2
+ max size of driver memory is           6400000
+ size of driver memory is               5498286
+ size of scratch memory is             27847117
+ max col of scratch BK array             194481
+ max len of scratch array in speh3         5572
+ max len of scratch index in speh4           72
+ max int batch size is                      520
+ min int batch size is                       52
+ fixed nKL is                                 7
+ max L of basis functions is                  5
+ order of int derivative is                   0
+ number of shells is                         54
+ number of basis is                         306
+ number of cartesian basis is               306
+ number of contracted shell pairs          1485
+ number of primitive shell pairs           8483
+ maxK2 (contraction) of shell pair          225
+ max number of K2 of shell pair               1
+ max number of CS2 of shell pair            132
+ max number of PS2 of shell pair            864
+ mem total for path MDJ                  836120
+ -------------------------------------------------------
+ Smallest overlap matrix eigenvalue = 1.44E-05
+
+ Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =    -0.0000000074 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ SAD guess density has 20.000000 electrons
+
+ -----------------------------------------------------------------------
+  General SCF calculation program by
+  Eric Jon Sundstrom, Paul Horn, Yuezhi Mao, Dmitri Zuev, Alec White,
+  David Stuck, Shaama M.S., Shane Yost, Joonho Lee, David Small,
+  Daniel Levine, Susi Lehtola, Hugh Burton, Evgeny Epifanovsky
+ -----------------------------------------------------------------------
+ Exchange:     0.2700 Hartree-Fock + 1.0000 M06
+ Correlation:  1.0000 M06
+ Using Euler-Maclaurin-Lebedev (99,590) quadrature formula
+Running Object-Oriented UKS (UHF)
+performing a single roothaan step with Fock from read density so that orbitals are available to all algorithms
+ LTot/LBra/LKet=          20          10          10
+ LTot/LBra/LKet=          20          10          10
+ LTot/LBra/LKet=          20          10          10
+ LTot/LBra/LKet=          19           9          10
+
+ Q-Chem warning:
+
+ in GenH1, ket side, handled with new code
+
+
+ Q-Chem warning:
+
+ in GenH1, ket side, handled with new code
+
+
+ Q-Chem warning:
+
+ in GenH1, ket side, handled with new code
+
+
+ Q-Chem warning:
+
+ in GenH1, ket side, handled with new code
+
+ LTot/LBra/LBra=          20          10          10
+
+ Q-Chem warning:
+
+ in GenH1, bra side, handled with new code
+
+energy of the guess density (C=0) -467.689283694971
+We will preform up to 15 macro iterations over saddle points until a stable solution is found
+Energy prior to optimization (guess energy) = -467.770477404227
+Begin Timing: Total SCF Calculation
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM_QLS      
+the SCF tolerance is set to 1.00e-06
+GDM subspace size: 20
+Line search, dEdstep = -1.725306e-01
+	0.000000e+00	-481.1262638821
+	1.447462e+00	-480.9034995756	 2.227643e-01
+	3.825187e-01	-481.1648933140	-3.862943e-02
+Optimal value differs by -5.631347e-03 from prediction
+    1    -467.7704774042      7.57e-03     00000 Preconditoned Steepest Descent
+Line search, dEdstep = -7.409436e-03
+	0.000000e+00	-481.1648933140
+	7.821687e+00	-480.7161989802	 4.486943e-01
+	4.473518e-01	-481.1667427488	-1.849435e-03
+Optimal value differs by -1.921225e-04 from prediction
+    2    -467.8091068362      1.92e-03     00000 BFGS Step
+Line search, dEdstep = -1.450131e-03
+	0.000000e+00	-481.1667427488
+	1.072360e+01	-481.0488803051	 1.178624e-01
+	6.249707e-01	-481.1671675089	-4.247601e-04
+Optimal value differs by 2.838441e-05 from prediction
+    3    -467.8109562709      9.28e-04     00000 BFGS Step
+Line search, dEdstep = -8.868597e-05
+	0.000000e+00	-481.1671675089
+	9.032105e+01	-480.7358657444	 4.313018e-01
+	8.234360e-01	-481.1672005357	-3.302681e-05
+Optimal value differs by 3.486808e-06 from prediction
+    4    -467.8113810311      2.60e-04     00000 BFGS Step
+Line search, dEdstep = -1.230451e-05
+	0.000000e+00	-481.1672005357
+	2.417140e+02	-480.6352573975	 5.319431e-01
+	6.719719e-01	-481.1672052764	-4.740741e-06
+Optimal value differs by -6.065989e-07 from prediction
+    5    -467.8114140579      9.85e-05     00000 BFGS Step
+Line search, dEdstep = -1.120468e-06
+	0.000000e+00	-481.1672052764
+	6.221441e+02	-480.8638176154	 3.033877e-01
+	7.131101e-01	-481.1672056672	-3.907784e-07
+Optimal value differs by 8.729963e-09 from prediction
+    6    -467.8114187986      2.58e-05     00000 BFGS Step
+Line search, dEdstep = -1.234249e-07
+	0.000000e+00	-481.1672056672
+	2.382169e+03	-480.6085036013	 5.587021e-01
+	6.264827e-01	-481.1672057100	-4.280946e-08
+Optimal value differs by -4.147684e-09 from prediction
+    7    -467.8114191894      1.04e-05     00000 BFGS Step
+Line search, dEdstep = -1.116926e-08
+	0.000000e+00	-481.1672057100
+	6.317189e+03	-480.8573093748	 3.098963e-01
+	7.189965e-01	-481.1672057139	-3.905257e-09
+Optimal value differs by 1.100723e-10 from prediction
+    8    -467.8114192322      4.23e-06     00000 BFGS Step
+Line search, dEdstep = -6.024883e-10
+	0.000000e+00	-481.1672057139
+	5.603952e+04	-479.2377754750	 1.929430e+00
+	4.903100e-01	-481.1672057141	-1.425065e-10
+Optimal value differs by 5.196554e-12 from prediction
+    9    -467.8114192361      2.99e-06     00000 BFGS Step
+Line search, dEdstep = -1.093365e-10
+	0.000000e+00	-481.1672057141
+	1.015794e+05	-480.3387468008	 8.284589e-01
+	6.808788e-01	-481.1672057141	-3.893774e-11
+Optimal value differs by -1.715270e-12 from prediction
+   10    -467.8114192362      1.14e-06     00000 BFGS Step
+   11    -467.8114192363      4.86e-07     00000 Convergence criterion met
+Timing for Single Stationary Point: 906.00s (wall), 7185.14s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      7.33e-01     00000 Davidson Iteration
+    2      1.10e-01     00000 Davidson Iteration
+    3      2.45e-02     00000 Davidson Iteration
+    4      1.78e-03     00000 Davidson Iteration
+    5      3.13e-03     00000 Davidson Iteration
+    6      2.44e-03     00000 Davidson Iteration
+    7      9.69e-04     00000 Davidson Iteration
+    8      2.55e-04     00000 Davidson Iteration
+    9      2.41e-04     00000 Davidson Iteration
+   10      1.37e-04     00000 Davidson Iteration
+   11      3.15e-05     00000 Davidson Iteration
+   12      8.53e-04     00000 Davidson Iteration
+   13      8.51e-04     00000 Davidson Iteration
+   14      4.14e-04     00000 Davidson Iteration
+   15      6.11e-05     00000 Davidson Converged
+converged_eigenvalues
+  -0.0309
+  -0.0309
+   0.0168
+Threshold for negative eigenvalues: -1.0e-05
+solution was a saddle point (unstable)
+displacing from saddle point as requested
+performing a line search along the lowest hessian eigenvector after a small displacement (1E-3) to give a non-zero gradient along this direction 
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 1046.00s (wall), 8303.21s (cpu)
+completed scf stability macro iteration 1
+beginning next scf after displacing from saddle point
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM_QLS      
+the SCF tolerance is set to 1.00e-06
+GDM subspace size: 20
+Line search, dEdstep = -6.119612e-07
+	0.000000e+00	-481.1672053882
+	4.797479e+02	-481.1010096415	 6.619575e-02
+	1.059176e+00	-481.1672057138	-3.255939e-07
+Optimal value differs by -1.506680e-09 from prediction
+    1    -467.8114189103      1.07e-05     00000 Preconditoned Steepest Descent
+Line search, dEdstep = -3.915522e-09
+	0.000000e+00	-481.1672057138
+	6.239442e+03	-481.0907160857	 7.648963e-02
+	9.961160e-01	-481.1672057131	 6.533014e-10
+Optimal value differs by 2.603458e-09 from prediction
+	3.119721e+03	-481.1488727772	 1.833294e-02
+	1.038652e+00	-481.1672057130	 7.627818e-10
+Optimal value differs by 2.796213e-09 from prediction
+	1.559860e+03	-481.1626254045	 4.580309e-03
+	1.038622e+00	-481.1672057130	 7.628955e-10
+Optimal value differs by 2.796270e-09 from prediction
+	7.799302e+02	-481.1660517243	 1.153989e-03
+	1.029252e+00	-481.1672057130	 7.375434e-10
+Optimal value differs by 2.752572e-09 from prediction
+	3.899651e+02	-481.1669147704	 2.909433e-04
+	1.017957e+00	-481.1672057130	 7.087806e-10
+Optimal value differs by 2.701698e-09 from prediction
+Resetting GDM.
+	1.949826e+02	-481.1671343454	 7.136833e-05
+	1.031869e+00	-481.1672057131	 6.894538e-10
+Optimal value differs by 2.709606e-09 from prediction
+
+ Q-Chem warning in module libgscf/libgscf/opt/gdm_qls.C, line 254:
+
+ Orbitals will not converge further.
+
+    2    -467.8114192359      1.45e-06     00000 Convergence criterion met
+Timing for Single Stationary Point: 676.00s (wall), 5363.72s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      7.39e-01     00000 Davidson Iteration
+    2      7.45e-01     00000 Davidson Iteration
+    3      6.15e-01     00000 Davidson Iteration
+    4      9.45e-02     00000 Davidson Iteration
+    5      1.65e-03     00000 Davidson Iteration
+    6      1.72e-05     00000 Davidson Iteration
+    7      3.54e-06     00000 Davidson Converged
+converged_eigenvalues
+  -64.7182
+  -33.8067
+Threshold for negative eigenvalues: -1.0e-05
+solution was a saddle point (unstable)
+displacing from saddle point as requested
+performing a line search along the lowest hessian eigenvector after a small displacement (1E-3) to give a non-zero gradient along this direction 
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 555.00s (wall), 4408.79s (cpu)
+completed scf stability macro iteration 2
+beginning next scf after displacing from saddle point
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM_QLS      
+the SCF tolerance is set to 1.00e-06
+GDM subspace size: 20
+Line search, dEdstep = -1.007120e-06
+	0.000000e+00	-481.1672051913
+	4.433879e+02	-481.0736517892	 9.355340e-02
+	1.053153e+00	-481.1672057130	-5.216816e-07
+Optimal value differs by 8.643929e-09 from prediction
+    1    -467.8114187135      2.71e-05     00000 Preconditoned Steepest Descent
+Line search, dEdstep = -2.488942e-09
+	0.000000e+00	-481.1672057130
+	1.326626e+04	-480.8807637528	 2.864420e-01
+	7.645308e-01	-481.1672057139	-9.295604e-10
+Optimal value differs by 2.187586e-11 from prediction
+    2    -467.8114192352      3.50e-06     00000 BFGS Step
+Line search, dEdstep = -8.945631e-10
+	0.000000e+00	-481.1672057139
+	2.276125e+04	-480.5999311027	 5.672746e-01
+	4.084739e-01	-481.1672057141	-1.825242e-10
+Optimal value differs by 1.786185e-13 from prediction
+    3    -467.8114192361      4.29e-06     00000 BFGS Step
+    4    -467.8114192363      4.05e-07     00000 Convergence criterion met
+Timing for Single Stationary Point: 270.00s (wall), 2145.26s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      7.33e-01     00000 Davidson Iteration
+    2      9.92e-02     00000 Davidson Iteration
+    3      5.30e-02     00000 Davidson Iteration
+    4      5.14e-02     00000 Davidson Iteration
+    5      2.81e-02     00000 Davidson Iteration
+    6      8.19e-02     00000 Davidson Iteration
+    7      2.53e-02     00000 Davidson Iteration
+    8      3.31e-03     00000 Davidson Iteration
+    9      1.18e-03     00000 Davidson Iteration
+   10      3.15e-04     00000 Davidson Iteration
+   11      3.34e-05     00000 Davidson Iteration
+   12      3.17e-05     00000 Davidson Converged
+converged_eigenvalues
+  -0.0407
+  -0.1545
+Threshold for negative eigenvalues: -1.0e-05
+solution was a saddle point (unstable)
+displacing from saddle point as requested
+performing a line search along the lowest hessian eigenvector after a small displacement (1E-3) to give a non-zero gradient along this direction 
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 870.00s (wall), 6909.80s (cpu)
+completed scf stability macro iteration 3
+beginning next scf after displacing from saddle point
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM_QLS      
+the SCF tolerance is set to 1.00e-06
+GDM subspace size: 20
+Line search, dEdstep = -6.137226e-07
+	0.000000e+00	-481.1672053872
+	4.806787e+02	-481.1004146028	 6.679078e-02
+	1.056869e+00	-481.1672057136	-3.264356e-07
+Optimal value differs by -2.123288e-09 from prediction
+    1    -467.8114189094      1.09e-05     00000 Preconditoned Steepest Descent
+    2    -467.8114192358      7.52e-07     00000 Convergence criterion met
+Timing for Single Stationary Point: 91.00s (wall), 722.66s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      7.29e-01     00000 Davidson Iteration
+    2      1.84e-01     00000 Davidson Iteration
+    3      9.49e-02     00000 Davidson Iteration
+    4      1.25e-01     00000 Davidson Iteration
+    5      3.02e-02     00000 Davidson Iteration
+    6      5.47e-02     00000 Davidson Iteration
+    7      9.78e-02     00000 Davidson Iteration
+    8      1.55e-02     00000 Davidson Iteration
+    9      1.14e-02     00000 Davidson Iteration
+   10      7.95e-03     00000 Davidson Iteration
+   11      3.71e-03     00000 Davidson Iteration
+   12      5.93e-04     00000 Davidson Iteration
+   13      1.44e-04     00000 Davidson Iteration
+   14      2.30e-05     00000 Davidson Iteration
+   15      3.14e-05     00000 Davidson Converged
+converged_eigenvalues
+   0.1221
+   0.1387
+Threshold for negative eigenvalues: -1.0e-05
+solution was a local minimum (stable)
+===================================================
+End Test for Internal Stability
+===================================================
+Our SCF solution is stable!
+Timing for Total SCF: 5325.00s (wall), 42276.77s (cpu)
+ Total energy in the final basis set =     -467.8114192358
+<S^2> =          0.000000000
+    ==================================================
+              The end of Object-Oriented SCFman       
+    ==================================================
+ 
+ --------------------------------------------------------------
+ 
+                    Orbital Energies (a.u.)
+ --------------------------------------------------------------
+ 
+ Alpha MOs
+ -- Occupied --
+*******  -9.482  -7.184  -7.183  -7.183  -2.056  -0.734  -0.283
+ -0.260  -0.260
+ -- Virtual --
+ -0.097  -0.029  -0.029  -0.016  -0.005   0.009   0.009   0.013
+  0.014   0.014   0.024   0.024   0.026   0.033   0.050   0.050
+  0.052   0.062   0.062   0.064   0.064   0.074   0.074   0.083
+  0.103   0.111   0.111   0.122   0.122   0.123   0.123   0.124
+  0.124   0.128   0.136   0.138   0.138   0.167   0.167   0.168
+  0.182   0.182   0.210   0.242   0.242   0.245   0.275   0.275
+  0.289   0.289   0.290   0.327   0.359   0.359   0.364   0.364
+  0.374   0.374   0.376   0.407   0.407   0.421   0.421   0.444
+  0.501   0.501   0.508   0.508   0.535   0.538   0.538   0.572
+  0.572   0.575   0.582   0.582   0.659   0.707   0.707   0.713
+  0.713   0.717   0.745   0.745   0.749   0.749   0.780   0.780
+  0.811   0.813   0.813   0.837   0.868   0.868   0.873   0.873
+  0.880   0.880   0.954   0.954   1.014   1.026   1.026   1.067
+  1.067   1.070   1.116   1.116   1.260   1.411   1.411   1.455
+  1.455   1.556   1.556   1.562   1.809   1.809   1.836   1.881
+  1.898   1.898   1.997   2.057   2.247   2.247   2.257   2.257
+  2.341   2.341   2.408   2.408   2.467   2.504   2.504   2.560
+  2.560   2.592   2.592   2.654   2.654   2.821   2.938   2.938
+  3.007   3.007   3.065   3.066   3.066   3.373   3.373   3.612
+  3.679   3.679   3.803   3.803   3.823   3.823   4.116   4.116
+  4.156   4.254   4.916   4.916   5.085   5.220   5.221   5.441
+  5.441   5.855   5.855   5.860   5.860   5.870   5.870   5.958
+  5.958   5.966   6.000   6.000   6.013   6.013   6.074   6.383
+  6.383   6.484   9.323   9.323   9.323   9.323   9.412   9.412
+  9.440   9.667   9.667  10.741  13.136  13.136  13.183  13.183
+ 13.292  13.292  13.376  17.943  17.943  18.037  18.037  18.246
+ 38.849  66.554  66.554  66.612  66.612  66.745
+ 
+ Beta MOs
+ -- Occupied --
+*******  -9.482  -7.184  -7.183  -7.183  -2.056  -0.734  -0.283
+ -0.260  -0.260
+ -- Virtual --
+ -0.097  -0.029  -0.029  -0.016  -0.005   0.009   0.009   0.013
+  0.014   0.014   0.024   0.024   0.026   0.033   0.050   0.050
+  0.052   0.062   0.062   0.064   0.064   0.074   0.074   0.083
+  0.103   0.111   0.111   0.122   0.122   0.123   0.123   0.124
+  0.124   0.128   0.136   0.138   0.138   0.167   0.167   0.168
+  0.182   0.182   0.210   0.242   0.242   0.245   0.275   0.275
+  0.289   0.289   0.290   0.327   0.359   0.359   0.364   0.364
+  0.374   0.374   0.376   0.407   0.407   0.421   0.421   0.444
+  0.501   0.501   0.508   0.508   0.535   0.538   0.538   0.572
+  0.572   0.575   0.582   0.582   0.659   0.707   0.707   0.713
+  0.713   0.717   0.745   0.745   0.749   0.749   0.780   0.780
+  0.811   0.813   0.813   0.837   0.868   0.868   0.873   0.873
+  0.880   0.880   0.954   0.954   1.014   1.026   1.026   1.067
+  1.067   1.070   1.116   1.116   1.260   1.411   1.411   1.455
+  1.455   1.556   1.556   1.562   1.809   1.809   1.836   1.881
+  1.898   1.898   1.997   2.057   2.247   2.247   2.257   2.257
+  2.341   2.341   2.408   2.408   2.467   2.504   2.504   2.560
+  2.560   2.592   2.592   2.654   2.654   2.821   2.938   2.938
+  3.007   3.007   3.065   3.066   3.066   3.373   3.373   3.612
+  3.679   3.679   3.803   3.803   3.823   3.823   4.116   4.116
+  4.156   4.254   4.916   4.916   5.085   5.220   5.221   5.441
+  5.441   5.855   5.855   5.860   5.860   5.870   5.870   5.958
+  5.958   5.966   6.000   6.000   6.013   6.013   6.074   6.383
+  6.383   6.484   9.323   9.323   9.323   9.323   9.412   9.412
+  9.440   9.667   9.667  10.741  13.136  13.136  13.183  13.183
+ 13.292  13.292  13.376  17.943  17.943  18.037  18.037  18.246
+ 38.849  66.554  66.554  66.612  66.612  66.745
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)    Spin (a.u.)
+  --------------------------------------------------------
+      1 Li                    0.661565      -0.000057
+      2 Cl                   -0.661565       0.000057
+  --------------------------------------------------------
+  Sum of atomic charges =     0.000000
+  Sum of spin   charges =    -0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -0.0000
+    Dipole Moment (Debye)
+         X       0.0000      Y      -0.0000      Z      -7.0329
+       Tot       7.0329
+    Quadrupole Moments (Debye-Ang)
+        XX     -16.4346     XY       0.0000     YY     -16.4346
+        XZ      -0.0000     YZ      -0.0000     ZZ     -26.6855
+    Octopole Moments (Debye-Ang^2)
+       XXX       0.0000    XXY       0.0000    XYY      -0.0000
+       YYY      -0.0000    XXZ     -30.5736    XYZ       0.0000
+       YYZ     -30.5736    XZZ      -0.0002    YZZ      -0.0000
+       ZZZ    -106.7925
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX     -23.7528   XXXY       0.0000   XXYY      -7.9175
+      XYYY       0.0000   YYYY     -23.7525   XXXZ      -0.0000
+      XXYZ      -0.0000   XYYZ      -0.0001   YYYZ      -0.0000
+      XXZZ     -67.0080   XYZZ       0.0000   YYZZ     -67.0077
+      XZZZ      -0.0007   YZZZ      -0.0001   ZZZZ    -400.3847
+ -----------------------------------------------------------------
+Archival summary:
+1\1\n0059.mhg0\SP\ProcedureUnspecified\BasisUnspecified\l1i1\yhljason\SatAug1504:06:302020SatAug1504:06:302020\0\\#,ProcedureUnspecified,BasisUnspecified,\\0,1\Li\Cl,1,2.0207\\\@
+
+ Total job time:  5391.26s(wall), 42784.75s(cpu) 
+ Sat Aug 15 04:06:30 2020
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+

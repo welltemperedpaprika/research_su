@@ -1,0 +1,731 @@
+Q-Chem Developer Version!
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 5.1, Q-Chem, Inc., Pleasanton, CA (2018)
+
+ Yihan Shao,  Zhengting Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  Jia Deng,  Xintian Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  T. Kus,  A. Landau,  
+ Jie Liu,  E. I. Proynov,  R. M. Richard,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Albrecht,  E. Alguire,  
+ S. A. Baeppler,  D. Barton,  Z. Benda,  Y. A. Bernard,  E. J. Berquist,  
+ K. B. Bravaya,  H. Burton,  D. Casanova,  Chun-Min Chang,  Yunqing Chen,  
+ A. Chien,  K. D. Closser,  M. P. Coons,  S. Coriani,  S. Dasgupta,  
+ A. L. Dempwolff,  M. Diedenhofen,  Hainam Do,  R. G. Edgar,  Po-Tung Fang,  
+ S. Faraji,  S. Fatehi,  Qingguo Feng,  K. D. Fenk,  J. Fosso-Tande,  
+ Qinghui Ge,  A. Ghysels,  G. Gidofalvi,  J. Gomes,  J. Gonthier,  A. Gunina,  
+ D. Hait,  M. W. D. Hanson-Heine,  P. H. P. Harbach,  A. W. Hauser,  
+ J. E. Herr,  E. G. Hohenstein,  Z. C. Holden,  Kerwin Hui,  B. C. Huynh,  
+ T.-C. Jagau,  Hyunjun Ji,  B. Kaduk,  K. Khistyaev,  Jaehoon Kim,  
+ P. Klunzinger,  K. Koh,  D. Kosenkov,  L. Koulias,  T. Kowalczyk,  
+ C. M. Krauter,  A. Kunitsa,  Ka Un Lao,  A. Laurent,  K. V. Lawler,  
+ Joonho Lee,  D. Lefrancois,  S. Lehtola,  D. S. Levine,  Yi-Pei Li,  
+ You-Sheng Lin,  Fenglai Liu,  E. Livshits,  A. Luenser,  P. Manohar,  
+ E. Mansoor,  S. F. Manzer,  Shan-Ping Mao,  Yuezhi Mao,  N. Mardirossian,  
+ A. V. Marenich,  T. Markovich,  L. A. Martinez-Martinez,  S. A. Maurer,  
+ N. J. Mayhall,  S. C. McKenzie,  J.-M. Mewes,  A. F. Morrison,  
+ J. W. Mullinax,  K. Nanda,  T. S. Nguyen-Beck,  R. Olivares-Amaya,  
+ J. A. Parkhill,  T. M. Perrine,  F. Plasser,  P. Pokhilko,  S. Prager,  
+ A. Prociuk,  E. Ramos,  D. R. Rehn,  F. Rob,  M. Schneider,  N. Sergueev,  
+ S. M. Sharada,  S. Sharma,  D. W. Small,  T. Stauch,  T. Stein,  
+ Yu-Chuan Su,  A. J. W. Thom,  A. Tkatchenko,  T. Tsuchimochi,  N. M. Tubman,  
+ L. Vogt,  M. L. Vidal,  O. Vydrov,  M. A. Watson,  J. Wenzel,  
+ M. de Wergifosse,  T. A. Wesolowski,  A. White,  J. Witte,  A. Yamada,  
+ Jun Yang,  K. Yao,  S. Yeganeh,  S. R. Yost,  Zhi-Qiang You,  A. Zech,  
+ Igor Ying Zhang,  Xing Zhang,  Yan Zhao,  Ying Zhu,  B. R. Brooks,  
+ G. K. L. Chan,  C. J. Cramer,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  
+ M. W. Schmidt,  C. D. Sherrill,  D. G. Truhlar,  A. Aspuru-Guzik,  R. Baer,  
+ A. T. Bell,  N. A. Besley,  Jeng-Da Chai,  A. E. DePrince, III,  
+ R. A. DiStasio Jr.,  A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  
+ Chao-Ping Hsu,  Yousung Jung,  Jing Kong,  D. S. Lambrecht,  WanZhen Liang,  
+ C. Ochsenfeld,  V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  
+ T. Van Voorhis,  J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  B. Austin,  J. Baker,  G. J. O. Beran,  K. Brandhorst,  
+ S. T. Brown,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ Siu Hung Chien,  D. M. Chipman,  D. L. Crittenden,  H. Dachsel,  
+ R. J. Doerksen,  A. D. Dutoi,  L. Fusti-Molnar,  W. A. Goddard III,  
+ A. Golubeva-Zadorozhnaya,  S. R. Gwaltney,  G. Hawkins,  A. Heyden,  
+ S. Hirata,  G. Kedziora,  F. J. Keil,  C. Kelley,  Jihan Kim,  R. A. King,  
+ R. Z. Khaliullin,  P. P. Korambath,  W. Kurlancheek,  A. M. Lee,  M. S. Lee,  
+ S. V. Levchenko,  Ching Yeh Lin,  D. Liotard,  R. C. Lochan,  I. Lotan,  
+ P. E. Maslen,  N. Nair,  D. P. O'Neill,  D. Neuhauser,  E. Neuscamman,  
+ C. M. Oana,  R. Olson,  B. Peters,  R. Peverati,  P. A. Pieniazek,  
+ Y. M. Rhee,  J. Ritchie,  M. A. Rohrdanz,  E. Rosta,  N. J. Russ,  
+ H. F. Schaefer III,  N. E. Schultz,  N. Shenvi,  A. C. Simmonett,  A. Sodt,  
+ D. Stuck,  K. S. Thanthiriwatte,  V. Vanovschi,  Tao Wang,  A. Warshel,  
+ C. F. Williams,  Q. Wu,  X. Xu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 5.1.1 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 8.300.2 (Tropical Shenanigans).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Sat Aug 15 03:23:19 2020  
+
+Host: n0054.mhg0
+0
+
+     Scratch files written to /local/scratch/users/yhljason/NaLi_SOGGA11_aug-pc-4.inp20200815022834//
+Input Ideriv = 2
+Curr. Ideriv = -1
+Max.  Ideriv = 2
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$molecule
+0 1
+Li1     0.0000  0.0000  0.0000
+Na2     0.0000  0.0000  2.8890
+$end
+
+$rem
+jobtype sp
+method SOGGA11
+xc_grid 000099000590
+basis aug-pc-4
+max_scf_cycles 200
+thresh 14
+scf_convergence 6
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+unrestricted true
+gen_scfman true
+internal_stability_iter 15
+internal_stability_davidson_iter 600
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+$end
+
+
+--------------------------------------------------------------
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      Li      0.0000000000     0.0000000000     0.0000000000
+    2      Na      0.0000000000     0.0000000000     2.8890000000
+ ----------------------------------------------------------------
+ Nuclear Repulsion Energy =     6.0445995003 hartrees
+ There are        7 alpha and        7 beta electrons
+ Requested basis set is aug-pc-4
+ There are 46 shells and 168 basis functions
+
+ Total QAlloc Memory Limit  64000 MB
+ Mega-Array Size      1467 MB
+ MEM_STATIC part      1500 MB
+
+                       Distance Matrix (Angstroms)
+             Li(  1)
+   Na(  2)  2.889000
+ 
+ A cutoff of  1.0D-14 yielded   1081 shell pairs
+ There are     14579 function pairs (     24714 Cartesian)
+ 
+ -------------------------------------------------------
+ OpenMP Integral Computing Module                       
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ Integral Job Info:
+ Integral job number is                      11
+ Integral operator is                         1
+ short-range coefficients                     0
+ long-range coefficients              100000000
+ Omega coefficients                           0
+ if combine SR and LR in K                    0
+ Integral screening is                        0
+ Integral computing path is                   2
+ max size of driver memory is           3200000
+ size of driver memory is               1704330
+ size of scratch memory is             26840125
+ max col of scratch BK array              50625
+ max len of scratch array in speh3         2114
+ max len of scratch index in speh4           50
+ max int batch size is                      520
+ min int batch size is                       52
+ fixed nKL is                                 7
+ max L of basis functions is                  4
+ order of int derivative is                   0
+ number of shells is                         46
+ number of basis is                         218
+ number of cartesian basis is               218
+ number of contracted shell pairs          1081
+ number of primitive shell pairs           6277
+ maxK2 (contraction) of shell pair          225
+ max number of K2 of shell pair               1
+ max number of CS2 of shell pair            108
+ max number of PS2 of shell pair            432
+ mem total for path MDJ                  660646
+ -------------------------------------------------------
+ Smallest overlap matrix eigenvalue = 1.90E-05
+
+ Scale SEOQF with 1.000000e-02/1.000000e-02/1.000000e-02
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =    -0.0000000010 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ SAD guess density has 14.000000 electrons
+
+ -----------------------------------------------------------------------
+  General SCF calculation program by
+  Eric Jon Sundstrom, Paul Horn, Yuezhi Mao, Dmitri Zuev, Alec White,
+  David Stuck, Shaama M.S., Shane Yost, Joonho Lee, David Small,
+  Daniel Levine, Susi Lehtola, Hugh Burton, Evgeny Epifanovsky
+ -----------------------------------------------------------------------
+ Exchange:  SOGGA11      Correlation:  SOGGA11
+ Using Euler-Maclaurin-Lebedev (99,590) quadrature formula
+Running Object-Oriented UKS (UHF)
+performing a single roothaan step with Fock from read density so that orbitals are available to all algorithms
+energy of the guess density (C=0) -169.813561358801
+We will preform up to 15 macro iterations over saddle points until a stable solution is found
+Energy prior to optimization (guess energy) = -169.754056036721
+Begin Timing: Total SCF Calculation
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-06
+    1    -169.7540560367      2.56e-01     00000  Descent step
+    2    -169.7729385606      2.44e-01     00000  Normal BFGS step
+    3    -169.8275031699      5.01e-02     00000  Normal BFGS step
+    4    -169.8310120235      4.08e-02     00000  Normal BFGS step
+    5    -169.8252800326      8.46e-02     00000 Line search: overstep
+    6    -169.8325100604      3.14e-02     00000  Normal BFGS step
+    7    -169.8318877639      3.66e-02     00000 Line search: overstep
+    8    -169.8335589940      1.78e-02     00000  Normal BFGS step
+    9    -169.8335060411      2.33e-02     00000 Line search: overstep
+   10    -169.8342725146      1.35e-02     00000  Normal BFGS step
+   11    -169.8344860153      2.87e-02     00000  Normal BFGS step
+   12    -169.8352939865      2.47e-02     00000  Normal BFGS step
+   13    -169.8350254456      5.79e-02     00000 Line search: overstep
+   14    -169.8360604204      2.10e-02     00000  Normal BFGS step
+   15    -169.8337882390      6.32e-02     00000 Line search: overstep
+   16    -169.8363733379      1.87e-02     00000  Normal BFGS step
+   17    -169.8359685304      2.68e-02     00000 Line search: overstep
+   18    -169.8366494794      7.22e-03     00000  Normal BFGS step
+   19    -169.8365308061      1.54e-02     00000 Line search: overstep
+   20    -169.8367659891      4.83e-03     00000  Normal BFGS step
+   21    -169.8367863269      5.97e-03     00000  Normal BFGS step
+   22    -169.8368424572      4.22e-03     00000  Normal BFGS step
+   23    -169.8368728084      4.89e-03     00000  Normal BFGS step
+   24    -169.8368617316      5.77e-03     00000 Line search: overstep
+   25    -169.8368943137      3.21e-03     00000  Normal BFGS step
+   26    -169.8368928535      3.64e-03     00000 Line search: overstep
+   27    -169.8369126350      1.23e-03     00000  Normal BFGS step
+   28    -169.8369137974      1.21e-03     00000  Normal BFGS step
+   29    -169.8369151819      5.05e-04     00000  Normal BFGS step
+   30    -169.8369154415      2.02e-04     00000  Normal BFGS step
+   31    -169.8369155153      2.88e-04     00000  Normal BFGS step
+   32    -169.8369154694      3.99e-04     00000 Line search: overstep
+   33    -169.8369155691      7.75e-05     00000  Normal BFGS step
+   34    -169.8369155784      5.89e-05     00000  Normal BFGS step
+   35    -169.8369155774      7.34e-05     00000  Normal BFGS step
+   36    -169.8369155812      7.26e-05     00000  Normal BFGS step
+   37    -169.8369155784      1.06e-04     00000  Normal BFGS step
+   38    -169.8369155777      1.23e-04     00000  Normal BFGS step
+   39    -169.8369155690      1.36e-04     00000  Normal BFGS step
+   40    -169.8369155789      4.45e-05     00000  Normal BFGS step
+   41    -169.8369155681      1.48e-04     00000 Line search: overstep
+   42    -169.8369155822      3.74e-05     00000  Normal BFGS step
+   43    -169.8369155777      7.21e-05     00000  Normal BFGS step
+   44    -169.8369155807      6.01e-05     00000  Normal BFGS step
+   45    -169.8369155757      7.27e-05     00000  Normal BFGS step
+   46    -169.8369155832      3.37e-05     00000  Normal BFGS step
+   47    -169.8369155771      7.24e-05     00000 Line search: overstep
+   48    -169.8369155841      1.27e-05     00000  Normal BFGS step
+   49    -169.8369155840      1.81e-05     00000  Normal BFGS step
+   50    -169.8369155840      1.63e-05     00000  Normal BFGS step
+   51    -169.8369155839      1.50e-05     00000  Normal BFGS step
+   52    -169.8369155841      1.28e-05     00000  Normal BFGS step
+   53    -169.8369155839      2.53e-05     00000  Normal BFGS step
+   54    -169.8369155842      4.66e-06     00000  Normal BFGS step
+   55    -169.8369155841      1.48e-05     00000  Normal BFGS step
+   56    -169.8369155842      1.20e-05     00000  Normal BFGS step
+   57    -169.8369155837      1.63e-05     00000  Normal BFGS step
+   58    -169.8369155842      7.92e-06     00000  Normal BFGS step
+   59    -169.8369155840      1.83e-05     00000  Normal BFGS step
+   60    -169.8369155842      1.34e-05     00000  Normal BFGS step
+   61    -169.8369155831      3.69e-05     00000  Normal BFGS step
+   62    -169.8369155842      5.00e-06     00000  Normal BFGS step
+   63    -169.8369155840      1.82e-05     00000  Normal BFGS step
+   64    -169.8369155843      4.50e-06     00000  Normal BFGS step
+   65    -169.8369155839      1.80e-05     00000  Normal BFGS step
+   66    -169.8369155843      3.68e-06     00000  Normal BFGS step
+   67    -169.8369155842      1.47e-05     00000  Normal BFGS step
+   68    -169.8369155843      5.11e-06     00000  Normal BFGS step
+   69    -169.8369155840      1.60e-05     00000  Normal BFGS step
+   70    -169.8369155843      4.22e-06     00000  Normal BFGS step
+   71    -169.8369155842      1.70e-05     00000  Normal BFGS step
+   72    -169.8369155843      2.18e-06     00000  Normal BFGS step
+   73    -169.8369155842      8.44e-06     00000  Normal BFGS step
+   74    -169.8369155843      1.54e-06     00000  Normal BFGS step
+   75    -169.8369155842      7.13e-06     00000  Normal BFGS step
+   76    -169.8369155843      1.71e-06     00000  Normal BFGS step
+   77    -169.8369155842      8.43e-06     00000  Normal BFGS step
+   78    -169.8369155843      1.06e-06     00000  Normal BFGS step
+   79    -169.8369155843      4.33e-06     00000  Normal BFGS step
+   80    -169.8369155843      1.07e-06     00000  Normal BFGS step
+   81    -169.8369155842      6.02e-06     00000  Normal BFGS step
+   82    -169.8369155842      8.94e-07     00000 Convergence criterion met
+Timing for Single Stationary Point: 227.00s (wall), 1789.23s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      9.58e-01     00000 Davidson Iteration
+    2      9.80e-01     00000 Davidson Iteration
+    3      7.44e-01     00000 Davidson Iteration
+    4      7.11e-01     00000 Davidson Iteration
+    5      4.38e-01     00000 Davidson Iteration
+    6      5.75e-01     00000 Davidson Iteration
+    7      5.23e-01     00000 Davidson Iteration
+    8      5.17e-01     00000 Davidson Iteration
+    9      4.11e-01     00000 Davidson Iteration
+   10      3.46e-01     00000 Davidson Iteration
+   11      3.28e-01     00000 Davidson Iteration
+   12      2.69e-01     00000 Davidson Iteration
+   13      2.23e-01     00000 Davidson Iteration
+   14      1.91e-01     00000 Davidson Iteration
+   15      1.98e-01     00000 Davidson Iteration
+   16      1.97e-01     00000 Davidson Iteration
+   17      2.00e-01     00000 Davidson Iteration
+   18      2.00e-01     00000 Davidson Iteration
+   19      2.45e-01     00000 Davidson Iteration
+   20      2.04e-01     00000 Davidson Iteration
+   21      1.72e-01     00000 Davidson Iteration
+   22      2.02e-01     00000 Davidson Iteration
+   23      1.97e-01     00000 Davidson Iteration
+   24      1.98e-01     00000 Davidson Iteration
+   25      2.02e-01     00000 Davidson Iteration
+   26      1.92e-01     00000 Davidson Iteration
+   27      1.82e-01     00000 Davidson Iteration
+   28      1.78e-01     00000 Davidson Iteration
+   29      1.84e-01     00000 Davidson Iteration
+   30      1.87e-01     00000 Davidson Iteration
+   31      1.94e-01     00000 Davidson Iteration
+   32      1.95e-01     00000 Davidson Iteration
+   33      1.98e-01     00000 Davidson Iteration
+   34      1.74e-01     00000 Davidson Iteration
+   35      1.82e-01     00000 Davidson Iteration
+   36      1.85e-01     00000 Davidson Iteration
+   37      2.02e-01     00000 Davidson Iteration
+   38      2.03e-01     00000 Davidson Iteration
+   39      2.00e-01     00000 Davidson Iteration
+   40      2.02e-01     00000 Davidson Iteration
+   41      2.06e-01     00000 Davidson Iteration
+   42      2.06e-01     00000 Davidson Iteration
+   43      2.06e-01     00000 Davidson Iteration
+   44      2.02e-01     00000 Davidson Iteration
+   45      1.97e-01     00000 Davidson Iteration
+   46      1.97e-01     00000 Davidson Iteration
+   47      1.96e-01     00000 Davidson Iteration
+   48      1.96e-01     00000 Davidson Iteration
+   49      1.97e-01     00000 Davidson Iteration
+   50      1.80e-01     00000 Davidson Iteration
+   51      1.58e-01     00000 Davidson Iteration
+   52      1.29e-01     00000 Davidson Iteration
+   53      1.28e-01     00000 Davidson Iteration
+   54      1.27e-01     00000 Davidson Iteration
+   55      1.27e-01     00000 Davidson Iteration
+   56      1.26e-01     00000 Davidson Iteration
+   57      1.25e-01     00000 Davidson Iteration
+   58      1.27e-01     00000 Davidson Iteration
+   59      1.29e-01     00000 Davidson Iteration
+   60      1.29e-01     00000 Davidson Iteration
+   61      1.28e-01     00000 Davidson Iteration
+   62      1.30e-01     00000 Davidson Iteration
+   63      1.29e-01     00000 Davidson Iteration
+   64      1.81e-01     00000 Davidson Iteration
+   65      1.43e-01     00000 Davidson Iteration
+   66      1.41e-01     00000 Davidson Iteration
+   67      1.38e-01     00000 Davidson Iteration
+   68      1.38e-01     00000 Davidson Iteration
+   69      1.39e-01     00000 Davidson Iteration
+   70      1.35e-01     00000 Davidson Iteration
+   71      1.28e-01     00000 Davidson Iteration
+   72      1.27e-01     00000 Davidson Iteration
+   73      1.28e-01     00000 Davidson Iteration
+   74      1.29e-01     00000 Davidson Iteration
+   75      1.31e-01     00000 Davidson Iteration
+   76      1.31e-01     00000 Davidson Iteration
+   77      1.38e-01     00000 Davidson Iteration
+   78      1.75e-01     00000 Davidson Iteration
+   79      1.67e-01     00000 Davidson Iteration
+   80      1.35e-01     00000 Davidson Iteration
+   81      1.34e-01     00000 Davidson Iteration
+   82      1.17e-01     00000 Davidson Iteration
+   83      1.02e-01     00000 Davidson Iteration
+   84      9.94e-02     00000 Davidson Iteration
+   85      9.00e-02     00000 Davidson Iteration
+   86      8.76e-02     00000 Davidson Iteration
+   87      9.40e-02     00000 Davidson Iteration
+   88      1.30e-01     00000 Davidson Iteration
+   89      1.46e-01     00000 Davidson Iteration
+   90      6.65e-02     00000 Davidson Iteration
+   91      6.74e-02     00000 Davidson Iteration
+   92      7.19e-02     00000 Davidson Iteration
+   93      8.95e-02     00000 Davidson Iteration
+   94      8.85e-02     00000 Davidson Iteration
+   95      7.33e-02     00000 Davidson Iteration
+   96      7.20e-02     00000 Davidson Iteration
+   97      6.65e-02     00000 Davidson Iteration
+   98      5.93e-02     00000 Davidson Iteration
+   99      5.73e-02     00000 Davidson Iteration
+  100      5.74e-02     00000 Davidson Iteration
+  101      5.82e-02     00000 Davidson Iteration
+  102      6.07e-02     00000 Davidson Iteration
+  103      5.90e-02     00000 Davidson Iteration
+  104      7.15e-02     00000 Davidson Iteration
+  105      6.88e-02     00000 Davidson Iteration
+  106      7.92e-02     00000 Davidson Iteration
+  107      7.88e-02     00000 Davidson Iteration
+  108      6.94e-02     00000 Davidson Iteration
+  109      6.99e-02     00000 Davidson Iteration
+  110      6.87e-02     00000 Davidson Iteration
+  111      6.79e-02     00000 Davidson Iteration
+  112      6.41e-02     00000 Davidson Iteration
+  113      6.37e-02     00000 Davidson Iteration
+  114      5.86e-02     00000 Davidson Iteration
+  115      5.77e-02     00000 Davidson Iteration
+  116      5.73e-02     00000 Davidson Iteration
+  117      5.72e-02     00000 Davidson Iteration
+  118      5.54e-02     00000 Davidson Iteration
+  119      5.75e-02     00000 Davidson Iteration
+  120      5.74e-02     00000 Davidson Iteration
+  121      5.65e-02     00000 Davidson Iteration
+  122      5.33e-02     00000 Davidson Iteration
+  123      5.69e-02     00000 Davidson Iteration
+  124      5.60e-02     00000 Davidson Iteration
+  125      5.56e-02     00000 Davidson Iteration
+  126      5.55e-02     00000 Davidson Iteration
+  127      5.59e-02     00000 Davidson Iteration
+  128      5.69e-02     00000 Davidson Iteration
+  129      5.35e-02     00000 Davidson Iteration
+  130      4.57e-02     00000 Davidson Iteration
+  131      3.54e-02     00000 Davidson Iteration
+  132      3.52e-02     00000 Davidson Iteration
+  133      3.52e-02     00000 Davidson Iteration
+  134      3.54e-02     00000 Davidson Iteration
+  135      3.65e-02     00000 Davidson Iteration
+  136      3.66e-02     00000 Davidson Iteration
+  137      3.25e-02     00000 Davidson Iteration
+  138      3.26e-02     00000 Davidson Iteration
+  139      3.33e-02     00000 Davidson Iteration
+  140      3.23e-02     00000 Davidson Iteration
+  141      3.06e-02     00000 Davidson Iteration
+  142      3.07e-02     00000 Davidson Iteration
+  143      3.34e-02     00000 Davidson Iteration
+  144      3.44e-02     00000 Davidson Iteration
+  145      3.11e-02     00000 Davidson Iteration
+  146      3.10e-02     00000 Davidson Iteration
+  147      3.03e-02     00000 Davidson Iteration
+  148      2.98e-02     00000 Davidson Iteration
+  149      2.96e-02     00000 Davidson Iteration
+  150      2.88e-02     00000 Davidson Iteration
+  151      2.69e-02     00000 Davidson Iteration
+  152      2.95e-02     00000 Davidson Iteration
+  153      3.01e-02     00000 Davidson Iteration
+  154      3.04e-02     00000 Davidson Iteration
+  155      2.93e-02     00000 Davidson Iteration
+  156      2.67e-02     00000 Davidson Iteration
+  157      2.72e-02     00000 Davidson Iteration
+  158      2.73e-02     00000 Davidson Iteration
+  159      2.73e-02     00000 Davidson Iteration
+  160      2.74e-02     00000 Davidson Iteration
+  161      2.77e-02     00000 Davidson Iteration
+  162      2.76e-02     00000 Davidson Iteration
+  163      2.74e-02     00000 Davidson Iteration
+  164      2.74e-02     00000 Davidson Iteration
+  165      2.92e-02     00000 Davidson Iteration
+  166      2.63e-02     00000 Davidson Iteration
+  167      2.56e-02     00000 Davidson Iteration
+  168      2.53e-02     00000 Davidson Iteration
+  169      2.47e-02     00000 Davidson Iteration
+  170      2.55e-02     00000 Davidson Iteration
+  171      2.83e-02     00000 Davidson Iteration
+  172      2.82e-02     00000 Davidson Iteration
+  173      2.85e-02     00000 Davidson Iteration
+  174      3.04e-02     00000 Davidson Iteration
+  175      3.07e-02     00000 Davidson Iteration
+  176      3.15e-02     00000 Davidson Iteration
+  177      3.10e-02     00000 Davidson Iteration
+  178      3.19e-02     00000 Davidson Iteration
+  179      2.49e-02     00000 Davidson Iteration
+  180      2.49e-02     00000 Davidson Iteration
+  181      2.37e-02     00000 Davidson Iteration
+  182      2.29e-02     00000 Davidson Iteration
+  183      2.28e-02     00000 Davidson Iteration
+  184      2.20e-02     00000 Davidson Iteration
+  185      2.20e-02     00000 Davidson Iteration
+  186      2.18e-02     00000 Davidson Iteration
+  187      2.26e-02     00000 Davidson Iteration
+  188      2.21e-02     00000 Davidson Iteration
+  189      2.59e-02     00000 Davidson Iteration
+  190      3.15e-02     00000 Davidson Iteration
+  191      4.13e-02     00000 Davidson Iteration
+  192      8.29e-02     00000 Davidson Iteration
+  193      6.19e-02     00000 Davidson Iteration
+  194      5.28e-02     00000 Davidson Iteration
+  195      3.74e-02     00000 Davidson Iteration
+  196      2.78e-02     00000 Davidson Iteration
+  197      2.24e-02     00000 Davidson Iteration
+  198      2.15e-02     00000 Davidson Iteration
+  199      2.01e-02     00000 Davidson Iteration
+  200      1.70e-02     00000 Davidson Iteration
+  201      1.50e-02     00000 Davidson Iteration
+  202      1.49e-02     00000 Davidson Iteration
+  203      1.31e-02     00000 Davidson Iteration
+  204      1.35e-02     00000 Davidson Iteration
+  205      1.34e-02     00000 Davidson Iteration
+  206      1.23e-02     00000 Davidson Iteration
+  207      1.23e-02     00000 Davidson Iteration
+  208      1.03e-02     00000 Davidson Iteration
+  209      1.09e-02     00000 Davidson Iteration
+  210      9.56e-03     00000 Davidson Iteration
+  211      9.41e-03     00000 Davidson Iteration
+  212      9.45e-03     00000 Davidson Iteration
+  213      9.56e-03     00000 Davidson Iteration
+  214      9.66e-03     00000 Davidson Iteration
+  215      7.59e-03     00000 Davidson Iteration
+  216      8.35e-03     00000 Davidson Iteration
+  217      7.58e-03     00000 Davidson Iteration
+  218      6.35e-03     00000 Davidson Iteration
+  219      5.26e-03     00000 Davidson Iteration
+  220      4.36e-03     00000 Davidson Iteration
+  221      3.93e-03     00000 Davidson Iteration
+  222      3.01e-03     00000 Davidson Iteration
+  223      2.29e-03     00000 Davidson Iteration
+  224      1.73e-03     00000 Davidson Iteration
+  225      1.35e-03     00000 Davidson Iteration
+  226      8.52e-04     00000 Davidson Iteration
+  227      8.91e-04     00000 Davidson Iteration
+  228      8.32e-04     00000 Davidson Iteration
+  229      8.42e-04     00000 Davidson Iteration
+  230      8.38e-04     00000 Davidson Iteration
+  231      8.82e-04     00000 Davidson Iteration
+  232      8.38e-04     00000 Davidson Iteration
+  233      7.80e-04     00000 Davidson Iteration
+  234      7.98e-04     00000 Davidson Iteration
+  235      6.51e-04     00000 Davidson Iteration
+  236      5.05e-04     00000 Davidson Iteration
+  237      3.63e-04     00000 Davidson Iteration
+  238      2.99e-04     00000 Davidson Iteration
+  239      2.53e-04     00000 Davidson Iteration
+  240      2.37e-04     00000 Davidson Iteration
+  241      1.93e-04     00000 Davidson Iteration
+  242      1.65e-04     00000 Davidson Iteration
+  243      1.69e-04     00000 Davidson Iteration
+  244      1.47e-04     00000 Davidson Iteration
+  245      1.36e-04     00000 Davidson Iteration
+  246      1.11e-04     00000 Davidson Iteration
+  247      1.17e-04     00000 Davidson Iteration
+  248      1.05e-04     00000 Davidson Iteration
+  249      8.91e-05     00000 Davidson Iteration
+  250      4.93e-04     00000 Davidson Iteration
+  251      4.84e-04     00000 Davidson Iteration
+  252      4.76e-04     00000 Davidson Iteration
+  253      4.76e-04     00000 Davidson Iteration
+  254      4.77e-04     00000 Davidson Iteration
+  255      4.77e-04     00000 Davidson Iteration
+  256      4.81e-04     00000 Davidson Iteration
+  257      4.79e-04     00000 Davidson Iteration
+  258      5.08e-04     00000 Davidson Iteration
+  259      4.80e-04     00000 Davidson Iteration
+  260      4.77e-04     00000 Davidson Iteration
+  261      4.50e-04     00000 Davidson Iteration
+  262      4.18e-04     00000 Davidson Iteration
+  263      4.20e-04     00000 Davidson Iteration
+  264      3.54e-04     00000 Davidson Iteration
+  265      3.55e-04     00000 Davidson Iteration
+  266      3.30e-04     00000 Davidson Iteration
+  267      3.29e-04     00000 Davidson Iteration
+  268      3.43e-04     00000 Davidson Iteration
+  269      3.34e-04     00000 Davidson Iteration
+  270      3.29e-04     00000 Davidson Iteration
+  271      3.26e-04     00000 Davidson Iteration
+  272      3.41e-04     00000 Davidson Iteration
+  273      3.26e-04     00000 Davidson Iteration
+  274      2.68e-04     00000 Davidson Iteration
+  275      1.98e-04     00000 Davidson Iteration
+  276      1.95e-04     00000 Davidson Iteration
+  277      1.95e-04     00000 Davidson Iteration
+  278      1.92e-04     00000 Davidson Iteration
+  279      1.98e-04     00000 Davidson Iteration
+  280      2.02e-04     00000 Davidson Iteration
+  281      2.01e-04     00000 Davidson Iteration
+  282      2.03e-04     00000 Davidson Iteration
+  283      2.03e-04     00000 Davidson Iteration
+  284      2.14e-04     00000 Davidson Iteration
+  285      2.08e-04     00000 Davidson Iteration
+  286      2.03e-04     00000 Davidson Iteration
+  287      1.96e-04     00000 Davidson Iteration
+  288      1.85e-04     00000 Davidson Iteration
+  289      1.91e-04     00000 Davidson Iteration
+  290      1.93e-04     00000 Davidson Iteration
+  291      1.96e-04     00000 Davidson Iteration
+  292      1.98e-04     00000 Davidson Iteration
+  293      1.88e-04     00000 Davidson Iteration
+  294      1.85e-04     00000 Davidson Iteration
+  295      1.78e-04     00000 Davidson Iteration
+  296      1.75e-04     00000 Davidson Iteration
+  297      1.74e-04     00000 Davidson Iteration
+  298      1.72e-04     00000 Davidson Iteration
+  299      1.71e-04     00000 Davidson Iteration
+  300      1.76e-04     00000 Davidson Iteration
+  301      1.75e-04     00000 Davidson Iteration
+  302      1.74e-04     00000 Davidson Iteration
+  303      1.73e-04     00000 Davidson Iteration
+  304      1.73e-04     00000 Davidson Iteration
+  305      1.71e-04     00000 Davidson Iteration
+  306      1.70e-04     00000 Davidson Iteration
+  307      1.69e-04     00000 Davidson Iteration
+  308      1.65e-04     00000 Davidson Iteration
+  309      1.58e-04     00000 Davidson Iteration
+  310      1.49e-04     00000 Davidson Iteration
+  311      1.48e-04     00000 Davidson Iteration
+  312      1.45e-04     00000 Davidson Iteration
+  313      1.42e-04     00000 Davidson Iteration
+  314      1.31e-04     00000 Davidson Iteration
+  315      1.31e-04     00000 Davidson Iteration
+  316      1.29e-04     00000 Davidson Iteration
+  317      1.28e-04     00000 Davidson Iteration
+  318      1.28e-04     00000 Davidson Iteration
+  319      1.25e-04     00000 Davidson Iteration
+  320      1.19e-04     00000 Davidson Iteration
+  321      1.16e-04     00000 Davidson Iteration
+  322      1.11e-04     00000 Davidson Iteration
+  323      1.11e-04     00000 Davidson Iteration
+  324      1.09e-04     00000 Davidson Iteration
+  325      9.93e-05     00000 Davidson Converged
+converged_eigenvalues
+   0.1557
+   0.1557
+Threshold for negative eigenvalues: -1.0e-05
+solution was a local minimum (stable)
+===================================================
+End Test for Internal Stability
+===================================================
+Our SCF solution is stable!
+Timing for Total SCF: 3324.00s (wall), 26327.89s (cpu)
+ Total energy in the final basis set =     -169.8369155842
+<S^2> =          0.000000000
+    ==================================================
+              The end of Object-Oriented SCFman       
+    ==================================================
+ 
+ --------------------------------------------------------------
+ 
+                    Orbital Energies (a.u.)
+ --------------------------------------------------------------
+ 
+ Alpha MOs
+ -- Occupied --
+-37.935  -2.069  -1.870  -1.057  -1.057  -1.056  -0.122
+ -- Virtual --
+ -0.080  -0.052  -0.052  -0.048  -0.036  -0.033  -0.033  -0.033
+ -0.028  -0.028  -0.024  -0.008  -0.007  -0.007  -0.005   0.002
+  0.002   0.003   0.009   0.009   0.009   0.023   0.023   0.027
+  0.030   0.030   0.040   0.050   0.050   0.052   0.053   0.053
+  0.056   0.056   0.056   0.062   0.062   0.077   0.077   0.078
+  0.086   0.086   0.092   0.093   0.093   0.111   0.111   0.114
+  0.116   0.116   0.125   0.125   0.132   0.132   0.149   0.149
+  0.153   0.153   0.158   0.161   0.161   0.167   0.168   0.177
+  0.177   0.179   0.190   0.193   0.193   0.244   0.244   0.250
+  0.276   0.282   0.282   0.339   0.342   0.342   0.373   0.373
+  0.397   0.405   0.416   0.416   0.586   0.628   0.628   0.629
+  0.629   0.630   0.649   0.649   0.711   0.711   0.747   0.820
+  0.820   0.882   0.882   0.906   0.972   0.976   0.976   0.993
+  0.993   1.072   1.072   1.136   1.241   1.241   1.380   1.381
+  1.381   1.381   1.382   1.382   1.408   1.408   1.438   1.438
+  1.458   1.532   1.587   1.587   1.623   1.948   2.256   2.256
+  2.271   2.271   2.339   2.339   2.477   2.657   2.660   2.660
+  2.665   2.665   2.701   2.701   2.861   2.861   3.043   3.943
+  3.943   3.959   3.959   4.064   4.064   4.138   5.228   5.228
+  5.252   5.252   5.368   5.553   5.553   5.589   5.589   5.676
+ 10.297
+ 
+ Beta MOs
+ -- Occupied --
+-37.935  -2.069  -1.870  -1.057  -1.057  -1.056  -0.122
+ -- Virtual --
+ -0.080  -0.052  -0.052  -0.048  -0.036  -0.033  -0.033  -0.033
+ -0.028  -0.028  -0.024  -0.008  -0.007  -0.007  -0.005   0.002
+  0.002   0.003   0.009   0.009   0.009   0.023   0.023   0.027
+  0.030   0.030   0.040   0.050   0.050   0.052   0.053   0.053
+  0.056   0.056   0.056   0.062   0.062   0.077   0.077   0.078
+  0.086   0.086   0.092   0.093   0.093   0.111   0.111   0.114
+  0.116   0.116   0.125   0.125   0.132   0.132   0.149   0.149
+  0.153   0.153   0.158   0.161   0.161   0.167   0.168   0.177
+  0.177   0.179   0.190   0.193   0.193   0.244   0.244   0.250
+  0.276   0.282   0.282   0.339   0.342   0.342   0.373   0.373
+  0.397   0.405   0.416   0.416   0.586   0.628   0.628   0.629
+  0.629   0.630   0.649   0.649   0.711   0.711   0.747   0.820
+  0.820   0.882   0.882   0.906   0.972   0.976   0.976   0.993
+  0.993   1.072   1.072   1.136   1.241   1.241   1.380   1.381
+  1.381   1.381   1.382   1.382   1.408   1.408   1.438   1.438
+  1.458   1.532   1.587   1.587   1.623   1.948   2.256   2.256
+  2.271   2.271   2.339   2.339   2.477   2.657   2.660   2.660
+  2.665   2.665   2.701   2.701   2.861   2.861   3.043   3.943
+  3.943   3.959   3.959   4.064   4.064   4.138   5.228   5.228
+  5.252   5.252   5.368   5.553   5.553   5.589   5.589   5.676
+ 10.297
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)    Spin (a.u.)
+  --------------------------------------------------------
+      1 Li                    3.033483      -0.000092
+      2 Na                   -3.033483       0.000092
+  --------------------------------------------------------
+  Sum of atomic charges =     0.000000
+  Sum of spin   charges =     0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                 0.0000
+    Dipole Moment (Debye)
+         X      -0.0000      Y       0.0000      Z       2.4612
+       Tot       2.4612
+    Quadrupole Moments (Debye-Ang)
+        XX     -19.8184     XY      -0.0000     YY     -19.8184
+        XZ       0.0001     YZ       0.0000     ZZ      -4.4698
+    Octopole Moments (Debye-Ang^2)
+       XXX      -0.0000    XXY       0.0000    XYY      -0.0000
+       YYY       0.0000    XXZ     -27.9492    XYZ      -0.0000
+       YYZ     -27.9492    XZZ       0.0001    YZZ       0.0001
+       ZZZ     -28.7810
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX    -106.6979   XXXY      -0.0000   XXYY     -35.5661
+      XYYY      -0.0000   YYYY    -106.6979   XXXZ       0.0004
+      XXYZ       0.0001   XYYZ       0.0001   YYYZ       0.0002
+      XXZZ    -105.6083   XYZZ      -0.0000   YYZZ    -105.6083
+      XZZZ       0.0009   YZZZ       0.0003   ZZZZ    -354.5312
+ -----------------------------------------------------------------
+Archival summary:
+1\1\n0054.mhg0\SP\ProcedureUnspecified\BasisUnspecified\a1i1\yhljason\SatAug1504:18:522020SatAug1504:18:522020\0\\#,ProcedureUnspecified,BasisUnspecified,\\0,1\Li\Na,1,2.889\\\@
+
+ Total job time:  3332.17s(wall), 26371.56s(cpu) 
+ Sat Aug 15 04:18:52 2020
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+

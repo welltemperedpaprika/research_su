@@ -50,19 +50,34 @@ if method_type == "dft":
     object["std_dev"] = get_stddev(s, object["dipoles_elec"], object["quadrupoles_elec"])
     object["spin_polarized"] = get_spin_polarization(s)
 if method_type == "wft":
-    object["quadrupoles_ccsdt"] = quadrupoles_from_energy('CCSD\(T\) total', s)
-    object["quadrupoles_mp2"] = quadrupoles_from_energy('MP2 energy', s)
-    object["quadrupoles_ccsd"] = quadrupoles_from_energy('CCSD total', s)
-    quadrupole_string = re.search(r'Quadrupole((.*\n){3})', s).group()
-    quadrupole = re.findall(r'(\-?[0-9][0-9.]*)', quadrupole_string)
-    object["quadrupoles_hf"] = [float(quadrupole[0]), float(quadrupole[2]), float(quadrupole[5])]
-    object["dipoles_ccsdt"] = dipoles_from_energy('CCSD\(T\) total', s)
-    object["dipoles_mp2"] = dipoles_from_energy('MP2 energy', s)
-    object["dipoles_ccsd"] = dipoles_from_energy('CCSD total', s)
-    dipole_string = re.search(r'Dipole((.*\n){3})', s).group()
-    dipole = re.findall(r'(\-?[0-9][0-9.]*)', dipole_string)
-    object["dipoles_hf"] = [float(x) for x in dipole]
-    object["spin_polarized"] = get_spin_polarization(s)
+    if method == "ccsdT":
+        object["quadrupoles_ccsdt"] = quadrupoles_from_energy('CCSD\(T\) total', s)
+        object["quadrupoles_mp2"] = quadrupoles_from_energy('MP2 energy', s)
+        object["quadrupoles_ccsd"] = quadrupoles_from_energy('CCSD total', s)
+        quadrupole_string = re.search(r'Quadrupole((.*\n){3})', s).group()
+        quadrupole = re.findall(r'(\-?[0-9][0-9.]*)', quadrupole_string)
+        object["quadrupoles_hf"] = [float(quadrupole[0]), float(quadrupole[2]), float(quadrupole[5])]
+        object["dipoles_ccsdt"] = dipoles_from_energy('CCSD\(T\) total', s)
+        object["dipoles_mp2"] = dipoles_from_energy('MP2 energy', s)
+        object["dipoles_ccsd"] = dipoles_from_energy('CCSD total', s)
+        dipole_string = re.search(r'Dipole((.*\n){3})', s).group()
+        dipole = re.findall(r'(\-?[0-9][0-9.]*)', dipole_string)
+        object["dipoles_hf"] = [float(x) for x in dipole]
+        object["spin_polarized"] = get_spin_polarization(s)
+    if method == 'hf':
+        object["quadrupoles_ccsdt"] = [0, 0, 0]
+        object["quadrupoles_mp2"] = [0, 0, 0]
+        object["quadrupoles_ccsd"] = [0, 0, 0]
+        quadrupole_string = re.search(r'Quadrupole((.*\n){3})', s).group()
+        quadrupole = re.findall(r'(\-?[0-9][0-9.]*)', quadrupole_string)
+        object["quadrupoles_hf"] = [float(quadrupole[0]), float(quadrupole[2]), float(quadrupole[5])]
+        object["dipoles_ccsdt"] = [0, 0, 0, 0]
+        object["dipoles_mp2"] = [0, 0, 0, 0]
+        object["dipoles_ccsd"] = [0, 0, 0, 0]
+        dipole_string = re.search(r'Dipole((.*\n){3})', s).group()
+        dipole = re.findall(r'(\-?[0-9][0-9.]*)', dipole_string)
+        object["dipoles_hf"] = [float(x) for x in dipole]
+        object["spin_polarized"] = get_spin_polarization(s)
 
 if os.path.exists(output_path/"output.json"):
     with open(output_path/"output.json") as f:

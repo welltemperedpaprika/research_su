@@ -1,0 +1,666 @@
+Q-Chem Developer Version!
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 5.1, Q-Chem, Inc., Pleasanton, CA (2018)
+
+ Yihan Shao,  Zhengting Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  Jia Deng,  Xintian Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  T. Kus,  A. Landau,  
+ Jie Liu,  E. I. Proynov,  R. M. Richard,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Albrecht,  E. Alguire,  
+ S. A. Baeppler,  D. Barton,  Z. Benda,  Y. A. Bernard,  E. J. Berquist,  
+ K. B. Bravaya,  H. Burton,  D. Casanova,  Chun-Min Chang,  Yunqing Chen,  
+ A. Chien,  K. D. Closser,  M. P. Coons,  S. Coriani,  S. Dasgupta,  
+ A. L. Dempwolff,  M. Diedenhofen,  Hainam Do,  R. G. Edgar,  Po-Tung Fang,  
+ S. Faraji,  S. Fatehi,  Qingguo Feng,  K. D. Fenk,  J. Fosso-Tande,  
+ Qinghui Ge,  A. Ghysels,  G. Gidofalvi,  J. Gomes,  J. Gonthier,  A. Gunina,  
+ D. Hait,  M. W. D. Hanson-Heine,  P. H. P. Harbach,  A. W. Hauser,  
+ J. E. Herr,  E. G. Hohenstein,  Z. C. Holden,  Kerwin Hui,  B. C. Huynh,  
+ T.-C. Jagau,  Hyunjun Ji,  B. Kaduk,  K. Khistyaev,  Jaehoon Kim,  
+ P. Klunzinger,  K. Koh,  D. Kosenkov,  L. Koulias,  T. Kowalczyk,  
+ C. M. Krauter,  A. Kunitsa,  Ka Un Lao,  A. Laurent,  K. V. Lawler,  
+ Joonho Lee,  D. Lefrancois,  S. Lehtola,  D. S. Levine,  Yi-Pei Li,  
+ You-Sheng Lin,  Fenglai Liu,  E. Livshits,  A. Luenser,  P. Manohar,  
+ E. Mansoor,  S. F. Manzer,  Shan-Ping Mao,  Yuezhi Mao,  N. Mardirossian,  
+ A. V. Marenich,  T. Markovich,  L. A. Martinez-Martinez,  S. A. Maurer,  
+ N. J. Mayhall,  S. C. McKenzie,  J.-M. Mewes,  A. F. Morrison,  
+ J. W. Mullinax,  K. Nanda,  T. S. Nguyen-Beck,  R. Olivares-Amaya,  
+ J. A. Parkhill,  T. M. Perrine,  F. Plasser,  P. Pokhilko,  S. Prager,  
+ A. Prociuk,  E. Ramos,  D. R. Rehn,  F. Rob,  M. Schneider,  N. Sergueev,  
+ S. M. Sharada,  S. Sharma,  D. W. Small,  T. Stauch,  T. Stein,  
+ Yu-Chuan Su,  A. J. W. Thom,  A. Tkatchenko,  T. Tsuchimochi,  N. M. Tubman,  
+ L. Vogt,  M. L. Vidal,  O. Vydrov,  M. A. Watson,  J. Wenzel,  
+ M. de Wergifosse,  T. A. Wesolowski,  A. White,  J. Witte,  A. Yamada,  
+ Jun Yang,  K. Yao,  S. Yeganeh,  S. R. Yost,  Zhi-Qiang You,  A. Zech,  
+ Igor Ying Zhang,  Xing Zhang,  Yan Zhao,  Ying Zhu,  B. R. Brooks,  
+ G. K. L. Chan,  C. J. Cramer,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  
+ M. W. Schmidt,  C. D. Sherrill,  D. G. Truhlar,  A. Aspuru-Guzik,  R. Baer,  
+ A. T. Bell,  N. A. Besley,  Jeng-Da Chai,  A. E. DePrince, III,  
+ R. A. DiStasio Jr.,  A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  
+ Chao-Ping Hsu,  Yousung Jung,  Jing Kong,  D. S. Lambrecht,  WanZhen Liang,  
+ C. Ochsenfeld,  V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  
+ T. Van Voorhis,  J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  B. Austin,  J. Baker,  G. J. O. Beran,  K. Brandhorst,  
+ S. T. Brown,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ Siu Hung Chien,  D. M. Chipman,  D. L. Crittenden,  H. Dachsel,  
+ R. J. Doerksen,  A. D. Dutoi,  L. Fusti-Molnar,  W. A. Goddard III,  
+ A. Golubeva-Zadorozhnaya,  S. R. Gwaltney,  G. Hawkins,  A. Heyden,  
+ S. Hirata,  G. Kedziora,  F. J. Keil,  C. Kelley,  Jihan Kim,  R. A. King,  
+ R. Z. Khaliullin,  P. P. Korambath,  W. Kurlancheek,  A. M. Lee,  M. S. Lee,  
+ S. V. Levchenko,  Ching Yeh Lin,  D. Liotard,  R. C. Lochan,  I. Lotan,  
+ P. E. Maslen,  N. Nair,  D. P. O'Neill,  D. Neuhauser,  E. Neuscamman,  
+ C. M. Oana,  R. Olson,  B. Peters,  R. Peverati,  P. A. Pieniazek,  
+ Y. M. Rhee,  J. Ritchie,  M. A. Rohrdanz,  E. Rosta,  N. J. Russ,  
+ H. F. Schaefer III,  N. E. Schultz,  N. Shenvi,  A. C. Simmonett,  A. Sodt,  
+ D. Stuck,  K. S. Thanthiriwatte,  V. Vanovschi,  Tao Wang,  A. Warshel,  
+ C. F. Williams,  Q. Wu,  X. Xu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 5.1.1 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 8.300.2 (Tropical Shenanigans).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Thu Aug 13 01:52:12 2020  
+
+Host: n0057.mhg0
+0
+
+     Scratch files written to /local/scratch/users/yhljason/NH3O_wB97M-V_aug-pc-4.inp20200812215020//
+Input Ideriv = 2
+Curr. Ideriv = -1
+Max.  Ideriv = 2
+Input Ideriv = 1
+Curr. Ideriv = 2
+Max.  Ideriv = 1
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$molecule
+0 1
+N        0.0000000000      0.0000000000     -0.5344777797
+H       -0.9458001927      0.0000000000     -0.9350779673
+H        0.4729000069     -0.8190998435     -0.9350776619
+H        0.4729000069      0.8190998435     -0.9350776619
+O        0.0000000000      0.0000000000      0.8183222203
+$end
+
+$rem
+jobtype sp
+method wB97M-V
+xc_grid 000099000590
+basis aug-pc-4
+max_scf_cycles 200
+thresh 14
+scf_convergence 6
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+unrestricted true
+gen_scfman true
+internal_stability_iter 15
+internal_stability_davidson_iter 200
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+$end
+
+
+--------------------------------------------------------------
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      N       0.0000000000     0.0000000000    -0.5344777797
+    2      H      -0.9458001927     0.0000000000    -0.9350779673
+    3      H       0.4729000069    -0.8190998435    -0.9350776619
+    4      H       0.4729000069     0.8190998435    -0.9350776619
+    5      O       0.0000000000     0.0000000000     0.8183222203
+ ----------------------------------------------------------------
+ Nuclear Repulsion Energy =    40.0686164025 hartrees
+ There are        9 alpha and        9 beta electrons
+ Requested basis set is aug-pc-4
+ There are 138 shells and 554 basis functions
+
+ Total QAlloc Memory Limit  64000 MB
+ Mega-Array Size      1467 MB
+ MEM_STATIC part      1500 MB
+
+                       Distance Matrix (Angstroms)
+             N (  1)   H (  2)   H (  3)   H (  4)
+   H (  2)  1.027141
+   H (  3)  1.027151  1.638180
+   H (  4)  1.027151  1.638180  1.638200
+   O (  5)  1.352800  1.992222  1.992227  1.992227
+ 
+ A cutoff of  1.0D-14 yielded   9484 shell pairs
+ There are    154520 function pairs (    279090 Cartesian)
+ 
+ -------------------------------------------------------
+ OpenMP Integral Computing Module                       
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ Integral Job Info:
+ Integral job number is                      11
+ Integral operator is                         1
+ short-range coefficients              15000000
+ long-range coefficients              100000000
+ Omega coefficients                         300
+ if combine SR and LR in K                    1
+ Integral screening is                        0
+ Integral computing path is                   2
+ max size of driver memory is           6400000
+ size of driver memory is               5498286
+ size of scratch memory is             28955960
+ max col of scratch BK array             194481
+ max len of scratch array in speh3         5572
+ max len of scratch index in speh4           72
+ max int batch size is                      520
+ min int batch size is                       52
+ fixed nKL is                                24
+ max L of basis functions is                  5
+ order of int derivative is                   0
+ number of shells is                        138
+ number of basis is                         743
+ number of cartesian basis is               743
+ number of contracted shell pairs          9484
+ number of primitive shell pairs          17065
+ maxK2 (contraction) of shell pair          121
+ max number of K2 of shell pair               1
+ max number of CS2 of shell pair           1227
+ max number of PS2 of shell pair           1227
+ mem total for path MDJ                 1295920
+ -------------------------------------------------------
+ Smallest overlap matrix eigenvalue = 1.54E-07
+ Linear dependence detected in AO basis
+ Number of orthogonalized atomic orbitals = 552
+ Maximum deviation from orthogonality = 3.930E-10
+
+ Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =    -0.0000000009 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ SAD guess density has 18.000000 electrons
+
+ -----------------------------------------------------------------------
+  General SCF calculation program by
+  Eric Jon Sundstrom, Paul Horn, Yuezhi Mao, Dmitri Zuev, Alec White,
+  David Stuck, Shaama M.S., Shane Yost, Joonho Lee, David Small,
+  Daniel Levine, Susi Lehtola, Hugh Burton, Evgeny Epifanovsky
+ -----------------------------------------------------------------------
+ Exchange:     0.1500 Hartree-Fock + 1.0000 wB97M-V + LR-HF
+ Correlation:  1.0000 wB97M-V
+ Using Euler-Maclaurin-Lebedev (99,590) quadrature formula
+ Nonlocal Correlation:  VV10 with C = 0.0100 and b = 6.00 and scale = 1.00000
+ Grid used for NLC:  SG-1 standard quadrature
+Running Object-Oriented UKS (UHF)
+performing a single roothaan step with Fock from read density so that orbitals are available to all algorithms
+ Nonlocal correlation = 0.073287480132
+energy of the guess density (C=0) -131.914404601339
+ Nonlocal correlation = 0.074351573056
+We will preform up to 15 macro iterations over saddle points until a stable solution is found
+Energy prior to optimization (guess energy) = -131.567575107791
+Begin Timing: Total SCF Calculation
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-06
+ Nonlocal correlation = 7.388483839142e-02
+    1    -131.5675751078      1.75e-01     00000  Descent step
+ Nonlocal correlation = 7.401326182354e-02
+    2    -131.6929680637      1.59e-02     00000  Normal BFGS step
+ Nonlocal correlation = 7.402106039803e-02
+    3    -131.6994998739      3.56e-03     00000  Normal BFGS step
+ Nonlocal correlation = 7.401906812860e-02
+    4    -131.6998240805      1.43e-03     00000  Normal BFGS step
+ Nonlocal correlation = 7.401709676454e-02
+    5    -131.6998412621      2.61e-04     00000  Normal BFGS step
+ Nonlocal correlation = 7.401807812907e-02
+    6    -131.6998424830      1.33e-04     00000  Normal BFGS step
+ Nonlocal correlation = 7.401794189169e-02
+    7    -131.6998428752      2.13e-05     00000  Normal BFGS step
+ Nonlocal correlation = 7.401791617608e-02
+    8    -131.6998428893      7.38e-06     00000  Normal BFGS step
+ Nonlocal correlation = 7.401791376025e-02
+    9    -131.6998428886      2.13e-06     00000  Normal BFGS step
+ Nonlocal correlation = 7.401791565262e-02
+   10    -131.6998428887      4.46e-07     00000 Convergence criterion met
+Timing for Single Stationary Point: 8766.00s (wall), 69566.02s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 0.074017915677
+ Nonlocal correlation = 0.074017914504
+ Nonlocal correlation = 0.074017914497
+ Nonlocal correlation = 0.074017915684
+ Nonlocal correlation = 0.074017915653
+    1      4.75e-01     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401791525680e-02
+ Nonlocal correlation = 7.401791602097e-02
+ Nonlocal correlation = 7.401791705195e-02
+ Nonlocal correlation = 7.401791451836e-02
+ Nonlocal correlation = 7.401791565262e-02
+    2      4.44e-01     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401791707598e-02
+ Nonlocal correlation = 7.401791455662e-02
+ Nonlocal correlation = 7.401790535775e-02
+ Nonlocal correlation = 7.401792592330e-02
+ Nonlocal correlation = 7.401791565262e-02
+    3      8.09e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401790734258e-02
+ Nonlocal correlation = 7.401792427362e-02
+ Nonlocal correlation = 7.401779669851e-02
+ Nonlocal correlation = 7.401803459813e-02
+ Nonlocal correlation = 7.401791565262e-02
+    4      1.69e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401810870087e-02
+ Nonlocal correlation = 7.401772259796e-02
+ Nonlocal correlation = 7.401792499325e-02
+ Nonlocal correlation = 7.401790450684e-02
+ Nonlocal correlation = 7.401791565262e-02
+    5      8.87e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401784935196e-02
+ Nonlocal correlation = 7.401798088580e-02
+ Nonlocal correlation = 7.401795853575e-02
+ Nonlocal correlation = 7.401787096766e-02
+ Nonlocal correlation = 7.401791565262e-02
+    6      5.57e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401785194052e-02
+ Nonlocal correlation = 7.401797757786e-02
+ Nonlocal correlation = 7.401783896239e-02
+ Nonlocal correlation = 7.401799055019e-02
+ Nonlocal correlation = 7.401791565262e-02
+    7      3.56e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401794347465e-02
+ Nonlocal correlation = 7.401788603138e-02
+ Nonlocal correlation = 7.401796522871e-02
+ Nonlocal correlation = 7.401786500289e-02
+ Nonlocal correlation = 7.401791565262e-02
+    8      2.45e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401794171037e-02
+ Nonlocal correlation = 7.401788783103e-02
+ Nonlocal correlation = 7.401797171989e-02
+ Nonlocal correlation = 7.401785847712e-02
+ Nonlocal correlation = 7.401791565262e-02
+    9      1.44e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401797704457e-02
+ Nonlocal correlation = 7.401785315944e-02
+ Nonlocal correlation = 7.401794308354e-02
+ Nonlocal correlation = 7.401788642703e-02
+ Nonlocal correlation = 7.401791565262e-02
+   10      8.05e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401788890884e-02
+ Nonlocal correlation = 7.401794129646e-02
+ Nonlocal correlation = 7.401788424042e-02
+ Nonlocal correlation = 7.401794526806e-02
+ Nonlocal correlation = 7.401791565262e-02
+   11      1.30e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401788237683e-02
+ Nonlocal correlation = 7.401794712915e-02
+ Nonlocal correlation = 7.401793717413e-02
+ Nonlocal correlation = 7.401789233957e-02
+ Nonlocal correlation = 7.401791565262e-02
+   12      1.27e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401792303316e-02
+ Nonlocal correlation = 7.401790648051e-02
+ Nonlocal correlation = 7.401786175160e-02
+ Nonlocal correlation = 7.401796954815e-02
+ Nonlocal correlation = 7.401791565262e-02
+   13      1.23e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401792228311e-02
+ Nonlocal correlation = 7.401790790757e-02
+ Nonlocal correlation = 7.401786069669e-02
+ Nonlocal correlation = 7.401796880444e-02
+ Nonlocal correlation = 7.401791565262e-02
+   14      1.20e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401791807582e-02
+ Nonlocal correlation = 7.401791144096e-02
+ Nonlocal correlation = 7.401789734257e-02
+ Nonlocal correlation = 7.401793216857e-02
+ Nonlocal correlation = 7.401791565262e-02
+   15      1.40e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401791702011e-02
+ Nonlocal correlation = 7.401791337866e-02
+ Nonlocal correlation = 7.401791309209e-02
+ Nonlocal correlation = 7.401791860998e-02
+ Nonlocal correlation = 7.401791565262e-02
+   16      1.56e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401792814971e-02
+ Nonlocal correlation = 7.401790136389e-02
+ Nonlocal correlation = 7.401789763911e-02
+ Nonlocal correlation = 7.401793326311e-02
+ Nonlocal correlation = 7.401791565262e-02
+   17      1.28e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401796394959e-02
+ Nonlocal correlation = 7.401786624382e-02
+ Nonlocal correlation = 7.401796180841e-02
+ Nonlocal correlation = 7.401786859025e-02
+ Nonlocal correlation = 7.401791565262e-02
+   18      4.11e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401795471726e-02
+ Nonlocal correlation = 7.401787548905e-02
+ Nonlocal correlation = 7.401788950604e-02
+ Nonlocal correlation = 7.401794179601e-02
+ Nonlocal correlation = 7.401791565262e-02
+   19      4.89e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401785797662e-02
+ Nonlocal correlation = 7.401797152367e-02
+ Nonlocal correlation = 7.401812497032e-02
+ Nonlocal correlation = 7.401770454022e-02
+ Nonlocal correlation = 7.401791565262e-02
+   20      4.39e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401799490076e-02
+ Nonlocal correlation = 7.401783618432e-02
+ Nonlocal correlation = 7.401804433893e-02
+ Nonlocal correlation = 7.401778516377e-02
+ Nonlocal correlation = 7.401791565262e-02
+   21      4.73e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401789374242e-02
+ Nonlocal correlation = 7.401793666288e-02
+ Nonlocal correlation = 7.401790383022e-02
+ Nonlocal correlation = 7.401792568135e-02
+ Nonlocal correlation = 7.401791565262e-02
+   22      4.96e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401789252203e-02
+ Nonlocal correlation = 7.401793766633e-02
+ Nonlocal correlation = 7.401797197284e-02
+ Nonlocal correlation = 7.401786001230e-02
+ Nonlocal correlation = 7.401791565262e-02
+   23      4.14e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401793353878e-02
+ Nonlocal correlation = 7.401789597072e-02
+ Nonlocal correlation = 7.401783720283e-02
+ Nonlocal correlation = 7.401799231287e-02
+ Nonlocal correlation = 7.401791565262e-02
+   24      3.86e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401792223210e-02
+ Nonlocal correlation = 7.401790728851e-02
+ Nonlocal correlation = 7.401787667281e-02
+ Nonlocal correlation = 7.401795509696e-02
+ Nonlocal correlation = 7.401791565262e-02
+   25      3.71e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401790068119e-02
+ Nonlocal correlation = 7.401792950605e-02
+ Nonlocal correlation = 7.401791659113e-02
+ Nonlocal correlation = 7.401791470502e-02
+ Nonlocal correlation = 7.401791565262e-02
+   26      3.93e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401788650288e-02
+ Nonlocal correlation = 7.401794301814e-02
+ Nonlocal correlation = 7.401794203944e-02
+ Nonlocal correlation = 7.401788816361e-02
+ Nonlocal correlation = 7.401791565262e-02
+   27      2.86e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401793561351e-02
+ Nonlocal correlation = 7.401789389093e-02
+ Nonlocal correlation = 7.401793761761e-02
+ Nonlocal correlation = 7.401789188668e-02
+ Nonlocal correlation = 7.401791565262e-02
+   28      2.40e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+ Nonlocal correlation = 7.401794144344e-02
+ Nonlocal correlation = 7.401788805665e-02
+ Nonlocal correlation = 7.401791642223e-02
+ Nonlocal correlation = 7.401791522432e-02
+ Nonlocal correlation = 7.401791565262e-02
+   29      6.03e-04     00000 Davidson Converged
+converged_eigenvalues
+   0.3146
+   0.3207
+Threshold for negative eigenvalues: -1.0e-05
+solution was a local minimum (stable)
+===================================================
+End Test for Internal Stability
+===================================================
+Our SCF solution is stable!
+Timing for Total SCF: 135741.00s (wall), 1076531.68s (cpu)
+ Total energy in the final basis set =     -131.6998428887
+<S^2> =         -0.000000000
+    ==================================================
+              The end of Object-Oriented SCFman       
+    ==================================================
+ 
+ --------------------------------------------------------------
+ 
+                    Orbital Energies (a.u.)
+ --------------------------------------------------------------
+ 
+ Alpha MOs
+ -- Occupied --
+-19.254 -14.644  -1.180  -0.931  -0.679  -0.679  -0.533  -0.321
+ -0.321
+ -- Virtual --
+ -0.011   0.016   0.016   0.030   0.048   0.051   0.051   0.062
+  0.063   0.063   0.075   0.075   0.101   0.114   0.114   0.116
+  0.124   0.133   0.133   0.152   0.164   0.164   0.164   0.172
+  0.172   0.180   0.187   0.188   0.206   0.206   0.221   0.223
+  0.223   0.224   0.239   0.239   0.239   0.264   0.264   0.265
+  0.286   0.286   0.288   0.288   0.301   0.301   0.314   0.314
+  0.325   0.337   0.337   0.347   0.353   0.353   0.355   0.369
+  0.369   0.375   0.379   0.391   0.391   0.398   0.398   0.406
+  0.419   0.419   0.444   0.471   0.475   0.476   0.480   0.480
+  0.483   0.487   0.501   0.503   0.503   0.512   0.512   0.514
+  0.516   0.522   0.523   0.535   0.542   0.542   0.554   0.556
+  0.573   0.573   0.603   0.609   0.609   0.628   0.628   0.632
+  0.632   0.633   0.642   0.642   0.696   0.697   0.697   0.709
+  0.709   0.716   0.737   0.739   0.739   0.750   0.766   0.766
+  0.774   0.774   0.776   0.786   0.788   0.788   0.790   0.797
+  0.797   0.807   0.809   0.814   0.814   0.849   0.860   0.860
+  0.872   0.872   0.883   0.892   0.892   0.900   0.910   0.911
+  0.911   0.912   0.912   0.912   0.933   0.933   0.950   0.956
+  0.957   0.964   0.995   0.995   1.001   1.010   1.020   1.020
+  1.051   1.057   1.074   1.074   1.103   1.103   1.109   1.127
+  1.127   1.148   1.148   1.154   1.159   1.159   1.161   1.178
+  1.178   1.203   1.203   1.234   1.235   1.235   1.302   1.333
+  1.333   1.358   1.369   1.369   1.376   1.377   1.400   1.400
+  1.405   1.425   1.425   1.487   1.487   1.526   1.526   1.588
+  1.639   1.639   1.650   1.667   1.692   1.692   1.695   1.732
+  1.751   1.751   1.819   1.819   1.831   1.852   1.852   1.869
+  1.879   1.879   1.925   1.925   1.999   2.014   2.018   2.018
+  2.160   2.160   2.187   2.233   2.250   2.250   2.308   2.387
+  2.387   2.418   2.427   2.459   2.459   2.515   2.630   2.630
+  2.649   2.649   2.734   2.778   2.778   2.823   2.892   2.927
+  2.963   2.963   3.037   3.037   3.189   3.246   3.246   3.304
+  3.332   3.332   3.387   3.387   3.516   3.544   3.554   3.554
+  3.602   3.634   3.634   3.676   3.779   3.779   3.826   3.826
+  3.848   3.884   3.884   3.937   4.039   4.073   4.073   4.159
+  4.235   4.235   4.276   4.291   4.320   4.320   4.466   4.516
+  4.516   4.582   4.582   4.666   4.666   4.694   4.694   4.773
+  4.773   4.802   4.836   4.925   4.925   4.988   4.997   5.060
+  5.060   5.241   5.322   5.322   5.492   5.492   5.517   5.530
+  5.534   5.534   5.550   5.703   5.703   5.717   5.739   5.781
+  5.781   5.829   6.089   6.195   6.195   6.233   6.237   6.237
+  6.344   6.447   6.447   6.533   6.593   6.593   6.675   6.756
+  6.756   6.978   7.058   7.058   7.104   7.255   7.255   7.364
+  7.503   7.503   7.504   7.696   7.696   7.740   8.070   8.070
+  8.231   8.231   8.285   8.616   8.616   8.652   8.836   8.904
+  8.904   9.156   9.181   9.181   9.306   9.344   9.344   9.430
+  9.447   9.447   9.565   9.633   9.633   9.752   9.904   9.905
+  9.990   9.990  10.161  10.161  10.216  10.328  10.328  10.433
+ 10.460  10.481  10.481  11.054  11.392  11.392  11.507  11.586
+ 11.642  11.642  11.664  11.664  11.783  11.959  11.975  11.975
+ 12.253  12.253  12.258  12.384  12.384  12.404  12.404  12.510
+ 12.554  12.605  12.648  12.648  12.667  12.720  12.720  12.821
+ 12.821  12.844  12.844  12.889  13.015  13.129  13.129  13.165
+ 13.170  13.170  13.212  13.217  13.233  13.377  13.377  13.573
+ 13.573  13.767  13.767  14.102  14.127  14.222  14.315  14.315
+ 14.611  14.636  14.636  15.274  15.380  15.380  15.613  15.842
+ 15.842  15.911  16.120  16.120  16.144  16.144  16.311  16.659
+ 16.676  16.676  16.752  16.812  16.812  16.922  16.929  16.929
+ 17.012  17.140  17.229  17.229  17.432  17.432  17.468  17.468
+ 17.653  17.653  17.771  17.782  17.896  17.896  17.989  18.153
+ 18.153  18.156  18.448  18.448  18.465  18.465  18.601  19.280
+ 19.280  19.376  19.376  19.456  19.620  19.620  19.852  20.053
+ 20.796  20.796  20.830  20.900  21.191  21.274  21.274  22.094
+ 22.094  23.378  23.522  23.522  23.666  23.666  23.832  23.892
+ 23.892  24.351  24.351  24.580  25.561  25.561  26.098  27.143
+ 29.009  29.112  29.112  30.945  32.705  32.705  34.991  40.987
+ 41.236  41.236  48.883  48.883  49.387  49.740  49.740  67.448
+ 67.448  67.774  67.774  69.281  90.047  90.165  90.165  90.377
+ 90.397  90.397  91.422  91.422  91.589 108.649 145.862
+ 
+ Beta MOs
+ -- Occupied --
+-19.254 -14.644  -1.180  -0.931  -0.679  -0.679  -0.533  -0.321
+ -0.321
+ -- Virtual --
+ -0.011   0.016   0.016   0.030   0.048   0.051   0.051   0.062
+  0.063   0.063   0.075   0.075   0.101   0.114   0.114   0.116
+  0.124   0.133   0.133   0.152   0.164   0.164   0.164   0.172
+  0.172   0.180   0.187   0.188   0.206   0.206   0.221   0.223
+  0.223   0.224   0.239   0.239   0.239   0.264   0.264   0.265
+  0.286   0.286   0.288   0.288   0.301   0.301   0.314   0.314
+  0.325   0.337   0.337   0.347   0.353   0.353   0.355   0.369
+  0.369   0.375   0.379   0.391   0.391   0.398   0.398   0.406
+  0.419   0.419   0.444   0.471   0.475   0.476   0.480   0.480
+  0.483   0.487   0.501   0.503   0.503   0.512   0.512   0.514
+  0.516   0.522   0.523   0.535   0.542   0.542   0.554   0.556
+  0.573   0.573   0.603   0.609   0.609   0.628   0.628   0.632
+  0.632   0.633   0.642   0.642   0.696   0.697   0.697   0.709
+  0.709   0.716   0.737   0.739   0.739   0.750   0.766   0.766
+  0.774   0.774   0.776   0.786   0.788   0.788   0.790   0.797
+  0.797   0.807   0.809   0.814   0.814   0.849   0.860   0.860
+  0.872   0.872   0.883   0.892   0.892   0.900   0.910   0.911
+  0.911   0.912   0.912   0.912   0.933   0.933   0.950   0.956
+  0.957   0.964   0.995   0.995   1.001   1.010   1.020   1.020
+  1.051   1.057   1.074   1.074   1.103   1.103   1.109   1.127
+  1.127   1.148   1.148   1.154   1.159   1.159   1.161   1.178
+  1.178   1.203   1.203   1.234   1.235   1.235   1.302   1.333
+  1.333   1.358   1.369   1.369   1.376   1.377   1.400   1.400
+  1.405   1.425   1.425   1.487   1.487   1.526   1.526   1.588
+  1.639   1.639   1.650   1.667   1.692   1.692   1.695   1.732
+  1.751   1.751   1.819   1.819   1.831   1.852   1.852   1.869
+  1.879   1.879   1.925   1.925   1.999   2.014   2.018   2.018
+  2.160   2.160   2.187   2.233   2.250   2.250   2.308   2.387
+  2.387   2.418   2.427   2.459   2.459   2.515   2.630   2.630
+  2.649   2.649   2.734   2.778   2.778   2.823   2.892   2.927
+  2.963   2.963   3.037   3.037   3.189   3.246   3.246   3.304
+  3.332   3.332   3.387   3.387   3.516   3.544   3.554   3.554
+  3.602   3.634   3.634   3.676   3.779   3.779   3.826   3.826
+  3.848   3.884   3.884   3.937   4.039   4.073   4.073   4.159
+  4.235   4.235   4.276   4.291   4.320   4.320   4.466   4.516
+  4.516   4.582   4.582   4.666   4.666   4.694   4.694   4.773
+  4.773   4.802   4.836   4.925   4.925   4.988   4.997   5.060
+  5.060   5.241   5.322   5.322   5.492   5.492   5.517   5.530
+  5.534   5.534   5.550   5.703   5.703   5.717   5.739   5.781
+  5.781   5.829   6.089   6.195   6.195   6.233   6.237   6.237
+  6.344   6.447   6.447   6.533   6.593   6.593   6.675   6.756
+  6.756   6.978   7.058   7.058   7.104   7.255   7.255   7.364
+  7.503   7.503   7.504   7.696   7.696   7.740   8.070   8.070
+  8.231   8.231   8.285   8.616   8.616   8.652   8.836   8.904
+  8.904   9.156   9.181   9.181   9.306   9.344   9.344   9.430
+  9.447   9.447   9.565   9.633   9.633   9.752   9.904   9.905
+  9.990   9.990  10.161  10.161  10.216  10.328  10.328  10.433
+ 10.460  10.481  10.481  11.054  11.392  11.392  11.507  11.586
+ 11.642  11.642  11.664  11.664  11.783  11.959  11.975  11.975
+ 12.253  12.253  12.258  12.384  12.384  12.404  12.404  12.510
+ 12.554  12.605  12.648  12.648  12.667  12.720  12.720  12.821
+ 12.821  12.844  12.844  12.889  13.015  13.129  13.129  13.165
+ 13.170  13.170  13.212  13.217  13.233  13.377  13.377  13.573
+ 13.573  13.767  13.767  14.102  14.127  14.222  14.315  14.315
+ 14.611  14.636  14.636  15.274  15.380  15.380  15.613  15.842
+ 15.842  15.911  16.120  16.120  16.144  16.144  16.311  16.659
+ 16.676  16.676  16.752  16.812  16.812  16.922  16.929  16.929
+ 17.012  17.140  17.229  17.229  17.432  17.432  17.468  17.468
+ 17.653  17.653  17.771  17.782  17.896  17.896  17.989  18.153
+ 18.153  18.156  18.448  18.448  18.465  18.465  18.601  19.280
+ 19.280  19.376  19.376  19.456  19.620  19.620  19.852  20.053
+ 20.796  20.796  20.830  20.900  21.191  21.274  21.274  22.094
+ 22.094  23.378  23.522  23.522  23.666  23.666  23.832  23.892
+ 23.892  24.351  24.351  24.580  25.561  25.561  26.098  27.143
+ 29.009  29.112  29.112  30.945  32.705  32.705  34.991  40.987
+ 41.236  41.236  48.883  48.883  49.387  49.740  49.740  67.448
+ 67.448  67.774  67.774  69.281  90.047  90.165  90.165  90.377
+ 90.397  90.397  91.422  91.422  91.589 108.649 145.862
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)    Spin (a.u.)
+  --------------------------------------------------------
+      1 N                    -0.600627       0.000000
+      2 H                     0.396293       0.000000
+      3 H                     0.396358      -0.000000
+      4 H                     0.396358       0.000000
+      5 O                    -0.588382      -0.000000
+  --------------------------------------------------------
+  Sum of atomic charges =    -0.000000
+  Sum of spin   charges =    -0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -0.0000
+    Dipole Moment (Debye)
+         X      -0.0000      Y      -0.0000      Z      -5.3635
+       Tot       5.3635
+    Quadrupole Moments (Debye-Ang)
+        XX     -11.9175     XY      -0.0000     YY     -11.9174
+        XZ       0.0000     YZ       0.0000     ZZ     -13.3196
+    Octopole Moments (Debye-Ang^2)
+       XXX      -1.1242    XXY      -0.0000    XYY       1.1242
+       YYY      -0.0000    XXZ      -3.2202    XYZ       0.0000
+       YYZ      -3.2202    XZZ      -0.0000    YZZ      -0.0000
+       ZZZ      -5.0214
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX     -16.0621   XXXY      -0.0000   XXYY      -5.3540
+      XYYY      -0.0000   YYYY     -16.0621   XXXZ       0.9067
+      XXYZ      -0.0000   XYYZ      -0.9067   YYYZ      -0.0000
+      XXZZ     -11.8975   XYZZ      -0.0000   YYZZ     -11.8974
+      XZZZ       0.0000   YZZZ      -0.0000   ZZZZ     -54.7452
+ -----------------------------------------------------------------
+Archival summary:
+1\1\n0057.mhg0\SP\ProcedureUnspecified\BasisUnspecified\113\yhljason\FriAug1415:50:202020FriAug1415:50:202020\0\\#,ProcedureUnspecified,BasisUnspecified,\\0,1\N\H,1,1.02714\H,1,1.02715,2,105.773\H,1,1.02715,2,105.773,3,-111.921,0\O,1,1.3528,2,112.955,3,124.04,0\\\@
+
+ Total job time:  136688.12s(wall), 1083994.49s(cpu) 
+ Fri Aug 14 15:50:20 2020
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+
