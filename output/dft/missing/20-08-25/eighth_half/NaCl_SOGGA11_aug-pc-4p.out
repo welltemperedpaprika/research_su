@@ -1,0 +1,652 @@
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 5.3 (devel), Q-Chem, Inc., Pleasanton, CA (2020)
+
+ Yihan Shao,  Zhengting Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  Jia Deng,  Xintian Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  T. Kus,  A. Landau,  
+ Jie Liu,  E. I. Proynov,  R. M. Richard,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Alam,  B. Albrecht,  
+ E. Alguire,  S. A. Baeppler,  D. Barton,  Z. Benda,  Y. A. Bernard,  
+ E. J. Berquist,  K. B. Bravaya,  H. Burton,  K. Carter-Fenk,  D. Casanova,  
+ Chun-Min Chang,  Yunqing Chen,  A. Chien,  K. D. Closser,  M. P. Coons,  
+ S. Coriani,  S. Dasgupta,  A. L. Dempwolff,  M. Diedenhofen,  Hainam Do,  
+ R. G. Edgar,  Po-Tung Fang,  S. Faraji,  S. Fatehi,  Qingguo Feng,  
+ J. Fosso-Tande,  J. Gayvert,  Qinghui Ge,  A. Ghysels,  G. Gidofalvi,  
+ J. Gomes,  J. Gonthier,  A. Gunina,  D. Hait,  M. W. D. Hanson-Heine,  
+ P. H. P. Harbach,  A. W. Hauser,  M. F. Herbst,  J. E. Herr,  
+ E. G. Hohenstein,  Z. C. Holden,  Kerwin Hui,  B. C. Huynh,  T.-C. Jagau,  
+ Hyunjun Ji,  B. Kaduk,  K. Khistyaev,  Jaehoon Kim,  P. Klunzinger,  K. Koh,  
+ D. Kosenkov,  L. Koulias,  T. Kowalczyk,  C. M. Krauter,  A. Kunitsa,  
+ Ka Un Lao,  A. Laurent,  K. V. Lawler,  Joonho Lee,  D. Lefrancois,  
+ S. Lehtola,  D. S. Levine,  Yi-Pei Li,  You-Sheng Lin,  Fenglai Liu,  
+ Kuan-Yu Liu,  E. Livshits,  M. Loipersberger,  A. Luenser,  P. Manohar,  
+ E. Mansoor,  S. F. Manzer,  Shan-Ping Mao,  Yuezhi Mao,  N. Mardirossian,  
+ A. V. Marenich,  T. Markovich,  L. A. Martinez-Martinez,  S. A. Maurer,  
+ N. J. Mayhall,  S. C. McKenzie,  J.-M. Mewes,  P. Morgante,  A. F. Morrison,  
+ J. W. Mullinax,  K. Nanda,  T. S. Nguyen-Beck,  R. Olivares-Amaya,  
+ K. J. Oosterbaan,  J. A. Parkhill,  S. K. Paul,  F. Pavosevic,  Zheng Pei,  
+ T. M. Perrine,  F. Plasser,  P. Pokhilko,  S. Prager,  A. Prociuk,  
+ E. Ramos,  B. Rana,  D. R. Rehn,  F. Rob,  M. Scheurer,  M. Schneider,  
+ N. Sergueev,  S. M. Sharada,  S. Sharma,  D. W. Small,  T. Stauch,  
+ C. J. Stein,  T. Stein,  Yu-Chuan Su,  S. P. Veccham,  Zhen Tao,  
+ A. J. W. Thom,  A. Tkatchenko,  T. Tsuchimochi,  N. M. Tubman,  L. Vogt,  
+ M. L. Vidal,  O. Vydrov,  M. A. Watson,  J. Wenzel,  M. de Wergifosse,  
+ T. A. Wesolowski,  A. White,  J. Witte,  A. Yamada,  Jun Yang,  K. Yao,  
+ S. Yeganeh,  S. R. Yost,  Zhi-Qiang You,  A. Zech,  Igor Ying Zhang,  
+ Xing Zhang,  Yan Zhao,  Ying Zhu,  B. R. Brooks,  G. K. L. Chan,  
+ C. J. Cramer,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  M. W. Schmidt,  
+ C. D. Sherrill,  D. G. Truhlar,  A. Aspuru-Guzik,  R. Baer,  A. T. Bell,  
+ N. A. Besley,  Jeng-Da Chai,  A. E. DePrince, III,  R. A. DiStasio Jr.,  
+ A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  Chao-Ping Hsu,  Yousung Jung,  
+ Jing Kong,  D. S. Lambrecht,  WanZhen Liang,  C. Ochsenfeld,  
+ V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  T. Van Voorhis,  
+ J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  B. Austin,  J. Baker,  G. J. O. Beran,  K. Brandhorst,  
+ S. T. Brown,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ Siu Hung Chien,  D. M. Chipman,  D. L. Crittenden,  H. Dachsel,  
+ R. J. Doerksen,  A. D. Dutoi,  L. Fusti-Molnar,  W. A. Goddard III,  
+ A. Golubeva-Zadorozhnaya,  S. R. Gwaltney,  G. Hawkins,  A. Heyden,  
+ S. Hirata,  G. Kedziora,  F. J. Keil,  C. Kelley,  Jihan Kim,  R. A. King,  
+ R. Z. Khaliullin,  P. P. Korambath,  W. Kurlancheek,  A. M. Lee,  M. S. Lee,  
+ S. V. Levchenko,  Ching Yeh Lin,  D. Liotard,  R. C. Lochan,  I. Lotan,  
+ P. E. Maslen,  N. Nair,  D. P. O'Neill,  D. Neuhauser,  E. Neuscamman,  
+ C. M. Oana,  R. Olson,  B. Peters,  R. Peverati,  P. A. Pieniazek,  
+ Y. M. Rhee,  J. Ritchie,  M. A. Rohrdanz,  E. Rosta,  N. J. Russ,  
+ H. F. Schaefer III,  N. E. Schultz,  N. Shenvi,  A. C. Simmonett,  A. Sodt,  
+ D. Stuck,  K. S. Thanthiriwatte,  V. Vanovschi,  Tao Wang,  A. Warshel,  
+ C. F. Williams,  Q. Wu,  X. Xu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 5.3.0 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 9.800.1 (Horizon Scraper).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Mon Aug 24 00:41:03 2020  
+
+n0086.mhg0
+Host: 0
+
+     Scratch files written to /local/scratch/users/yhljason/NaCl_SOGGA11_aug-pc-4.inp20200823214146//
+Processing $rem in /clusterfs/mhg/diptarka/qchem_transmom//config/preferences:
+Processing $rem in /global/home/users/yhljason/.qchemrc:
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$molecule
+0 1
+Na1     0.0000  0.0000  0.0000
+Cl2     0.0000  0.0000  2.3608
+$end
+
+$rem
+jobtype sp
+method SOGGA11
+xc_grid 000099000590
+basis aug-pc-4
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+unrestricted true
+gen_scfman true
+internal_stability_iter 15
+internal_stability_davidson_iter 200
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+$end
+
+
+--------------------------------------------------------------
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      Na      0.0000000000     0.0000000000     0.0000000000
+    2      Cl      0.0000000000     0.0000000000     2.3608000000
+ ----------------------------------------------------------------
+ Nuclear Repulsion Energy =          41.91635819 hartrees
+ There are       14 alpha and       14 beta electrons
+ Requested basis set is aug-pc-4
+ There are 54 shells and 226 basis functions
+
+ Total QAlloc Memory Limit  64000 MB
+ Mega-Array Size      1467 MB
+ MEM_STATIC part      1500 MB
+
+                       Distance Matrix (Angstroms)
+             Na(  1)
+   Cl(  2)  2.360800
+
+ A cutoff of  1.0D-14 yielded   1482 shell pairs
+ There are     26206 function pairs (     49007 Cartesian)
+ Smallest overlap matrix eigenvalue = 4.49E-05
+
+ Scale SEOQF with 1.000000e-02/1.000000e-02/1.000000e-02
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =    -0.0000000010 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ SAD guess density has 28.000000 electrons
+
+ -----------------------------------------------------------------------
+  General SCF calculation program by
+  Eric Jon Sundstrom, Paul Horn, Yuezhi Mao, Dmitri Zuev, Alec White,
+  David Stuck, Shaama M.S., Shane Yost, Joonho Lee, David Small,
+  Daniel Levine, Susi Lehtola, Hugh Burton, Evgeny Epifanovsky,
+  Bang C. Huynh
+ -----------------------------------------------------------------------
+ Exchange:  SOGGA11      Correlation:  SOGGA11
+ Using Euler-Maclaurin-Lebedev (99,590) quadrature formula
+Running Object-Oriented UKS (UHF)
+performing a single roothaan step with Fock from read density so that orbitals are available to all algorithms
+energy of the guess density (C=0) -622.502514256001
+We will preform up to 15 macro iterations over saddle points until a stable solution is found
+Energy prior to optimization (guess energy) = -622.500263958287
+Begin Timing: Total SCF Calculation
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-08
+    1    -622.5002639583      1.75e-01     00000  Descent step
+    2    -622.5016831438      1.43e-01     00000  Normal BFGS step
+    3    -622.5725945215      3.00e-02     00000  Normal BFGS step
+    4    -622.5778811244      2.78e-02     00000  Normal BFGS step
+    5    -622.5789224878      2.65e-02     00000  Normal BFGS step
+    6    -622.5845507551      2.03e-02     00000  Normal BFGS step
+    7    -622.5872911056      1.11e-02     00000  Normal BFGS step
+    8    -622.5874507061      2.56e-02     00000  Normal BFGS step
+    9    -622.5896997540      1.60e-02     00000  Normal BFGS step
+   10    -622.5877450452      2.92e-02     00000 Line search: overstep
+   11    -622.5905288752      1.25e-02     00000  Normal BFGS step
+   12    -622.5901060650      7.25e-02     00000 Line search: overstep
+   13    -622.5911216272      1.20e-02     00000  Normal BFGS step
+   14    -622.5891706895      6.93e-02     00000 Line search: overstep
+   15    -622.5916493604      2.35e-02     00000  Normal BFGS step
+   16    -622.5928338786      3.88e-02     00000  Normal BFGS step
+   17    -622.5942284713      3.57e-02     00000  Normal BFGS step
+   18    -622.5894114516      1.03e-01     00000 Line search: overstep
+   19    -622.5948590859      2.34e-02     00000  Normal BFGS step
+   20    -622.5942679661      2.12e-02     00000 Line search: overstep
+   21    -622.5951036689      6.44e-03     00000  Normal BFGS step
+   22    -622.5951269434      3.03e-03     00000  Normal BFGS step
+   23    -622.5951748951      1.16e-03     00000  Normal BFGS step
+   24    -622.5951791846      8.97e-04     00000  Normal BFGS step
+   25    -622.5951824036      3.01e-04     00000  Normal BFGS step
+   26    -622.5951824515      2.74e-04     00000  Normal BFGS step
+   27    -622.5951826362      5.35e-05     00000  Normal BFGS step
+   28    -622.5951826220      8.29e-05     00000  Normal BFGS step
+   29    -622.5951826398      8.12e-05     00000  Normal BFGS step
+   30    -622.5951826048      3.77e-04     00000 Line search: overstep
+   31    -622.5951826444      6.97e-05     00000  Normal BFGS step
+   32    -622.5951826064      6.35e-04     00000 Line search: overstep
+   33    -622.5951826452      3.43e-05     00000  Normal BFGS step
+   34    -622.5951826445      4.29e-05     00000  Normal BFGS step
+   35    -622.5951826462      5.64e-06     00000  Normal BFGS step
+   36    -622.5951826456      2.03e-05     00000  Normal BFGS step
+   37    -622.5951826462      1.26e-05     00000  Normal BFGS step
+   38    -622.5951826453      6.15e-05     00000  Normal BFGS step
+   39    -622.5951826462      9.18e-06     00000  Normal BFGS step
+   40    -622.5951826456      4.01e-05     00000  Normal BFGS step
+   41    -622.5951826458      4.67e-05     00000  Normal BFGS step
+   42    -622.5951826437      4.40e-05     00000  Normal BFGS step
+   43    -622.5951826462      3.68e-06     00000  Normal BFGS step
+   44    -622.5951826462      1.58e-06     00000  Normal BFGS step
+   45    -622.5951826463      7.61e-07     00000  Normal BFGS step
+   46    -622.5951826463      8.09e-07     00000  Normal BFGS step
+   47    -622.5951826463      2.00e-07     00000  Normal BFGS step
+   48    -622.5951826463      5.60e-07     00000  Normal BFGS step
+   49    -622.5951826463      1.34e-07     00000  Normal BFGS step
+   50    -622.5951826463      4.79e-07     00000  Normal BFGS step
+   51    -622.5951826463      2.72e-07     00000  Normal BFGS step
+   52    -622.5951826463      2.30e-06     00000  Normal BFGS step
+   53    -622.5951826463      7.39e-07     00000  Normal BFGS step
+   54    -622.5951826463      8.02e-07     00000  Normal BFGS step
+   55    -622.5951826463      1.19e-07     00000  Normal BFGS step
+   56    -622.5951826463      4.06e-07     00000  Normal BFGS step
+   57    -622.5951826463      2.76e-07     00000  Normal BFGS step
+   58    -622.5951826463      2.00e-06     00000  Normal BFGS step
+   59    -622.5951826463      2.17e-07     00000  Normal BFGS step
+   60    -622.5951826463      1.19e-06     00000  Normal BFGS step
+   61    -622.5951826463      9.78e-08     00000  Normal BFGS step
+   62    -622.5951826463      3.33e-07     00000  Normal BFGS step
+   63    -622.5951826463      3.69e-08     00000  Normal BFGS step
+   64    -622.5951826463      1.78e-07     00000  Normal BFGS step
+   65    -622.5951826463      1.69e-08     00000  Normal BFGS step
+   66    -622.5951826463      5.17e-08     00000  Normal BFGS step
+   67    -622.5951826463      3.14e-08     00000  Normal BFGS step
+   68    -622.5951826463      7.20e-08     00000  Normal BFGS step
+   69    -622.5951826463      1.27e-08     00000  Normal BFGS step
+   70    -622.5951826463      4.38e-08     00000  Normal BFGS step
+   71    -622.5951826463      5.90e-09     00000 Convergence criterion met
+Timing for Single Stationary Point: 1787.00s (wall), 13892.14s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+ Warning: Hessian-vector products not implemented
+ Finite difference Hessian-vector products will be used.
+computing hessian-vector products by finite difference
+    1      7.82e-01     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    2      5.74e-01     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    3      5.35e-01     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    4      4.97e-01     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    5      1.01e-01     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    6      1.75e-01     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    7      1.04e-01     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    8      2.64e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    9      1.63e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   10      1.70e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   11      1.71e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   12      1.77e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   13      2.18e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   14      1.61e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   15      8.22e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   16      7.26e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   17      6.53e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   18      5.38e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   19      4.87e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   20      3.58e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   21      2.28e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   22      1.04e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   23      9.92e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   24      6.45e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   25      3.08e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   26      1.71e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   27      1.32e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   28      1.35e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   29      5.09e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   30      5.07e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   31      5.10e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   32      7.02e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   33      7.80e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   34      8.17e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   35      8.04e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   36      8.41e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   37      7.94e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   38      8.09e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   39      7.84e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   40      8.29e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   41      8.27e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   42      7.62e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   43      7.38e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   44      4.13e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   45      5.34e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   46      5.29e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   47      6.46e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   48      6.67e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   49      6.82e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   50      6.79e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   51      7.25e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   52      7.54e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   53      8.58e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   54      1.19e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   55      1.00e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   56      9.87e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   57      9.37e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   58      1.07e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   59      1.17e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   60      1.11e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   61      1.05e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   62      1.05e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   63      1.19e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   64      1.17e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   65      1.22e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   66      1.24e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   67      1.22e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   68      1.12e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   69      1.10e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   70      7.59e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   71      5.65e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   72      6.20e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   73      5.99e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   74      7.05e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   75      9.36e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   76      9.52e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   77      1.00e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   78      1.06e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   79      1.08e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   80      1.08e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   81      1.07e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   82      1.05e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   83      9.28e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   84      8.85e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   85      1.23e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   86      1.29e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   87      1.80e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   88      1.79e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   89      1.85e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   90      1.97e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   91      2.07e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   92      2.21e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   93      2.33e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   94      2.50e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   95      2.38e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   96      2.03e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   97      1.92e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   98      1.89e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+   99      1.92e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  100      2.09e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  101      2.15e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  102      2.21e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  103      2.30e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  104      2.37e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  105      2.40e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  106      2.54e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  107      2.50e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  108      2.57e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  109      2.64e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  110      2.69e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  111      2.81e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  112      2.91e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  113      3.61e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  114      3.74e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  115      3.81e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  116      3.81e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  117      4.37e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  118      5.60e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  119      6.16e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  120      5.45e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  121      5.05e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  122      4.99e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  123      4.69e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  124      5.28e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  125      5.27e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  126      6.35e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  127      6.43e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  128      7.09e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  129      7.42e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  130      7.34e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  131      7.54e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  132      7.96e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  133      7.59e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  134      4.98e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  135      5.72e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  136      6.46e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  137      6.19e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  138      6.65e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  139      6.56e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  140      6.57e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  141      6.84e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  142      7.14e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  143      7.55e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  144      7.62e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  145      8.01e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  146      7.61e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  147      7.09e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  148      8.27e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  149      8.81e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  150      8.82e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  151      8.75e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  152      8.75e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  153      8.78e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  154      8.85e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  155      9.04e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  156      8.96e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  157      9.14e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  158      9.22e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  159      8.64e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  160      9.01e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  161      9.39e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  162      9.46e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  163      9.45e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  164      9.42e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  165      9.56e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  166      9.53e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  167      9.52e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  168      9.65e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  169      1.00e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  170      1.01e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  171      1.01e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  172      1.01e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  173      9.99e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  174      1.03e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  175      1.05e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  176      1.06e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  177      1.06e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  178      1.07e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  179      1.09e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  180      1.08e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  181      1.10e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  182      1.10e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  183      1.10e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  184      1.10e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  185      1.12e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  186      1.14e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  187      1.12e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  188      1.13e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  189      1.14e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  190      1.16e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  191      1.16e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  192      1.17e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  193      1.16e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  194      1.17e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  195      1.18e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  196      1.22e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  197      1.22e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  198      1.22e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  199      1.25e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+  200      1.27e-02     00000 Davidson Iteration
+
+ Q-Chem fatal error occurred in module libgscf/gen_scfman/internal_stability.C, line 86:
+
+ Davidson failed to converge. Increase INTERNAL_STABILITY_DAVIDSON_ITER or try something else.
+
+
+ Please submit a crash report at q-chem.com/reporter 
+ 
+ 

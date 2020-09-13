@@ -1,0 +1,664 @@
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 5.3 (devel), Q-Chem, Inc., Pleasanton, CA (2020)
+
+ Yihan Shao,  Zhengting Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  Jia Deng,  Xintian Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  T. Kus,  A. Landau,  
+ Jie Liu,  E. I. Proynov,  R. M. Richard,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Alam,  B. Albrecht,  
+ E. Alguire,  S. A. Baeppler,  D. Barton,  Z. Benda,  Y. A. Bernard,  
+ E. J. Berquist,  K. B. Bravaya,  H. Burton,  K. Carter-Fenk,  D. Casanova,  
+ Chun-Min Chang,  Yunqing Chen,  A. Chien,  K. D. Closser,  M. P. Coons,  
+ S. Coriani,  S. Dasgupta,  A. L. Dempwolff,  M. Diedenhofen,  Hainam Do,  
+ R. G. Edgar,  Po-Tung Fang,  S. Faraji,  S. Fatehi,  Qingguo Feng,  
+ J. Fosso-Tande,  J. Gayvert,  Qinghui Ge,  A. Ghysels,  G. Gidofalvi,  
+ J. Gomes,  J. Gonthier,  A. Gunina,  D. Hait,  M. W. D. Hanson-Heine,  
+ P. H. P. Harbach,  A. W. Hauser,  M. F. Herbst,  J. E. Herr,  
+ E. G. Hohenstein,  Z. C. Holden,  Kerwin Hui,  B. C. Huynh,  T.-C. Jagau,  
+ Hyunjun Ji,  B. Kaduk,  K. Khistyaev,  Jaehoon Kim,  P. Klunzinger,  K. Koh,  
+ D. Kosenkov,  L. Koulias,  T. Kowalczyk,  C. M. Krauter,  A. Kunitsa,  
+ Ka Un Lao,  A. Laurent,  K. V. Lawler,  Joonho Lee,  D. Lefrancois,  
+ S. Lehtola,  D. S. Levine,  Yi-Pei Li,  You-Sheng Lin,  Fenglai Liu,  
+ Kuan-Yu Liu,  E. Livshits,  M. Loipersberger,  A. Luenser,  P. Manohar,  
+ E. Mansoor,  S. F. Manzer,  Shan-Ping Mao,  Yuezhi Mao,  N. Mardirossian,  
+ A. V. Marenich,  T. Markovich,  L. A. Martinez-Martinez,  S. A. Maurer,  
+ N. J. Mayhall,  S. C. McKenzie,  J.-M. Mewes,  P. Morgante,  A. F. Morrison,  
+ J. W. Mullinax,  K. Nanda,  T. S. Nguyen-Beck,  R. Olivares-Amaya,  
+ K. J. Oosterbaan,  J. A. Parkhill,  S. K. Paul,  F. Pavosevic,  Zheng Pei,  
+ T. M. Perrine,  F. Plasser,  P. Pokhilko,  S. Prager,  A. Prociuk,  
+ E. Ramos,  B. Rana,  D. R. Rehn,  F. Rob,  M. Scheurer,  M. Schneider,  
+ N. Sergueev,  S. M. Sharada,  S. Sharma,  D. W. Small,  T. Stauch,  
+ C. J. Stein,  T. Stein,  Yu-Chuan Su,  S. P. Veccham,  Zhen Tao,  
+ A. J. W. Thom,  A. Tkatchenko,  T. Tsuchimochi,  N. M. Tubman,  L. Vogt,  
+ M. L. Vidal,  O. Vydrov,  M. A. Watson,  J. Wenzel,  M. de Wergifosse,  
+ T. A. Wesolowski,  A. White,  J. Witte,  A. Yamada,  Jun Yang,  K. Yao,  
+ S. Yeganeh,  S. R. Yost,  Zhi-Qiang You,  A. Zech,  Igor Ying Zhang,  
+ Xing Zhang,  Yan Zhao,  Ying Zhu,  B. R. Brooks,  G. K. L. Chan,  
+ C. J. Cramer,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  M. W. Schmidt,  
+ C. D. Sherrill,  D. G. Truhlar,  A. Aspuru-Guzik,  R. Baer,  A. T. Bell,  
+ N. A. Besley,  Jeng-Da Chai,  A. E. DePrince, III,  R. A. DiStasio Jr.,  
+ A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  Chao-Ping Hsu,  Yousung Jung,  
+ Jing Kong,  D. S. Lambrecht,  WanZhen Liang,  C. Ochsenfeld,  
+ V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  T. Van Voorhis,  
+ J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  B. Austin,  J. Baker,  G. J. O. Beran,  K. Brandhorst,  
+ S. T. Brown,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ Siu Hung Chien,  D. M. Chipman,  D. L. Crittenden,  H. Dachsel,  
+ R. J. Doerksen,  A. D. Dutoi,  L. Fusti-Molnar,  W. A. Goddard III,  
+ A. Golubeva-Zadorozhnaya,  S. R. Gwaltney,  G. Hawkins,  A. Heyden,  
+ S. Hirata,  G. Kedziora,  F. J. Keil,  C. Kelley,  Jihan Kim,  R. A. King,  
+ R. Z. Khaliullin,  P. P. Korambath,  W. Kurlancheek,  A. M. Lee,  M. S. Lee,  
+ S. V. Levchenko,  Ching Yeh Lin,  D. Liotard,  R. C. Lochan,  I. Lotan,  
+ P. E. Maslen,  N. Nair,  D. P. O'Neill,  D. Neuhauser,  E. Neuscamman,  
+ C. M. Oana,  R. Olson,  B. Peters,  R. Peverati,  P. A. Pieniazek,  
+ Y. M. Rhee,  J. Ritchie,  M. A. Rohrdanz,  E. Rosta,  N. J. Russ,  
+ H. F. Schaefer III,  N. E. Schultz,  N. Shenvi,  A. C. Simmonett,  A. Sodt,  
+ D. Stuck,  K. S. Thanthiriwatte,  V. Vanovschi,  Tao Wang,  A. Warshel,  
+ C. F. Williams,  Q. Wu,  X. Xu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 5.3.0 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 9.800.1 (Horizon Scraper).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Sat Aug 22 23:02:43 2020  
+
+n0092.mhg0
+Host: 0
+
+     Scratch files written to /local/scratch/users/yhljason/PH3O_wB97X-V_aug-pc-4.inp20200822180720//
+Processing $rem in /clusterfs/mhg/diptarka/qchem_transmom//config/preferences:
+Processing $rem in /global/home/users/yhljason/.qchemrc:
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$molecule
+0 1
+P        0.0000000000      0.0000000000     -0.3836153961
+H       -1.2521120981      0.0000000000     -1.0264054293
+H        0.6260878053     -1.0843997178     -1.0264202208
+H        0.6260878053      1.0843997178     -1.0264202208
+O        0.0000000000      0.0000000008      1.1041846038
+$end
+
+$rem
+jobtype sp
+method wB97X-V
+xc_grid 000099000590
+basis aug-pc-4
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+unrestricted true
+gen_scfman true
+internal_stability_iter 15
+internal_stability_davidson_iter 200
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+$end
+
+
+--------------------------------------------------------------
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      P       0.0000000000     0.0000000000    -0.3836153961
+    2      H      -1.2521120981     0.0000000000    -1.0264054293
+    3      H       0.6260878053    -1.0843997178    -1.0264202208
+    4      H       0.6260878053     1.0843997178    -1.0264202208
+    5      O       0.0000000000     0.0000000008     1.1041846038
+ ----------------------------------------------------------------
+ Nuclear Repulsion Energy =          65.47102974 hartrees
+ There are       13 alpha and       13 beta electrons
+ Requested basis set is aug-pc-4
+ There are 136 shells and 550 basis functions
+
+ Total QAlloc Memory Limit  64000 MB
+ Mega-Array Size      1467 MB
+ MEM_STATIC part      1500 MB
+
+                       Distance Matrix (Angstroms)
+             P (  1)   H (  2)   H (  3)   H (  4)
+   H (  2)  1.407467
+   H (  3)  1.407518  2.168769
+   H (  4)  1.407518  2.168769  2.168799
+   O (  5)  1.487800  2.471275  2.471313  2.471313
+
+ A cutoff of  1.0D-14 yielded   9053 shell pairs
+ There are    150269 function pairs (    272924 Cartesian)
+ Smallest overlap matrix eigenvalue = 4.85E-07
+ Linear dependence detected in AO basis
+ Tighter screening thresholds may be required for diffuse basis sets
+ Use S2THRESH > 14 and THRESH = 14 in case of SCF convergence issues
+ Number of orthogonalized atomic orbitals = 547
+ Maximum deviation from orthogonality = 3.333E-10
+
+ Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =    -0.0000000014 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ SAD guess density has 26.000000 electrons
+
+ -----------------------------------------------------------------------
+  General SCF calculation program by
+  Eric Jon Sundstrom, Paul Horn, Yuezhi Mao, Dmitri Zuev, Alec White,
+  David Stuck, Shaama M.S., Shane Yost, Joonho Lee, David Small,
+  Daniel Levine, Susi Lehtola, Hugh Burton, Evgeny Epifanovsky,
+  Bang C. Huynh
+ -----------------------------------------------------------------------
+ Exchange:     0.1670 Hartree-Fock + 1.0000 wB97X-V + LR-HF
+ Correlation:  1.0000 wB97X-V
+ Using Euler-Maclaurin-Lebedev (99,590) quadrature formula
+ Nonlocal Correlation:  VV10 with C = 0.0100 and b = 6.00 and scale = 1.00000
+ Grid used for NLC:  SG-1 standard quadrature
+Running Object-Oriented UKS (UHF)
+performing a single roothaan step with Fock from read density so that orbitals are available to all algorithms
+ -------------------------------------------------------
+ OpenMP BLAS3 based DFT computing Module                
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ -------------------------------------------------------
+ OpenMP BLAS3 based DFT computing Module                
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ -------------------------------------------------------
+ OpenMP BLAS3 based DFT computing Module                
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+energy of the guess density (C=0) -418.531805421591
+ -------------------------------------------------------
+ OpenMP BLAS3 based DFT computing Module                
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ -------------------------------------------------------
+ OpenMP BLAS3 based DFT computing Module                
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ -------------------------------------------------------
+ OpenMP BLAS3 based DFT computing Module                
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+We will preform up to 15 macro iterations over saddle points until a stable solution is found
+Energy prior to optimization (guess energy) = -418.225030492047
+Begin Timing: Total SCF Calculation
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-08
+    1    -418.2250304920      1.18e-01     00000  Descent step
+    2    -418.3540907035      2.22e-02     00000  Normal BFGS step
+    3    -418.3612360524      4.30e-03     00000  Normal BFGS step
+    4    -418.3617542748      1.26e-03     00000  Normal BFGS step
+    5    -418.3617892963      2.84e-04     00000  Normal BFGS step
+    6    -418.3617911604      9.68e-05     00000  Normal BFGS step
+    7    -418.3617912773      1.33e-05     00000  Normal BFGS step
+    8    -418.3617912812      2.90e-06     00000  Normal BFGS step
+    9    -418.3617912814      4.48e-07     00000  Normal BFGS step
+   10    -418.3617912818      1.39e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   11    -418.3617912814      7.54e-08     00000  Normal BFGS step
+   12    -418.3617912814      2.45e-08     00000  Normal BFGS step
+   13    -418.3617912818      5.22e-08     00000  Normal BFGS step
+   14    -418.3617912818      3.66e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   15    -418.3617912814      5.48e-08     00000  Normal BFGS step
+   16    -418.3617912814      3.33e-08     00000  Normal BFGS step
+   17    -418.3617912818      5.58e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   18    -418.3617912814      2.09e-08     00000  Normal BFGS step
+   19    -418.3617912818      4.08e-08     00000  Normal BFGS step
+   20    -418.3617912818      3.70e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   21    -418.3617912814      5.59e-08     00000  Normal BFGS step
+   22    -418.3617912814      3.37e-08     00000  Normal BFGS step
+   23    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   24    -418.3617912814      2.10e-08     00000  Normal BFGS step
+   25    -418.3617912818      4.07e-08     00000  Normal BFGS step
+   26    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   27    -418.3617912814      5.60e-08     00000  Normal BFGS step
+   28    -418.3617912814      3.37e-08     00000  Normal BFGS step
+   29    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   30    -418.3617912814      2.10e-08     00000  Normal BFGS step
+   31    -418.3617912818      4.07e-08     00000  Normal BFGS step
+   32    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   33    -418.3617912814      5.60e-08     00000  Normal BFGS step
+   34    -418.3617912814      3.37e-08     00000  Normal BFGS step
+   35    -418.3617912818      5.63e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   36    -418.3617912814      2.09e-08     00000  Normal BFGS step
+   37    -418.3617912818      4.08e-08     00000  Normal BFGS step
+   38    -418.3617912818      3.70e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   39    -418.3617912814      6.14e-08     00000  Normal BFGS step
+   40    -418.3617912814      3.54e-08     00000  Normal BFGS step
+   41    -418.3617912818      6.07e-08     00000  Normal BFGS step
+   42    -418.3617912818      3.54e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   43    -418.3617912814      5.64e-08     00000  Normal BFGS step
+   44    -418.3617912814      3.44e-08     00000  Normal BFGS step
+   45    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   46    -418.3617912814      2.13e-08     00000  Normal BFGS step
+   47    -418.3617912818      4.05e-08     00000  Normal BFGS step
+   48    -418.3617912818      3.67e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   49    -418.3617912814      5.60e-08     00000  Normal BFGS step
+   50    -418.3617912814      3.38e-08     00000  Normal BFGS step
+   51    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   52    -418.3617912814      2.11e-08     00000  Normal BFGS step
+   53    -418.3617912818      4.07e-08     00000  Normal BFGS step
+   54    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   55    -418.3617912814      5.59e-08     00000  Normal BFGS step
+   56    -418.3617912814      3.37e-08     00000  Normal BFGS step
+   57    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   58    -418.3617912814      2.10e-08     00000  Normal BFGS step
+   59    -418.3617912818      4.07e-08     00000  Normal BFGS step
+   60    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   61    -418.3617912814      5.60e-08     00000  Normal BFGS step
+   62    -418.3617912814      3.37e-08     00000  Normal BFGS step
+   63    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   64    -418.3617912814      2.10e-08     00000  Normal BFGS step
+   65    -418.3617912818      4.07e-08     00000  Normal BFGS step
+   66    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   67    -418.3617912814      5.59e-08     00000  Normal BFGS step
+   68    -418.3617912814      3.37e-08     00000  Normal BFGS step
+   69    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   70    -418.3617912814      2.10e-08     00000  Normal BFGS step
+   71    -418.3617912818      4.07e-08     00000  Normal BFGS step
+   72    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   73    -418.3617912814      5.62e-08     00000  Normal BFGS step
+   74    -418.3617912814      3.39e-08     00000  Normal BFGS step
+   75    -418.3617912818      5.90e-08     00000  Normal BFGS step
+   76    -418.3617912818      3.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   77    -418.3617912814      6.32e-08     00000  Normal BFGS step
+   78    -418.3617912814      3.58e-08     00000  Normal BFGS step
+   79    -418.3617912818      5.71e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   80    -418.3617912814      2.15e-08     00000  Normal BFGS step
+   81    -418.3617912818      4.06e-08     00000  Normal BFGS step
+   82    -418.3617912818      3.66e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   83    -418.3617912814      5.60e-08     00000  Normal BFGS step
+   84    -418.3617912814      3.38e-08     00000  Normal BFGS step
+   85    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   86    -418.3617912814      2.11e-08     00000  Normal BFGS step
+   87    -418.3617912818      4.06e-08     00000  Normal BFGS step
+   88    -418.3617912818      3.68e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   89    -418.3617912814      5.59e-08     00000  Normal BFGS step
+   90    -418.3617912814      3.37e-08     00000  Normal BFGS step
+   91    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   92    -418.3617912814      2.10e-08     00000  Normal BFGS step
+   93    -418.3617912818      4.07e-08     00000  Normal BFGS step
+   94    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   95    -418.3617912814      5.60e-08     00000  Normal BFGS step
+   96    -418.3617912814      3.37e-08     00000  Normal BFGS step
+   97    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+   98    -418.3617912814      2.10e-08     00000  Normal BFGS step
+   99    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  100    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  101    -418.3617912814      5.59e-08     00000  Normal BFGS step
+  102    -418.3617912814      3.37e-08     00000  Normal BFGS step
+  103    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  104    -418.3617912814      2.10e-08     00000  Normal BFGS step
+  105    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  106    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  107    -418.3617912814      5.60e-08     00000  Normal BFGS step
+  108    -418.3617912814      3.37e-08     00000  Normal BFGS step
+  109    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  110    -418.3617912814      2.10e-08     00000  Normal BFGS step
+  111    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  112    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  113    -418.3617912814      5.62e-08     00000  Normal BFGS step
+  114    -418.3617912814      3.39e-08     00000  Normal BFGS step
+  115    -418.3617912818      5.92e-08     00000  Normal BFGS step
+  116    -418.3617912818      3.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  117    -418.3617912814      6.31e-08     00000  Normal BFGS step
+  118    -418.3617912814      3.57e-08     00000  Normal BFGS step
+  119    -418.3617912818      5.70e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  120    -418.3617912814      2.15e-08     00000  Normal BFGS step
+  121    -418.3617912818      4.06e-08     00000  Normal BFGS step
+  122    -418.3617912818      3.66e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  123    -418.3617912814      5.60e-08     00000  Normal BFGS step
+  124    -418.3617912814      3.38e-08     00000  Normal BFGS step
+  125    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  126    -418.3617912814      2.11e-08     00000  Normal BFGS step
+  127    -418.3617912818      4.06e-08     00000  Normal BFGS step
+  128    -418.3617912818      3.68e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  129    -418.3617912814      5.59e-08     00000  Normal BFGS step
+  130    -418.3617912814      3.37e-08     00000  Normal BFGS step
+  131    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  132    -418.3617912814      2.10e-08     00000  Normal BFGS step
+  133    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  134    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  135    -418.3617912814      5.59e-08     00000  Normal BFGS step
+  136    -418.3617912814      3.37e-08     00000  Normal BFGS step
+  137    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  138    -418.3617912814      2.10e-08     00000  Normal BFGS step
+  139    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  140    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  141    -418.3617912814      5.59e-08     00000  Normal BFGS step
+  142    -418.3617912814      3.37e-08     00000  Normal BFGS step
+  143    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  144    -418.3617912814      2.10e-08     00000  Normal BFGS step
+  145    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  146    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  147    -418.3617912814      5.60e-08     00000  Normal BFGS step
+  148    -418.3617912814      3.37e-08     00000  Normal BFGS step
+  149    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  150    -418.3617912814      2.10e-08     00000  Normal BFGS step
+  151    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  152    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  153    -418.3617912814      5.62e-08     00000  Normal BFGS step
+  154    -418.3617912814      3.38e-08     00000  Normal BFGS step
+  155    -418.3617912818      5.86e-08     00000  Normal BFGS step
+  156    -418.3617912818      3.59e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  157    -418.3617912814      6.35e-08     00000  Normal BFGS step
+  158    -418.3617912814      3.59e-08     00000  Normal BFGS step
+  159    -418.3617912818      5.73e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  160    -418.3617912814      2.15e-08     00000  Normal BFGS step
+  161    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  162    -418.3617912818      3.66e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  163    -418.3617912814      5.60e-08     00000  Normal BFGS step
+  164    -418.3617912814      3.38e-08     00000  Normal BFGS step
+  165    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  166    -418.3617912814      2.11e-08     00000  Normal BFGS step
+  167    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  168    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  169    -418.3617912814      5.59e-08     00000  Normal BFGS step
+  170    -418.3617912814      3.37e-08     00000  Normal BFGS step
+  171    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  172    -418.3617912814      2.10e-08     00000  Normal BFGS step
+  173    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  174    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  175    -418.3617912814      5.59e-08     00000  Normal BFGS step
+  176    -418.3617912814      3.37e-08     00000  Normal BFGS step
+  177    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  178    -418.3617912814      2.10e-08     00000  Normal BFGS step
+  179    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  180    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  181    -418.3617912814      5.59e-08     00000  Normal BFGS step
+  182    -418.3617912814      3.37e-08     00000  Normal BFGS step
+  183    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  184    -418.3617912814      2.10e-08     00000  Normal BFGS step
+  185    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  186    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  187    -418.3617912814      5.60e-08     00000  Normal BFGS step
+  188    -418.3617912814      3.37e-08     00000  Normal BFGS step
+  189    -418.3617912818      5.60e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  190    -418.3617912814      2.10e-08     00000  Normal BFGS step
+  191    -418.3617912818      4.07e-08     00000  Normal BFGS step
+  192    -418.3617912818      3.69e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  193    -418.3617912814      5.64e-08     00000  Normal BFGS step
+  194    -418.3617912814      3.40e-08     00000  Normal BFGS step
+  195    -418.3617912818      6.08e-08     00000  Normal BFGS step
+  196    -418.3617912818      3.63e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  197    -418.3617912814      6.15e-08     00000  Normal BFGS step
+  198    -418.3617912814      3.52e-08     00000  Normal BFGS step
+  199    -418.3617912818      5.65e-08     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 2.35e-08
+  200    -418.3617912814      2.15e-08     00000  Normal BFGS step
+max iterations reached for algorithm: GDM          
+we have reached max iterations on our final algorithm
+
+ Q-Chem fatal error occurred in module libgscf/gen_scfman/gen_scfman_hybrid_algorithm.C, line 277:
+
+ SCF failed to converge
+
+
+ Please submit a crash report at q-chem.com/reporter 
+ 
+ 

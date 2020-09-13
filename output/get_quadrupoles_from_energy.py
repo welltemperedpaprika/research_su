@@ -27,5 +27,5 @@ def dipoles_from_energy(method, s):
         energies.append(float(re.search(r'\-?[0-9][0-9.]{2,}', ele).group()))
     dipoles = []
     for i in range(0, len(energies), 2):
-        dipoles.append((energies[i] - energies[i + 1]) / (0.0002) * e02_to_debye_ang)
+        dipoles.append((energies[i] - energies[i + 1]) / (0.0002) / debye_to_e)
     return dipoles

@@ -1,0 +1,564 @@
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 5.3 (devel), Q-Chem, Inc., Pleasanton, CA (2020)
+
+ Yihan Shao,  Zhengting Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  Jia Deng,  Xintian Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  T. Kus,  A. Landau,  
+ Jie Liu,  E. I. Proynov,  R. M. Richard,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Alam,  B. Albrecht,  
+ E. Alguire,  S. A. Baeppler,  D. Barton,  Z. Benda,  Y. A. Bernard,  
+ E. J. Berquist,  K. B. Bravaya,  H. Burton,  K. Carter-Fenk,  D. Casanova,  
+ Chun-Min Chang,  Yunqing Chen,  A. Chien,  K. D. Closser,  M. P. Coons,  
+ S. Coriani,  S. Dasgupta,  A. L. Dempwolff,  M. Diedenhofen,  Hainam Do,  
+ R. G. Edgar,  Po-Tung Fang,  S. Faraji,  S. Fatehi,  Qingguo Feng,  
+ J. Fosso-Tande,  J. Gayvert,  Qinghui Ge,  A. Ghysels,  G. Gidofalvi,  
+ J. Gomes,  J. Gonthier,  A. Gunina,  D. Hait,  M. W. D. Hanson-Heine,  
+ P. H. P. Harbach,  A. W. Hauser,  M. F. Herbst,  J. E. Herr,  
+ E. G. Hohenstein,  Z. C. Holden,  Kerwin Hui,  B. C. Huynh,  T.-C. Jagau,  
+ Hyunjun Ji,  B. Kaduk,  K. Khistyaev,  Jaehoon Kim,  P. Klunzinger,  K. Koh,  
+ D. Kosenkov,  L. Koulias,  T. Kowalczyk,  C. M. Krauter,  A. Kunitsa,  
+ Ka Un Lao,  A. Laurent,  K. V. Lawler,  Joonho Lee,  D. Lefrancois,  
+ S. Lehtola,  D. S. Levine,  Yi-Pei Li,  You-Sheng Lin,  Fenglai Liu,  
+ Kuan-Yu Liu,  E. Livshits,  M. Loipersberger,  A. Luenser,  P. Manohar,  
+ E. Mansoor,  S. F. Manzer,  Shan-Ping Mao,  Yuezhi Mao,  N. Mardirossian,  
+ A. V. Marenich,  T. Markovich,  L. A. Martinez-Martinez,  S. A. Maurer,  
+ N. J. Mayhall,  S. C. McKenzie,  J.-M. Mewes,  P. Morgante,  A. F. Morrison,  
+ J. W. Mullinax,  K. Nanda,  T. S. Nguyen-Beck,  R. Olivares-Amaya,  
+ K. J. Oosterbaan,  J. A. Parkhill,  S. K. Paul,  F. Pavosevic,  Zheng Pei,  
+ T. M. Perrine,  F. Plasser,  P. Pokhilko,  S. Prager,  A. Prociuk,  
+ E. Ramos,  B. Rana,  D. R. Rehn,  F. Rob,  M. Scheurer,  M. Schneider,  
+ N. Sergueev,  S. M. Sharada,  S. Sharma,  D. W. Small,  T. Stauch,  
+ C. J. Stein,  T. Stein,  Yu-Chuan Su,  S. P. Veccham,  Zhen Tao,  
+ A. J. W. Thom,  A. Tkatchenko,  T. Tsuchimochi,  N. M. Tubman,  L. Vogt,  
+ M. L. Vidal,  O. Vydrov,  M. A. Watson,  J. Wenzel,  M. de Wergifosse,  
+ T. A. Wesolowski,  A. White,  J. Witte,  A. Yamada,  Jun Yang,  K. Yao,  
+ S. Yeganeh,  S. R. Yost,  Zhi-Qiang You,  A. Zech,  Igor Ying Zhang,  
+ Xing Zhang,  Yan Zhao,  Ying Zhu,  B. R. Brooks,  G. K. L. Chan,  
+ C. J. Cramer,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  M. W. Schmidt,  
+ C. D. Sherrill,  D. G. Truhlar,  A. Aspuru-Guzik,  R. Baer,  A. T. Bell,  
+ N. A. Besley,  Jeng-Da Chai,  A. E. DePrince, III,  R. A. DiStasio Jr.,  
+ A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  Chao-Ping Hsu,  Yousung Jung,  
+ Jing Kong,  D. S. Lambrecht,  WanZhen Liang,  C. Ochsenfeld,  
+ V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  T. Van Voorhis,  
+ J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  B. Austin,  J. Baker,  G. J. O. Beran,  K. Brandhorst,  
+ S. T. Brown,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ Siu Hung Chien,  D. M. Chipman,  D. L. Crittenden,  H. Dachsel,  
+ R. J. Doerksen,  A. D. Dutoi,  L. Fusti-Molnar,  W. A. Goddard III,  
+ A. Golubeva-Zadorozhnaya,  S. R. Gwaltney,  G. Hawkins,  A. Heyden,  
+ S. Hirata,  G. Kedziora,  F. J. Keil,  C. Kelley,  Jihan Kim,  R. A. King,  
+ R. Z. Khaliullin,  P. P. Korambath,  W. Kurlancheek,  A. M. Lee,  M. S. Lee,  
+ S. V. Levchenko,  Ching Yeh Lin,  D. Liotard,  R. C. Lochan,  I. Lotan,  
+ P. E. Maslen,  N. Nair,  D. P. O'Neill,  D. Neuhauser,  E. Neuscamman,  
+ C. M. Oana,  R. Olson,  B. Peters,  R. Peverati,  P. A. Pieniazek,  
+ Y. M. Rhee,  J. Ritchie,  M. A. Rohrdanz,  E. Rosta,  N. J. Russ,  
+ H. F. Schaefer III,  N. E. Schultz,  N. Shenvi,  A. C. Simmonett,  A. Sodt,  
+ D. Stuck,  K. S. Thanthiriwatte,  V. Vanovschi,  Tao Wang,  A. Warshel,  
+ C. F. Williams,  Q. Wu,  X. Xu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 5.3.0 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 9.800.1 (Horizon Scraper).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Sun Aug 23 15:59:14 2020  
+
+n0093.mhg0
+Host: 0
+
+     Scratch files written to /local/scratch/users/yhljason/BN_wB97X-D_aug-pc-4.inp20200823155901//
+Processing $rem in /clusterfs/mhg/diptarka/qchem_transmom//config/preferences:
+Processing $rem in /global/home/users/yhljason/.qchemrc:
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$molecule
+0 3  
+B1      0.0000  0.0000  0.0000
+N2      0.0000  0.0000  1.3250
+$end
+
+$rem
+jobtype sp
+method wB97X-D
+xc_grid 000099000590
+basis aug-pc-4
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+unrestricted true
+gen_scfman true
+internal_stability_iter 15
+internal_stability_davidson_iter 200
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+$end
+
+
+--------------------------------------------------------------
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      B       0.0000000000     0.0000000000     0.0000000000
+    2      N       0.0000000000     0.0000000000     1.3250000000
+ ----------------------------------------------------------------
+ Nuclear Repulsion Energy =          13.97826389 hartrees
+ There are        7 alpha and        5 beta electrons
+ Requested basis set is aug-pc-4
+ There are 66 shells and 290 basis functions
+
+ Total QAlloc Memory Limit  64000 MB
+ Mega-Array Size      1467 MB
+ MEM_STATIC part      1500 MB
+
+                       Distance Matrix (Angstroms)
+             B (  1)
+   N (  2)  1.325000
+
+ A cutoff of  1.0D-14 yielded   2209 shell pairs
+ There are     42981 function pairs (     83891 Cartesian)
+ Smallest overlap matrix eigenvalue = 1.82E-06
+
+ Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =    -0.0000000013 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ SAD guess density has 12.000000 electrons
+
+ -----------------------------------------------------------------------
+  General SCF calculation program by
+  Eric Jon Sundstrom, Paul Horn, Yuezhi Mao, Dmitri Zuev, Alec White,
+  David Stuck, Shaama M.S., Shane Yost, Joonho Lee, David Small,
+  Daniel Levine, Susi Lehtola, Hugh Burton, Evgeny Epifanovsky,
+  Bang C. Huynh
+ -----------------------------------------------------------------------
+ Exchange:     0.2220 Hartree-Fock + 1.0000 wB97X-D + LR-HF
+ Correlation:  1.0000 wB97X-D
+ Using Euler-Maclaurin-Lebedev (99,590) quadrature formula
+ Dispersion:   Grimme D
+Running Object-Oriented UKS (UHF)
+performing a single roothaan step with Fock from read density so that orbitals are available to all algorithms
+energy of the guess density (C=0) -79.399385856707
+We will preform up to 15 macro iterations over saddle points until a stable solution is found
+Energy prior to optimization (guess energy) = -79.365611278481
+Begin Timing: Total SCF Calculation
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-08
+    1     -79.3656112785      1.44e-01     00000  Descent step
+    2     -79.3733093791      2.12e-01     00000  Normal BFGS step
+    3     -79.4115246623      2.72e-02     00000  Normal BFGS step
+    4     -79.4133324938      1.88e-02     00000  Normal BFGS step
+    5     -79.4142294078      4.13e-03     00000  Normal BFGS step
+    6     -79.4143123475      2.59e-03     00000  Normal BFGS step
+    7     -79.4143542264      8.70e-04     00000  Normal BFGS step
+    8     -79.4143587185      5.45e-04     00000  Normal BFGS step
+    9     -79.4143606605      1.06e-04     00000  Normal BFGS step
+   10     -79.4143607295      6.46e-05     00000  Normal BFGS step
+   11     -79.4143607431      2.16e-05     00000  Normal BFGS step
+   12     -79.4143607446      4.64e-06     00000  Normal BFGS step
+   13     -79.4143607447      9.69e-07     00000  Normal BFGS step
+   14     -79.4143607448      2.65e-07     00000  Normal BFGS step
+   15     -79.4143607448      2.54e-07     00000  Normal BFGS step
+   16     -79.4143607448      1.85e-07     00000  Normal BFGS step
+   17     -79.4143607448      1.85e-07     00000  Normal BFGS step
+   18     -79.4143607448      1.85e-07     00000  Normal BFGS step
+   19     -79.4143607448      2.02e-07     00000  Normal BFGS step
+   20     -79.4143607448      4.24e-07     00000  Normal BFGS step
+   21     -79.4143607448      8.00e-07     00000  Normal BFGS step
+   22     -79.4143607448      1.39e-06     00000  Normal BFGS step
+   23     -79.4143607448      2.34e-06     00000  Normal BFGS step
+   24     -79.4143607448      3.87e-06     00000  Normal BFGS step
+   25     -79.4143607449      6.31e-06     00000  Normal BFGS step
+   26     -79.4143607451      1.01e-05     00000  Normal BFGS step
+   27     -79.4143607456      1.70e-05     00000  Normal BFGS step
+   28     -79.4143607463      2.16e-05     00000  Normal BFGS step
+   29     -79.4143607477      1.59e-05     00000  Normal BFGS step
+   30     -79.4143607493      9.17e-06     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   31     -79.4143607471      2.93e-05     00000  Normal BFGS step
+   32     -79.4143607498      6.01e-06     00000  Normal BFGS step
+   33     -79.4143607501      7.15e-06     00000  Normal BFGS step
+   34     -79.4143607418      3.63e-05     00000 Line search: overstep
+   35     -79.4143607505      8.81e-06     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   36     -79.4143607498      1.99e-05     00000  Normal BFGS step
+   37     -79.4143607511      7.61e-06     00000  Normal BFGS step
+   38     -79.4143607514      7.08e-06     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   39     -79.4143607508      1.72e-05     00000  Normal BFGS step
+   40     -79.4143607523      2.55e-06     00000  Normal BFGS step
+   41     -79.4143607527      1.88e-06     00000  Normal BFGS step
+   42     -79.4143607414      3.94e-05     00000 Line search: overstep
+   43     -79.4143607530      2.56e-06     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   44     -79.4143607511      2.05e-05     00000  Normal BFGS step
+   45     -79.4143607535      1.57e-06     00000  Normal BFGS step
+   46     -79.4143607538      1.73e-06     00000  Normal BFGS step
+   47     -79.4143607433      3.75e-05     00000 Line search: overstep
+   48     -79.4143607541      2.43e-06     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   49     -79.4143607517      2.10e-05     00000  Normal BFGS step
+   50     -79.4143607544      1.59e-06     00000  Normal BFGS step
+   51     -79.4143607547      1.58e-06     00000  Normal BFGS step
+   52     -79.4143607459      3.36e-05     00000 Line search: overstep
+   53     -79.4143607549      2.16e-06     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   54     -79.4143607529      1.93e-05     00000  Normal BFGS step
+   55     -79.4143607552      1.56e-06     00000  Normal BFGS step
+   56     -79.4143607554      1.54e-06     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   57     -79.4143607519      2.29e-05     00000  Normal BFGS step
+   58     -79.4143607556      9.08e-07     00000  Normal BFGS step
+   59     -79.4143607558      8.15e-07     00000  Normal BFGS step
+   60     -79.4143607316      5.28e-05     00000 Line search: overstep
+   61     -79.4143607560      1.63e-06     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   62     -79.4143607524      2.24e-05     00000  Normal BFGS step
+   63     -79.4143607562      1.21e-06     00000  Normal BFGS step
+   64     -79.4143607563      1.44e-06     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   65     -79.4143607526      2.27e-05     00000  Normal BFGS step
+   66     -79.4143607565      8.78e-07     00000  Normal BFGS step
+   67     -79.4143607566      9.07e-07     00000  Normal BFGS step
+   68     -79.4143607453      3.66e-05     00000 Line search: overstep
+   69     -79.4143607567      1.15e-06     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   70     -79.4143607537      2.05e-05     00000  Normal BFGS step
+   71     -79.4143607568      1.01e-06     00000  Normal BFGS step
+   72     -79.4143607569      1.07e-06     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   73     -79.4143607545      1.87e-05     00000  Normal BFGS step
+   74     -79.4143607570      9.42e-07     00000  Normal BFGS step
+   75     -79.4143607571      7.98e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   76     -79.4143607533      2.20e-05     00000  Normal BFGS step
+   77     -79.4143607572      5.37e-07     00000  Normal BFGS step
+   78     -79.4143607573      5.08e-07     00000  Normal BFGS step
+   79     -79.4143607505      2.84e-05     00000 Line search: overstep
+   80     -79.4143607574      6.76e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   81     -79.4143607546      1.88e-05     00000  Normal BFGS step
+   82     -79.4143607574      6.44e-07     00000  Normal BFGS step
+   83     -79.4143607575      7.04e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   84     -79.4143607556      1.58e-05     00000  Normal BFGS step
+   85     -79.4143607576      6.31e-07     00000  Normal BFGS step
+   86     -79.4143607576      5.54e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   87     -79.4143607552      1.75e-05     00000  Normal BFGS step
+   88     -79.4143607577      4.32e-07     00000  Normal BFGS step
+   89     -79.4143607577      3.80e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   90     -79.4143607535      2.22e-05     00000  Normal BFGS step
+   91     -79.4143607577      2.60e-07     00000  Normal BFGS step
+   92     -79.4143607578      1.66e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   93     -79.4143607525      2.47e-05     00000  Normal BFGS step
+   94     -79.4143607578      2.56e-07     00000  Normal BFGS step
+   95     -79.4143607578      3.07e-07     00000  Normal BFGS step
+   96     -79.4143607501      2.92e-05     00000 Line search: overstep
+   97     -79.4143607579      1.42e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+   98     -79.4143607535      2.23e-05     00000  Normal BFGS step
+   99     -79.4143607579      9.39e-08     00000  Normal BFGS step
+  100     -79.4143607579      1.98e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+  101     -79.4143607563      1.39e-05     00000  Normal BFGS step
+  102     -79.4143607579      1.71e-07     00000  Normal BFGS step
+  103     -79.4143607580      1.98e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+  104     -79.4143607563      1.38e-05     00000  Normal BFGS step
+  105     -79.4143607580      2.11e-07     00000  Normal BFGS step
+  106     -79.4143607580      1.78e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+  107     -79.4143607567      1.22e-05     00000  Normal BFGS step
+  108     -79.4143607580      2.29e-07     00000  Normal BFGS step
+  109     -79.4143607580      1.88e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+  110     -79.4143607572      9.99e-06     00000  Normal BFGS step
+  111     -79.4143607580      2.43e-07     00000  Normal BFGS step
+  112     -79.4143607580      1.74e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+  113     -79.4143607578      5.76e-06     00000  Normal BFGS step
+  114     -79.4143607581      1.83e-07     00000  Normal BFGS step
+  115     -79.4143607581      1.69e-07     00000  Normal BFGS step
+  GDM::WARNING energy changes are now smaller than effective accuracy.
+  GDM::        calculation will continue, but THRESH should be increased
+  GDM::        or SCF_CONVERGENCE decreased. 
+  GDM::        effective_thresh = 5.94e-09
+  116     -79.4143607580      2.76e-06     00000  Normal BFGS step
+  117     -79.4143607581      3.08e-07     00000  Normal BFGS step
+  118     -79.4143607581      5.04e-07     00000  Normal BFGS step
+  119     -79.4143607581      1.04e-06     00000  Normal BFGS step
+  120     -79.4143607581      7.50e-07     00000  Normal BFGS step
+  121     -79.4143607581      3.83e-07     00000  Normal BFGS step
+  122     -79.4143607581      5.97e-07     00000  Normal BFGS step
+  123     -79.4143607581      2.42e-07     00000  Normal BFGS step
+  124     -79.4143607581      3.73e-08     00000  Normal BFGS step
+  125     -79.4143607581      2.06e-08     00000  Normal BFGS step
+  126     -79.4143607581      1.19e-08     00000  Normal BFGS step
+  127     -79.4143607581      4.50e-09     00000 Convergence criterion met
+Timing for Single Stationary Point: 10987.00s (wall), 86169.56s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+ Warning: Hessian-vector products not implemented
+ Finite difference Hessian-vector products will be used.
+computing hessian-vector products by finite difference
+    1      3.89e-01     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    2      1.41e-01     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    3      3.38e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    4      1.60e-02     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    5      3.85e-03     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    6      9.92e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    7      2.56e-04     00000 Davidson Iteration
+computing hessian-vector products by finite difference
+    8      7.63e-05     00000 Davidson Converged
+converged_eigenvalues
+   8.5217e-07
+   1.2864e-01
+Threshold for negative eigenvalues: -1.0e-05
+solution was a local minimum (stable)
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 3187.00s (wall), 24674.82s (cpu)
+Our SCF solution is stable!
+Timing for Total SCF: 14174.00s (wall), 110844.44s (cpu)
+ Total energy in the final basis set =      -79.4143607581
+<S^2> =          2.006613904
+    ==================================================
+              The end of Object-Oriented SCFman       
+    ==================================================
+
+ --------------------------------------------------------------
+
+                    Orbital Energies (a.u.)
+ --------------------------------------------------------------
+
+ Alpha MOs
+ -- Occupied --
+-14.4864  -6.9543  -0.9474  -0.5016  -0.4519  -0.4108  -0.4098
+ -- Virtual --
+  0.0155   0.0161   0.0201   0.0297   0.0309   0.0427   0.0621   0.0640
+  0.0645   0.0740   0.0839   0.0841   0.0908   0.0964   0.1068   0.1127
+  0.1152   0.1187   0.1500   0.1503   0.1733   0.1734   0.1763   0.1773
+  0.1809   0.2096   0.2130   0.2136   0.2271   0.2277   0.2387   0.2505
+  0.2579   0.2616   0.2622   0.2630   0.2672   0.2674   0.2716   0.2737
+  0.2737   0.2753   0.2805   0.3616   0.3623   0.3705   0.3711   0.3748
+  0.3782   0.3884   0.3884   0.3907   0.3908   0.3949   0.3949   0.3972
+  0.3999   0.3999   0.4008   0.4401   0.4415   0.4443   0.4841   0.4844
+  0.5006   0.5011   0.5015   0.5327   0.5414   0.5488   0.5859   0.6151
+  0.6220   0.6401   0.6428   0.6458   0.7079   0.7126   0.7142   0.7145
+  0.7170   0.7172   0.7492   0.7494   0.7645   0.7926   0.8007   0.8123
+  0.8205   0.8209   0.8221   0.8288   0.8836   0.8839   0.9134   0.9135
+  0.9147   0.9592   0.9592   0.9825   0.9826   1.0145   1.0233   1.0375
+  1.0653   1.0727   1.0771   1.1410   1.2981   1.2999   1.3242   1.3246
+  1.3398   1.4636   1.4636   1.5193   1.5196   1.5779   1.5957   1.5960
+  1.6023   1.6148   1.6272   1.6431   1.7037   1.8426   1.8464   1.8543
+  1.8652   1.8665   2.0622   2.0814   2.0964   2.1321   2.2145   2.2160
+  2.5991   2.6161   2.7035   2.9747   2.9931   3.0038   3.0040   3.0078
+  3.1261   3.1468   3.1479   3.2655   3.2656   3.3129   3.3129   3.3354
+  3.3574   3.4802   3.6497   3.6500   3.7237   3.7248   3.7315   3.7368
+  3.7543   3.8825   3.8828   3.9085   3.9272   4.0395   4.0452   4.0683
+  4.1182   4.6275   4.6288   4.6568   4.6801   4.7381   4.9892   4.9910
+  5.0973   5.1467   5.1467   5.4650   5.4651   5.6697   5.6967   6.2911
+  6.2925   6.4134   6.8204   6.8533   6.9231   6.9934   6.9958   7.1409
+  7.3172   7.3362   7.4935   7.4939   7.9751   8.0651   8.0879   8.1368
+  9.0262   9.2770   9.2966   9.2970   9.3153   9.3538   9.3538   9.3574
+  9.3574   9.4869   9.4869   9.5051   9.5215   9.6237   9.6238   9.8696
+ 10.2009  10.2010  10.2604  10.2604  10.2880  10.2983  10.3059  10.3059
+ 10.3129  10.7551  10.7667  10.8942  10.8946  11.0474  11.3391  11.3391
+ 11.5216  11.5243  11.5544  11.5544  11.5729  11.6206  11.6206  11.8558
+ 11.8849  12.2279  12.2279  12.3737  12.3958  12.7802  13.6667  13.7096
+ 13.7101  14.4269  14.4269  14.6410  14.6410  15.3102  15.3104  15.4916
+ 15.5226  15.9206  16.0838  16.1126  16.1431  17.0092  17.0097  17.7542
+ 17.7860  18.7165  19.5303  20.3789  20.3790  20.7585  20.7671  22.1636
+ 23.2702  26.3170  26.3509  27.9084  47.9400  47.9403  48.2325  48.2567
+ 48.8853  78.6333 103.7267
+
+ Beta MOs
+ -- Occupied --
+-14.4730  -6.9426  -0.8810  -0.4414  -0.3873
+ -- Virtual --
+ -0.1201  -0.1043   0.0240   0.0244   0.0251   0.0366   0.0642   0.0654
+  0.0670   0.0681   0.0823   0.0938   0.0958   0.1008   0.1187   0.1190
+  0.1243   0.1260   0.1278   0.1338   0.1611   0.1626   0.1840   0.1863
+  0.1880   0.1916   0.1958   0.2193   0.2227   0.2327   0.2347   0.2378
+  0.2545   0.2668   0.2776   0.2786   0.2809   0.2830   0.2832   0.2845
+  0.2883   0.2885   0.2885   0.2897   0.2998   0.3698   0.3727   0.3845
+  0.3878   0.3886   0.3958   0.4110   0.4110   0.4119   0.4124   0.4127
+  0.4144   0.4147   0.4166   0.4171   0.4178   0.4642   0.4688   0.4715
+  0.4932   0.4932   0.4972   0.5003   0.5208   0.5521   0.5540   0.5576
+  0.5922   0.6300   0.6320   0.6487   0.6518   0.6600   0.7141   0.7152
+  0.7172   0.7176   0.7220   0.7220   0.7478   0.7503   0.7822   0.8035
+  0.8080   0.8250   0.8271   0.8318   0.8395   0.8404   0.8821   0.8841
+  0.9123   0.9133   0.9224   0.9616   0.9632   0.9840   0.9855   1.0245
+  1.0252   1.0535   1.0757   1.0766   1.0769   1.1486   1.3149   1.3176
+  1.3354   1.3553   1.3585   1.4717   1.4718   1.5437   1.5457   1.6013
+  1.6064   1.6068   1.6277   1.6278   1.6607   1.6608   1.7194   1.8562
+  1.8664   1.8689   1.8750   1.8761   2.0730   2.0843   2.1027   2.1498
+  2.2220   2.2225   2.6157   2.6222   2.7268   3.0087   3.0211   3.0416
+  3.0420   3.0553   3.1467   3.1925   3.1963   3.2946   3.2948   3.3440
+  3.3458   3.3878   3.3884   3.5189   3.7073   3.7086   3.7849   3.7888
+  3.7891   3.7969   3.7992   3.9357   3.9417   3.9756   3.9804   4.0722
+  4.1072   4.1147   4.1694   4.6754   4.6775   4.7006   4.7080   4.7805
+  5.0273   5.0294   5.1269   5.1777   5.1778   5.4966   5.4980   5.7174
+  5.7179   6.3234   6.3236   6.4579   6.8645   6.8689   6.9650   7.0371
+  7.0507   7.2007   7.4002   7.4137   7.5696   7.5750   8.0640   8.1363
+  8.1449   8.1837   9.0858   9.3280   9.3341   9.3401   9.3619   9.4033
+  9.4061   9.4330   9.4332   9.5721   9.5746   9.5936   9.6035   9.7610
+  9.7677   9.9602  10.2919  10.2947  10.3462  10.3470  10.3682  10.3941
+ 10.3941  10.4165  10.4168  10.7859  10.7860  10.9769  10.9805  11.0915
+ 11.3946  11.3959  11.5589  11.5666  11.6131  11.6132  11.6265  11.6738
+ 11.6740  11.9078  11.9105  12.2817  12.2828  12.4420  12.4439  12.8167
+ 13.7136  13.7572  13.7639  14.4881  14.4900  14.6865  14.6875  15.3467
+ 15.3529  15.5470  15.5530  15.9607  16.1228  16.1658  16.1728  17.0627
+ 17.0878  17.8029  17.8174  18.7514  19.5613  20.3782  20.3789  20.7740
+ 20.7751  22.1811  23.3072  26.3611  26.3621  27.9341  47.9664  47.9681
+ 48.2704  48.2709  48.9096  78.6579 103.7333
+ --------------------------------------------------------------
+
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)    Spin (a.u.)
+  --------------------------------------------------------
+      1 B                     0.299089       1.299648
+      2 N                    -0.299089       0.700352
+  --------------------------------------------------------
+  Sum of atomic charges =    -0.000000
+  Sum of spin   charges =     2.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -0.0000
+    Dipole Moment (Debye)
+         X       0.0000      Y      -0.0000      Z      -2.2036
+       Tot       2.2036
+    Quadrupole Moments (Debye-Ang)
+        XX     -10.1904     XY       0.0000     YY     -12.1033
+        XZ       0.0000     YZ      -0.0000     ZZ     -15.2308
+    Octopole Moments (Debye-Ang^2)
+       XXX       0.0000    XXY      -0.0000    XYY       0.0000
+       YYY      -0.0000    XXZ      -7.2122    XYZ       0.0000
+       YYZ      -8.7596    XZZ       0.0000    YZZ      -0.0000
+       ZZZ     -29.2432
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX     -11.4721   XXXY       0.0000   XXYY      -4.5419
+      XYYY       0.0000   YYYY     -15.7493   XXXZ       0.0000
+      XXYZ      -0.0000   XYYZ       0.0000   YYYZ      -0.0000
+      XXZZ     -14.3577   XYZZ       0.0000   YYZZ     -16.7015
+      XZZZ       0.0000   YZZZ      -0.0000   ZZZZ     -89.8491
+ -----------------------------------------------------------------
+Archival summary:
+1\1\n0093.mhg0\SP\ProcedureUnspecified\BasisUnspecified\11(3)\yhljason\SunAug2319:58:472020SunAug2319:58:472020\0\\#,ProcedureUnspecified,BasisUnspecified,\\0,3\B\N,1,1.325\\\@
+
+ Total job time:  14372.88s(wall), 112389.03s(cpu) 
+ Sun Aug 23 19:58:47 2020
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+

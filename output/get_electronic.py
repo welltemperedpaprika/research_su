@@ -20,12 +20,13 @@ def get_electronic_dipole(string, dipole):
     x = y = z = 0
     for l in info.splitlines():
         line = l.split()
-        charge = Element(re.sub('\d+', '', line[0])).Z
-        if len(line) == 1:
-            line += [0, 0, 0]
-        x += charge * float(line[1])
-        y += charge * float(line[2])
-        z += charge * float(line[3])
+        if line != []:
+            charge = Element(re.sub('\d+', '', line[0])).Z
+            if len(line) == 1:
+                line += [0, 0, 0]
+            x += charge * float(line[1])
+            y += charge * float(line[2])
+            z += charge * float(line[3])
     x_elec = dipole[0] * debye_to_e - x * ang_to_bohr
     y_elec = dipole[1] * debye_to_e - y * ang_to_bohr
     z_elec = dipole[2] * debye_to_e - z * ang_to_bohr
@@ -37,12 +38,13 @@ def get_electronic_quadrupole(string, quadrupole):
     xx = yy = zz = 0
     for l in info.splitlines():
         line = l.split()
-        charge = Element(re.sub('\d+', '', line[0])).Z
-        if len(line) == 1:
-            line += [0, 0, 0]
-        xx += charge * float(line[1]) ** 2
-        yy += charge * float(line[2]) ** 2
-        zz += charge * float(line[3]) ** 2
+        if line != []:
+            charge = Element(re.sub('\d+', '', line[0])).Z
+            if len(line) == 1:
+                line += [0, 0, 0]
+            xx += charge * float(line[1]) ** 2
+            yy += charge * float(line[2]) ** 2
+            zz += charge * float(line[3]) ** 2
     xx_elec = quadrupole[0] * debye_ang_to_ea02 - xx * ang2_to_bohr2
     yy_elec = quadrupole[1] * debye_ang_to_ea02 - yy * ang2_to_bohr2
     zz_elec = quadrupole[2] * debye_ang_to_ea02 - zz * ang2_to_bohr2
@@ -53,8 +55,9 @@ def get_stddev(string, dipole, quadrupole):
     tote = int(re.search('molecule\s*(\d\s\d\s)', string).group(1).splitlines()[0].split()[0])
     for l in info.splitlines():
         line = l.split()
-        charge = Element(re.sub('\d+', '', line[0])).Z
-        tote += Element(re.sub('\d+', '', line[0])).Z
+        if line != []:
+            charge = Element(re.sub('\d+', '', line[0])).Z
+            tote += Element(re.sub('\d+', '', line[0])).Z
     xx_std = np.sqrt((quadrupole[0]/-tote) - (dipole[0]/-tote) ** 2)
     yy_std = np.sqrt((quadrupole[1]/-tote) - (dipole[1]/-tote) ** 2)
     zz_std = np.sqrt((quadrupole[2]/-tote) - (dipole[2]/-tote) ** 2)
