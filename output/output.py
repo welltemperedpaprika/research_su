@@ -38,7 +38,7 @@ else:
 object["method_type"] = method_type
 if method_type == "dft":
     object["method_level"] = int(jacob_ladder[method])
-    quadrupole_string = re.search(r'Quadrupole((.*\n){3})', s).group()
+    quadrupole_string = re.findall(r'Quadrupole((.*\n){3})', s)[-1][0]
     quadrupole = re.findall(r'(\-?[0-9][0-9.]*)', quadrupole_string)
     object["quadrupoles"] = [float(quadrupole[0]), float(quadrupole[2]), float(quadrupole[5])]
     object["quadrupoles_off_diag"] = [float(quadrupole[1]), float(quadrupole[3]), float(quadrupole[4])] #XY XZ XY
