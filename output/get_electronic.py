@@ -9,14 +9,16 @@ ea02_to_debye_ang = 1.345033669
 debye_ang_to_ea02 = 0.743477
 
 def get_spin_polarization(string):
-    info = re.search('(\<S\^2\>)\s=\s*(\-?[0-9][0-9.]*)', string).group(2)
-    if float(info) == 0:
+    info = re.search('(\<S\^2\>)\s=\s*(\-?[0-9][0-9.]*)', string)
+    if info != None:
+        info = info.group(2)
+    if info == None or float(info) == 0:
         return 0
     else:
         return 1
 
 def get_electronic_dipole(string, dipole):
-    info = re.search('molecule\s*\d\s\d\s([\s\S]*?)\$end', string).group(1)
+    info = re.search('molecule\s*\-?\d\s\d\s([\s\S]*?)\$end', string).group(1)
     x = y = z = 0
     for l in info.splitlines():
         line = l.split()
@@ -34,7 +36,7 @@ def get_electronic_dipole(string, dipole):
     return [x_elec, y_elec, z_elec, total_elec]
 
 def get_electronic_quadrupole(string, quadrupole):
-    info = re.search('molecule\s*\d\s\d\s([\s\S]*?)\$end', string).group(1)
+    info = re.search('molecule\s*\-?\d\s\d\s([\s\S]*?)\$end', string).group(1)
     xx = yy = zz = 0
     for l in info.splitlines():
         line = l.split()
@@ -51,8 +53,8 @@ def get_electronic_quadrupole(string, quadrupole):
     return [xx_elec, yy_elec, zz_elec]
 
 def get_stddev(string, dipole, quadrupole):
-    info = re.search('molecule\s*\d\s\d\s([\s\S]*?)\$end', string).group(1)
-    tote = int(re.search('molecule\s*(\d\s\d\s)', string).group(1).splitlines()[0].split()[0])
+    info = re.search('molecule\s*\-?\d\s\d\s([\s\S]*?)\$end', string).group(1)
+    tote = abs(int(re.search('molecule\s*(\-?\d\s\d\s)', string).group(1).splitlines()[0].split()[0]))
     for l in info.splitlines():
         line = l.split()
         if line != []:

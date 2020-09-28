@@ -13,6 +13,7 @@ def find(l, molecule, method, basis):
             return c
     return False
 
+DH = ['DSD-PBEPBE-D3', 'XYGJ-OS', 'B2GPPLYP', 'wB97X-2', 'B2PLYP', 'PNPB95-D3', 'PTPSS-D3']
 parser = argparse.ArgumentParser(description='Processes a qchem output file and stores it as a dictionary with relevant params.')
 parser.add_argument('filename')
 args = parser.parse_args()
@@ -32,7 +33,12 @@ with open(Path(args.filename), 'r') as file:
 object = {"name": molecule_name, "method": method, "basis": basis}
 method_type = ""
 if method != "ccsdT" and method != "hf":
-    method_type = "dft"
+    if method in DH:
+        method_type = "d_h"
+    elif method == "rmp2":
+        method_type = "rmp2"
+    else:
+        method_type = "dft"
 else:
     method_type = "wft"
 object["method_type"] = method_type
@@ -78,6 +84,20 @@ if method_type == "wft":
         dipole = re.findall(r'(\-?[0-9][0-9.]*)', dipole_string)
         object["dipoles_hf"] = [float(x) for x in dipole]
         object["spin_polarized"] = get_spin_polarization(s)
+
+if method_type == "d_h" or method_type == "rmp2":
+    quadrupole_string = re.findall(r'Quadrupole((.*\n){3})', s)[-1][0]
+    quadrupole = re.findall(r'(\-?[0-9][0-9.]*)', quadrupole_string)
+    object["quadrupoles_scf"] = [float(quadrupole[0]), float(quadrupole[2]), float(quadrupole[5])]
+    object["quadrupoles_scf_off_diag"] = [float(quadrupole[1]), float(quadrupole[3]), float(quadrupole[4])] #XY XZ XY
+    object["quadrupoles_mp2"] = quadrupoles_from_energy('MP2\s*total energy', s)
+    dipole_string = re.search(r'Dipole((.*\n){3})', s).group()
+    dipole = re.findall(r'(\-?[0-9][0-9.]*)', dipole_string)
+    object["dipoles_scf"] = [float(x) for x in dipole]
+    object["quadrupoles_scf_elec"] = get_electronic_quadrupole(s, object["quadrupoles_scf"])
+    object["dipoles_scf_elec"] = get_electronic_dipole(s, object["dipoles_scf"])
+    object["std_dev_scf"] = get_stddev(s, object["dipoles_scf_elec"], object["quadrupoles_scf_elec"])
+    object["spin_polarized"] = get_spin_polarization(s)
 
 if os.path.exists(output_path/"output.json"):
     with open(output_path/"output.json") as f:

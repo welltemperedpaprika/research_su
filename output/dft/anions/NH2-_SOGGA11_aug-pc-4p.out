@@ -1,0 +1,793 @@
+Q-Chem Developer Version!
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 5.1, Q-Chem, Inc., Pleasanton, CA (2018)
+
+ Yihan Shao,  Zhengting Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  Jia Deng,  Xintian Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  T. Kus,  A. Landau,  
+ Jie Liu,  E. I. Proynov,  R. M. Richard,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Albrecht,  E. Alguire,  
+ S. A. Baeppler,  D. Barton,  Z. Benda,  Y. A. Bernard,  E. J. Berquist,  
+ K. B. Bravaya,  H. Burton,  D. Casanova,  Chun-Min Chang,  Yunqing Chen,  
+ A. Chien,  K. D. Closser,  M. P. Coons,  S. Coriani,  S. Dasgupta,  
+ A. L. Dempwolff,  M. Diedenhofen,  Hainam Do,  R. G. Edgar,  Po-Tung Fang,  
+ S. Faraji,  S. Fatehi,  Qingguo Feng,  K. D. Fenk,  J. Fosso-Tande,  
+ Qinghui Ge,  A. Ghysels,  G. Gidofalvi,  J. Gomes,  J. Gonthier,  A. Gunina,  
+ D. Hait,  M. W. D. Hanson-Heine,  P. H. P. Harbach,  A. W. Hauser,  
+ J. E. Herr,  E. G. Hohenstein,  Z. C. Holden,  Kerwin Hui,  B. C. Huynh,  
+ T.-C. Jagau,  Hyunjun Ji,  B. Kaduk,  K. Khistyaev,  Jaehoon Kim,  
+ P. Klunzinger,  K. Koh,  D. Kosenkov,  L. Koulias,  T. Kowalczyk,  
+ C. M. Krauter,  A. Kunitsa,  Ka Un Lao,  A. Laurent,  K. V. Lawler,  
+ Joonho Lee,  D. Lefrancois,  S. Lehtola,  D. S. Levine,  Yi-Pei Li,  
+ You-Sheng Lin,  Fenglai Liu,  E. Livshits,  A. Luenser,  P. Manohar,  
+ E. Mansoor,  S. F. Manzer,  Shan-Ping Mao,  Yuezhi Mao,  N. Mardirossian,  
+ A. V. Marenich,  T. Markovich,  L. A. Martinez-Martinez,  S. A. Maurer,  
+ N. J. Mayhall,  S. C. McKenzie,  J.-M. Mewes,  A. F. Morrison,  
+ J. W. Mullinax,  K. Nanda,  T. S. Nguyen-Beck,  R. Olivares-Amaya,  
+ J. A. Parkhill,  T. M. Perrine,  F. Plasser,  P. Pokhilko,  S. Prager,  
+ A. Prociuk,  E. Ramos,  D. R. Rehn,  F. Rob,  M. Schneider,  N. Sergueev,  
+ S. M. Sharada,  S. Sharma,  D. W. Small,  T. Stauch,  T. Stein,  
+ Yu-Chuan Su,  A. J. W. Thom,  A. Tkatchenko,  T. Tsuchimochi,  N. M. Tubman,  
+ L. Vogt,  M. L. Vidal,  O. Vydrov,  M. A. Watson,  J. Wenzel,  
+ M. de Wergifosse,  T. A. Wesolowski,  A. White,  J. Witte,  A. Yamada,  
+ Jun Yang,  K. Yao,  S. Yeganeh,  S. R. Yost,  Zhi-Qiang You,  A. Zech,  
+ Igor Ying Zhang,  Xing Zhang,  Yan Zhao,  Ying Zhu,  B. R. Brooks,  
+ G. K. L. Chan,  C. J. Cramer,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  
+ M. W. Schmidt,  C. D. Sherrill,  D. G. Truhlar,  A. Aspuru-Guzik,  R. Baer,  
+ A. T. Bell,  N. A. Besley,  Jeng-Da Chai,  A. E. DePrince, III,  
+ R. A. DiStasio Jr.,  A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  
+ Chao-Ping Hsu,  Yousung Jung,  Jing Kong,  D. S. Lambrecht,  WanZhen Liang,  
+ C. Ochsenfeld,  V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  
+ T. Van Voorhis,  J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  B. Austin,  J. Baker,  G. J. O. Beran,  K. Brandhorst,  
+ S. T. Brown,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ Siu Hung Chien,  D. M. Chipman,  D. L. Crittenden,  H. Dachsel,  
+ R. J. Doerksen,  A. D. Dutoi,  L. Fusti-Molnar,  W. A. Goddard III,  
+ A. Golubeva-Zadorozhnaya,  S. R. Gwaltney,  G. Hawkins,  A. Heyden,  
+ S. Hirata,  G. Kedziora,  F. J. Keil,  C. Kelley,  Jihan Kim,  R. A. King,  
+ R. Z. Khaliullin,  P. P. Korambath,  W. Kurlancheek,  A. M. Lee,  M. S. Lee,  
+ S. V. Levchenko,  Ching Yeh Lin,  D. Liotard,  R. C. Lochan,  I. Lotan,  
+ P. E. Maslen,  N. Nair,  D. P. O'Neill,  D. Neuhauser,  E. Neuscamman,  
+ C. M. Oana,  R. Olson,  B. Peters,  R. Peverati,  P. A. Pieniazek,  
+ Y. M. Rhee,  J. Ritchie,  M. A. Rohrdanz,  E. Rosta,  N. J. Russ,  
+ H. F. Schaefer III,  N. E. Schultz,  N. Shenvi,  A. C. Simmonett,  A. Sodt,  
+ D. Stuck,  K. S. Thanthiriwatte,  V. Vanovschi,  Tao Wang,  A. Warshel,  
+ C. F. Williams,  Q. Wu,  X. Xu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 5.1.1 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 8.300.2 (Tropical Shenanigans).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Mon Sep 14 17:55:45 2020  
+
+Host: n0052.mhg0
+0
+
+     Scratch files written to /local/scratch/users/yhljason/NH2-_SOGGA11_aug-pc-4.inp20200914161145//
+Input Ideriv = 2
+Curr. Ideriv = -1
+Max.  Ideriv = 2
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$molecule
+-1 1
+N         0.0000000000    0.0000000000    0.1307636080
+H         0.0000000000    0.8003404806   -0.5152318040
+H         0.0000000000   -0.8003404806   -0.5152318040
+$end
+
+
+
+$rem
+jobtype sp
+method SOGGA11
+xc_grid 000099000590
+basis aug-pc-4
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+unrestricted true
+gen_scfman true
+internal_stability_iter 15
+internal_stability_davidson_iter 200
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+$end
+
+
+--------------------------------------------------------------
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      N       0.0000000000     0.0000000000     0.1307636080
+    2      H       0.0000000000     0.8003404806    -0.5152318040
+    3      H       0.0000000000    -0.8003404806    -0.5152318040
+ ----------------------------------------------------------------
+ Nuclear Repulsion Energy =     7.5336396871 hartrees
+ There are        5 alpha and        5 beta electrons
+ Requested basis set is aug-pc-4
+ There are 81 shells and 321 basis functions
+
+ Total QAlloc Memory Limit  64000 MB
+ Mega-Array Size      1467 MB
+ MEM_STATIC part      1500 MB
+
+                       Distance Matrix (Angstroms)
+             N (  1)   H (  2)
+   H (  2)  1.028521
+   H (  3)  1.028521  1.600681
+ 
+ A cutoff of  1.0D-14 yielded   3313 shell pairs
+ There are     52429 function pairs (     93662 Cartesian)
+ 
+ -------------------------------------------------------
+ OpenMP Integral Computing Module                       
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ Integral Job Info:
+ Integral job number is                      11
+ Integral operator is                         1
+ short-range coefficients                     0
+ long-range coefficients              100000000
+ Omega coefficients                           0
+ if combine SR and LR in K                    0
+ Integral screening is                        0
+ Integral computing path is                   2
+ max size of driver memory is           6400000
+ size of driver memory is               5498286
+ size of scratch memory is             29792225
+ max col of scratch BK array             194481
+ max len of scratch array in speh3         5572
+ max len of scratch index in speh4           72
+ max int batch size is                      520
+ min int batch size is                       52
+ fixed nKL is                                25
+ max L of basis functions is                  5
+ order of int derivative is                   0
+ number of shells is                         81
+ number of basis is                         428
+ number of cartesian basis is               428
+ number of contracted shell pairs          3313
+ number of primitive shell pairs           6025
+ maxK2 (contraction) of shell pair          121
+ max number of K2 of shell pair               1
+ max number of CS2 of shell pair            445
+ max number of PS2 of shell pair            445
+ mem total for path MDJ                  900380
+ -------------------------------------------------------
+ Smallest overlap matrix eigenvalue = 2.62E-06
+
+ Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ SAD guess density has 9.000000 electrons
+
+ -----------------------------------------------------------------------
+  General SCF calculation program by
+  Eric Jon Sundstrom, Paul Horn, Yuezhi Mao, Dmitri Zuev, Alec White,
+  David Stuck, Shaama M.S., Shane Yost, Joonho Lee, David Small,
+  Daniel Levine, Susi Lehtola, Hugh Burton, Evgeny Epifanovsky
+ -----------------------------------------------------------------------
+ Exchange:  SOGGA11      Correlation:  SOGGA11
+ Using Euler-Maclaurin-Lebedev (99,590) quadrature formula
+Running Object-Oriented UKS (UHF)
+performing a single roothaan step with Fock from read density so that orbitals are available to all algorithms
+energy of the guess density (C=0) -55.826870096946
+We will preform up to 15 macro iterations over saddle points until a stable solution is found
+Energy prior to optimization (guess energy) = -55.662172071880
+Begin Timing: Total SCF Calculation
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-08
+    1     -55.6621720719      5.67e-01     00000  Descent step
+    2     -55.7320179059      3.35e-01     00000  Descent step
+    3     -55.8572814210      1.36e-01     00000  Descent step
+    4     -55.8463079607      1.46e-01     00000 Line search: overstep
+    5     -55.9035831077      6.01e-02     00000  Normal BFGS step
+    6     -55.9311794315      9.28e-02     00000  Normal BFGS step
+    7     -55.8970578271      2.46e-01     00000 Line search: overstep
+    8     -55.9385090318      3.25e-02     00000  Normal BFGS step
+    9     -55.9433008865      5.67e-02     00000  Normal BFGS step
+   10     -55.9433270451      4.14e-02     00000  Normal BFGS step
+   11     -55.9443768922      3.12e-02     00000  Normal BFGS step
+   12     -55.9441162296      6.00e-02     00000 Line search: overstep
+   13     -55.9476508857      2.29e-02     00000  Normal BFGS step
+   14     -55.9458047244      3.07e-02     00000 Line search: overstep
+   15     -55.9491673971      1.04e-02     00000  Normal BFGS step
+   16     -55.9489851969      2.01e-02     00000 Line search: overstep
+   17     -55.9496699630      9.84e-03     00000  Normal BFGS step
+   18     -55.9496610515      1.86e-02     00000 Line search: overstep
+   19     -55.9498806682      5.37e-03     00000  Normal BFGS step
+   20     -55.9500019287      6.99e-03     00000  Normal BFGS step
+   21     -55.9502060406      5.65e-03     00000  Normal BFGS step
+   22     -55.9503508296      9.74e-03     00000  Normal BFGS step
+   23     -55.9496393134      2.65e-02     00000 Line search: overstep
+   24     -55.9504268662      3.73e-03     00000  Normal BFGS step
+   25     -55.9504294188      1.06e-02     00000  Normal BFGS step
+   26     -55.9502979754      2.13e-02     00000 Line search: overstep
+   27     -55.9505166127      4.01e-03     00000  Normal BFGS step
+   28     -55.9504852830      5.03e-03     00000 Line search: overstep
+   29     -55.9505741593      2.16e-03     00000  Normal BFGS step
+   30     -55.9505343329      4.29e-03     00000 Line search: overstep
+   31     -55.9505901316      2.24e-03     00000  Normal BFGS step
+   32     -55.9505923599      2.72e-03     00000  Normal BFGS step
+   33     -55.9506040820      2.26e-03     00000  Normal BFGS step
+   34     -55.9505880994      6.13e-03     00000 Line search: overstep
+   35     -55.9506089645      9.73e-04     00000  Normal BFGS step
+   36     -55.9506060171      1.59e-03     00000 Line search: overstep
+   37     -55.9506108046      3.89e-04     00000  Normal BFGS step
+   38     -55.9506098059      1.11e-03     00000 Line search: overstep
+   39     -55.9506112993      4.38e-04     00000  Normal BFGS step
+   40     -55.9506109196      6.54e-04     00000 Line search: overstep
+   41     -55.9506114545      8.81e-05     00000  Normal BFGS step
+   42     -55.9506114056      1.79e-04     00000 Line search: overstep
+   43     -55.9506114960      4.76e-05     00000  Normal BFGS step
+   44     -55.9506114917      1.03e-04     00000  Normal BFGS step
+   45     -55.9506115112      6.77e-05     00000  Normal BFGS step
+   46     -55.9506115064      7.08e-05     00000  Normal BFGS step
+   47     -55.9506115141      3.66e-05     00000  Normal BFGS step
+   48     -55.9506115012      1.18e-04     00000 Line search: overstep
+   49     -55.9506115158      1.35e-05     00000  Normal BFGS step
+   50     -55.9506115154      2.01e-05     00000  Normal BFGS step
+   51     -55.9506115162      8.62e-06     00000  Normal BFGS step
+   52     -55.9506115160      1.19e-05     00000  Normal BFGS step
+   53     -55.9506115163      1.37e-05     00000  Normal BFGS step
+   54     -55.9506115153      4.50e-05     00000  Normal BFGS step
+   55     -55.9506115162      1.08e-05     00000  Normal BFGS step
+   56     -55.9506115154      2.19e-05     00000  Normal BFGS step
+   57     -55.9506115163      9.60e-06     00000  Normal BFGS step
+   58     -55.9506115148      5.59e-05     00000  Normal BFGS step
+   59     -55.9506115163      9.40e-06     00000  Normal BFGS step
+   60     -55.9506115153      3.87e-05     00000  Normal BFGS step
+   61     -55.9506115163      1.34e-05     00000  Normal BFGS step
+   62     -55.9506115150      5.72e-05     00000  Normal BFGS step
+   63     -55.9506115164      2.61e-06     00000  Normal BFGS step
+   64     -55.9506115162      1.20e-05     00000  Normal BFGS step
+   65     -55.9506115164      1.79e-06     00000  Normal BFGS step
+   66     -55.9506115163      7.45e-06     00000  Normal BFGS step
+   67     -55.9506115164      3.12e-06     00000  Normal BFGS step
+   68     -55.9506115163      1.46e-05     00000  Normal BFGS step
+   69     -55.9506115164      2.43e-06     00000  Normal BFGS step
+   70     -55.9506115163      7.70e-06     00000  Normal BFGS step
+   71     -55.9506115164      2.01e-06     00000  Normal BFGS step
+   72     -55.9506115163      8.74e-06     00000  Normal BFGS step
+   73     -55.9506115164      1.28e-06     00000  Normal BFGS step
+   74     -55.9506115164      4.10e-06     00000  Normal BFGS step
+   75     -55.9506115164      7.62e-07     00000  Normal BFGS step
+   76     -55.9506115164      4.62e-06     00000  Normal BFGS step
+   77     -55.9506115164      2.87e-07     00000  Normal BFGS step
+   78     -55.9506115164      1.42e-06     00000  Normal BFGS step
+   79     -55.9506115164      7.09e-07     00000  Normal BFGS step
+   80     -55.9506115164      2.75e-06     00000  Normal BFGS step
+   81     -55.9506115164      9.14e-07     00000  Normal BFGS step
+   82     -55.9506115164      4.19e-06     00000  Normal BFGS step
+   83     -55.9506115164      2.31e-07     00000  Normal BFGS step
+   84     -55.9506115164      9.57e-07     00000  Normal BFGS step
+   85     -55.9506115164      3.13e-07     00000  Normal BFGS step
+   86     -55.9506115164      1.24e-06     00000  Normal BFGS step
+   87     -55.9506115164      1.20e-07     00000  Normal BFGS step
+   88     -55.9506115164      4.37e-07     00000  Normal BFGS step
+   89     -55.9506115164      1.52e-07     00000  Normal BFGS step
+   90     -55.9506115164      5.97e-07     00000  Normal BFGS step
+   91     -55.9506115164      7.06e-08     00000  Normal BFGS step
+   92     -55.9506115164      4.30e-07     00000  Normal BFGS step
+   93     -55.9506115164      9.96e-08     00000  Normal BFGS step
+   94     -55.9506115164      4.02e-07     00000  Normal BFGS step
+   95     -55.9506115164      4.18e-08     00000  Normal BFGS step
+   96     -55.9506115164      1.81e-07     00000  Normal BFGS step
+   97     -55.9506115164      3.11e-08     00000  Normal BFGS step
+   98     -55.9506115164      1.59e-07     00000  Normal BFGS step
+   99     -55.9506115164      4.24e-08     00000  Normal BFGS step
+  100     -55.9506115164      2.28e-07     00000  Normal BFGS step
+  101     -55.9506115164      3.79e-08     00000  Normal BFGS step
+  102     -55.9506115164      1.14e-07     00000  Normal BFGS step
+  103     -55.9506115164      5.50e-08     00000  Normal BFGS step
+  104     -55.9506115164      2.10e-07     00000  Normal BFGS step
+  105     -55.9506115164      1.83e-08     00000  Normal BFGS step
+  106     -55.9506115164      1.14e-07     00000  Normal BFGS step
+  107     -55.9506115164      1.42e-08     00000  Normal BFGS step
+  108     -55.9506115164      5.90e-08     00000  Normal BFGS step
+  109     -55.9506115164      1.12e-08     00000  Normal BFGS step
+  110     -55.9506115164      4.83e-08     00000  Normal BFGS step
+  111     -55.9506115164      1.90e-08     00000  Normal BFGS step
+  112     -55.9506115164      8.97e-08     00000  Normal BFGS step
+  113     -55.9506115164      2.26e-08     00000  Normal BFGS step
+  114     -55.9506115164      1.38e-07     00000  Normal BFGS step
+  115     -55.9506115164      6.36e-09     00000 Convergence criterion met
+Timing for Single Stationary Point: 1067.00s (wall), 8397.27s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      5.15e-01     00000 Davidson Iteration
+    2      5.02e-01     00000 Davidson Iteration
+    3      3.51e-01     00000 Davidson Iteration
+    4      2.71e-01     00000 Davidson Iteration
+    5      1.90e-01     00000 Davidson Iteration
+    6      2.28e-01     00000 Davidson Iteration
+    7      1.99e-01     00000 Davidson Iteration
+    8      1.56e-01     00000 Davidson Iteration
+    9      1.55e-01     00000 Davidson Iteration
+   10      1.61e-01     00000 Davidson Iteration
+   11      1.40e-01     00000 Davidson Iteration
+   12      6.94e-02     00000 Davidson Iteration
+   13      5.59e-02     00000 Davidson Iteration
+   14      5.79e-02     00000 Davidson Iteration
+   15      4.42e-02     00000 Davidson Iteration
+   16      3.39e-02     00000 Davidson Iteration
+   17      3.16e-02     00000 Davidson Iteration
+   18      1.65e-02     00000 Davidson Iteration
+   19      1.41e-02     00000 Davidson Iteration
+   20      1.29e-02     00000 Davidson Iteration
+   21      1.04e-02     00000 Davidson Iteration
+   22      1.13e-02     00000 Davidson Iteration
+   23      9.50e-03     00000 Davidson Iteration
+   24      5.82e-03     00000 Davidson Iteration
+   25      2.97e-03     00000 Davidson Iteration
+   26      3.22e-03     00000 Davidson Iteration
+   27      5.62e-02     00000 Davidson Iteration
+   28      5.37e-03     00000 Davidson Iteration
+   29      3.31e-03     00000 Davidson Iteration
+   30      2.05e-03     00000 Davidson Iteration
+   31      1.53e-03     00000 Davidson Iteration
+   32      7.10e-04     00000 Davidson Iteration
+   33      7.64e-04     00000 Davidson Iteration
+   34      8.54e-04     00000 Davidson Iteration
+   35      6.42e-04     00000 Davidson Iteration
+   36      4.00e-04     00000 Davidson Iteration
+   37      1.97e-04     00000 Davidson Iteration
+   38      1.34e-04     00000 Davidson Iteration
+   39      9.67e-05     00000 Davidson Iteration
+   40      5.00e-03     00000 Davidson Iteration
+   41      3.55e-03     00000 Davidson Iteration
+   42      2.45e-03     00000 Davidson Iteration
+   43      1.78e-03     00000 Davidson Iteration
+   44      1.30e-03     00000 Davidson Iteration
+   45      1.17e-03     00000 Davidson Iteration
+   46      1.21e-03     00000 Davidson Iteration
+   47      1.28e-03     00000 Davidson Iteration
+   48      1.26e-03     00000 Davidson Iteration
+   49      1.04e-03     00000 Davidson Iteration
+   50      8.32e-04     00000 Davidson Iteration
+   51      7.43e-04     00000 Davidson Iteration
+   52      5.17e-04     00000 Davidson Iteration
+   53      3.60e-04     00000 Davidson Iteration
+   54      2.60e-04     00000 Davidson Iteration
+   55      1.82e-04     00000 Davidson Iteration
+   56      1.10e-04     00000 Davidson Iteration
+   57      7.54e-05     00000 Davidson Converged
+converged_eigenvalues
+  -0.0002
+  -0.0096
+Threshold for negative eigenvalues: -1.0e-05
+solution was a saddle point (unstable)
+displacing from saddle point as requested
+performing a line search along the lowest hessian eigenvector after a small displacement (1E-3) to give a non-zero gradient along this direction 
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 6649.00s (wall), 52933.58s (cpu)
+completed scf stability macro iteration 1
+beginning next scf after displacing from saddle point
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-08
+    1     -55.9506119273      4.59e-04     00000  Normal BFGS step
+    2     -55.9506119128      6.32e-04     00000  Normal BFGS step
+    3     -55.9506119271      9.68e-04     00000  Normal BFGS step
+    4     -55.9506105569      1.84e-03     00000 Line search: overstep
+    5     -55.9506122125      3.98e-04     00000  Normal BFGS step
+    6     -55.9506108420      1.73e-03     00000 Line search: overstep
+    7     -55.9506124133      3.98e-04     00000  Normal BFGS step
+    8     -55.9506121549      6.70e-04     00000 Line search: overstep
+    9     -55.9506125253      1.64e-04     00000  Normal BFGS step
+   10     -55.9506122879      7.78e-04     00000 Line search: overstep
+   11     -55.9506125899      1.62e-04     00000  Normal BFGS step
+   12     -55.9506126795      3.53e-04     00000  Normal BFGS step
+   13     -55.9506131813      5.63e-04     00000  Normal BFGS step
+   14     -55.9506069980      1.11e-03     00000 Line search: overstep
+   15     -55.9506136644      4.66e-04     00000  Normal BFGS step
+   16     -55.9506127703      5.56e-04     00000 Line search: overstep
+   17     -55.9506139968      4.29e-04     00000  Normal BFGS step
+   18     -55.9506139904      4.05e-04     00000  Normal BFGS step
+   19     -55.9506140723      5.02e-04     00000  Normal BFGS step
+   20     -55.9506140476      4.00e-04     00000  Normal BFGS step
+   21     -55.9506142159      1.98e-04     00000  Normal BFGS step
+   22     -55.9506141406      4.92e-04     00000 Line search: overstep
+   23     -55.9506143462      1.14e-04     00000  Normal BFGS step
+   24     -55.9506141892      4.16e-04     00000 Line search: overstep
+   25     -55.9506143901      1.43e-04     00000  Normal BFGS step
+   26     -55.9506143781      1.96e-04     00000  Normal BFGS step
+   27     -55.9506143892      2.70e-04     00000  Normal BFGS step
+   28     -55.9506143430      2.37e-04     00000 Line search: overstep
+   29     -55.9506144239      1.13e-04     00000  Normal BFGS step
+   30     -55.9506144004      1.70e-04     00000 Line search: overstep
+   31     -55.9506144401      8.38e-05     00000  Normal BFGS step
+   32     -55.9506144325      1.48e-04     00000  Normal BFGS step
+   33     -55.9506144494      1.30e-04     00000  Normal BFGS step
+   34     -55.9506144428      2.19e-04     00000  Normal BFGS step
+   35     -55.9506144574      1.62e-04     00000  Normal BFGS step
+   36     -55.9506143038      6.34e-04     00000 Line search: overstep
+   37     -55.9506144700      7.11e-05     00000  Normal BFGS step
+   38     -55.9506144479      1.44e-04     00000 Line search: overstep
+   39     -55.9506144790      7.59e-05     00000  Normal BFGS step
+   40     -55.9506144778      1.35e-04     00000  Normal BFGS step
+   41     -55.9506144828      1.66e-04     00000  Normal BFGS step
+   42     -55.9506144735      1.26e-04     00000  Normal BFGS step
+   43     -55.9506144808      1.95e-04     00000  Normal BFGS step
+   44     -55.9506144214      2.30e-04     00000 Line search: overstep
+   45     -55.9506145061      8.58e-05     00000  Normal BFGS step
+   46     -55.9506145049      9.89e-05     00000  Normal BFGS step
+   47     -55.9506145151      1.06e-04     00000  Normal BFGS step
+   48     -55.9506144998      1.59e-04     00000  Normal BFGS step
+   49     -55.9506145204      5.28e-05     00000  Normal BFGS step
+   50     -55.9506145041      1.09e-04     00000 Line search: overstep
+   51     -55.9506145273      3.20e-05     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 5.95e-09
+   52     -55.9506145239      9.78e-05     00000  Normal BFGS step
+   53     -55.9506145273      4.02e-05     00000  Normal BFGS step
+   54     -55.9506145245      7.83e-05     00000  Normal BFGS step
+   55     -55.9506145278      5.04e-05     00000  Normal BFGS step
+   56     -55.9506145187      1.23e-04     00000 Line search: overstep
+   57     -55.9506145300      2.51e-05     00000  Normal BFGS step
+   58     -55.9506145286      2.70e-05     00000  Normal BFGS step
+   59     -55.9506145302      1.77e-05     00000  Normal BFGS step
+   60     -55.9506145287      2.61e-05     00000  Normal BFGS step
+   61     -55.9506145306      1.51e-05     00000  Normal BFGS step
+   62     -55.9506145283      4.76e-05     00000  Normal BFGS step
+   63     -55.9506145305      2.63e-05     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 1.01e-08
+   64     -55.9506145266      7.32e-05     00000  Normal BFGS step
+   65     -55.9506145299      4.51e-05     00000  Normal BFGS step
+   66     -55.9506145091      1.61e-04     00000 Line search: overstep
+   67     -55.9506145307      1.61e-05     00000  Normal BFGS step
+   68     -55.9506145298      3.82e-05     00000  Normal BFGS step
+   69     -55.9506145307      1.28e-05     00000  Normal BFGS step
+   70     -55.9506145291      4.50e-05     00000  Normal BFGS step
+   71     -55.9506145306      1.93e-05     00000  Normal BFGS step
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::WARNING energy changes are now smaller than effective accuracy.
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        calculation will continue, but THRESH should be increased
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        or SCF_CONVERGENCE decreased. 
+  /global/home/groups-sw/mhg/qchem_public/qchem5p0/libgscf/libgscf/opt/gdm.C::        effective_thresh = 1.01e-08
+   72     -55.9506145261      4.56e-05     00000  Normal BFGS step
+   73     -55.9506145308      8.25e-06     00000  Normal BFGS step
+   74     -55.9506145294      3.44e-05     00000  Normal BFGS step
+   75     -55.9506145308      6.93e-06     00000  Normal BFGS step
+   76     -55.9506145297      2.34e-05     00000  Normal BFGS step
+   77     -55.9506145309      3.92e-06     00000  Normal BFGS step
+   78     -55.9506145306      1.49e-05     00000  Normal BFGS step
+   79     -55.9506145309      2.90e-06     00000  Normal BFGS step
+   80     -55.9506145307      9.93e-06     00000  Normal BFGS step
+   81     -55.9506145309      2.58e-06     00000  Normal BFGS step
+   82     -55.9506145308      9.32e-06     00000  Normal BFGS step
+   83     -55.9506145309      1.65e-06     00000  Normal BFGS step
+   84     -55.9506145308      5.91e-06     00000  Normal BFGS step
+   85     -55.9506145309      1.21e-06     00000  Normal BFGS step
+   86     -55.9506145309      9.03e-06     00000  Normal BFGS step
+   87     -55.9506145309      2.68e-06     00000  Normal BFGS step
+   88     -55.9506145308      1.04e-05     00000  Normal BFGS step
+   89     -55.9506145309      1.97e-06     00000  Normal BFGS step
+   90     -55.9506145309      7.79e-06     00000  Normal BFGS step
+   91     -55.9506145309      2.82e-06     00000  Normal BFGS step
+   92     -55.9506145308      1.39e-05     00000  Normal BFGS step
+   93     -55.9506145309      9.76e-07     00000  Normal BFGS step
+   94     -55.9506145309      4.09e-06     00000  Normal BFGS step
+   95     -55.9506145309      9.96e-07     00000  Normal BFGS step
+   96     -55.9506145309      4.34e-06     00000  Normal BFGS step
+   97     -55.9506145309      5.92e-07     00000  Normal BFGS step
+   98     -55.9506145309      2.48e-06     00000  Normal BFGS step
+   99     -55.9506145309      5.96e-07     00000  Normal BFGS step
+  100     -55.9506145309      2.90e-06     00000  Normal BFGS step
+  101     -55.9506145309      4.87e-07     00000  Normal BFGS step
+  102     -55.9506145309      2.37e-06     00000  Normal BFGS step
+  103     -55.9506145309      4.40e-07     00000  Normal BFGS step
+  104     -55.9506145309      1.58e-06     00000  Normal BFGS step
+  105     -55.9506145309      4.63e-07     00000  Normal BFGS step
+  106     -55.9506145309      1.93e-06     00000  Normal BFGS step
+  107     -55.9506145309      2.56e-07     00000  Normal BFGS step
+  108     -55.9506145309      1.85e-06     00000  Normal BFGS step
+  109     -55.9506145309      4.21e-07     00000  Normal BFGS step
+  110     -55.9506145309      1.10e-06     00000  Normal BFGS step
+  111     -55.9506145309      2.72e-07     00000  Normal BFGS step
+  112     -55.9506145309      1.25e-06     00000  Normal BFGS step
+  113     -55.9506145309      3.54e-07     00000  Normal BFGS step
+  114     -55.9506145309      1.60e-06     00000  Normal BFGS step
+  115     -55.9506145309      3.02e-07     00000  Normal BFGS step
+  116     -55.9506145309      1.18e-06     00000  Normal BFGS step
+  117     -55.9506145309      2.21e-07     00000  Normal BFGS step
+  118     -55.9506145309      6.90e-07     00000  Normal BFGS step
+  119     -55.9506145309      1.16e-07     00000  Normal BFGS step
+  120     -55.9506145309      4.63e-07     00000  Normal BFGS step
+  121     -55.9506145309      1.01e-07     00000  Normal BFGS step
+  122     -55.9506145309      4.58e-07     00000  Normal BFGS step
+  123     -55.9506145309      5.13e-08     00000  Normal BFGS step
+  124     -55.9506145309      2.43e-07     00000  Normal BFGS step
+  125     -55.9506145309      6.73e-08     00000  Normal BFGS step
+  126     -55.9506145309      2.21e-07     00000  Normal BFGS step
+  127     -55.9506145309      2.74e-08     00000  Normal BFGS step
+  128     -55.9506145309      1.49e-07     00000  Normal BFGS step
+  129     -55.9506145309      9.91e-08     00000  Normal BFGS step
+  130     -55.9506145309      4.77e-07     00000  Normal BFGS step
+  131     -55.9506145309      8.42e-08     00000  Normal BFGS step
+  132     -55.9506145309      3.54e-07     00000  Normal BFGS step
+  133     -55.9506145309      5.56e-08     00000  Normal BFGS step
+  134     -55.9506145309      2.53e-07     00000  Normal BFGS step
+  135     -55.9506145309      4.58e-08     00000  Normal BFGS step
+  136     -55.9506145309      2.82e-07     00000  Normal BFGS step
+  137     -55.9506145309      3.68e-08     00000  Normal BFGS step
+  138     -55.9506145309      1.65e-07     00000  Normal BFGS step
+  139     -55.9506145309      4.10e-08     00000  Normal BFGS step
+  140     -55.9506145309      9.21e-08     00000  Normal BFGS step
+  141     -55.9506145309      2.09e-08     00000  Normal BFGS step
+  142     -55.9506145309      9.33e-08     00000  Normal BFGS step
+  143     -55.9506145309      1.02e-08     00000  Normal BFGS step
+  144     -55.9506145309      4.31e-08     00000  Normal BFGS step
+  145     -55.9506145309      1.05e-08     00000  Normal BFGS step
+  146     -55.9506145309      5.09e-08     00000  Normal BFGS step
+  147     -55.9506145309      1.59e-08     00000  Normal BFGS step
+  148     -55.9506145309      5.36e-08     00000  Normal BFGS step
+  149     -55.9506145309      1.63e-08     00000  Normal BFGS step
+  150     -55.9506145309      8.37e-08     00000  Normal BFGS step
+  151     -55.9506145309      4.93e-08     00000  Normal BFGS step
+  152     -55.9506145309      2.55e-07     00000  Normal BFGS step
+  153     -55.9506145309      2.97e-08     00000  Normal BFGS step
+  154     -55.9506145309      1.23e-07     00000  Normal BFGS step
+  155     -55.9506145309      1.73e-08     00000  Normal BFGS step
+  156     -55.9506145309      6.70e-08     00000  Normal BFGS step
+  157     -55.9506145309      2.32e-08     00000  Normal BFGS step
+  158     -55.9506145309      1.23e-07     00000  Normal BFGS step
+  159     -55.9506145309      2.19e-08     00000  Normal BFGS step
+  160     -55.9506145309      9.40e-08     00000  Normal BFGS step
+  161     -55.9506145309      1.03e-08     00000  Normal BFGS step
+  162     -55.9506145309      4.04e-08     00000  Normal BFGS step
+  163     -55.9506145309      1.29e-08     00000  Normal BFGS step
+  164     -55.9506145309      6.38e-08     00000  Normal BFGS step
+  165     -55.9506145309      7.67e-09     00000 Convergence criterion met
+Timing for Single Stationary Point: 1471.00s (wall), 11691.63s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      5.22e-01     00000 Davidson Iteration
+    2      4.42e-01     00000 Davidson Iteration
+    3      3.11e-01     00000 Davidson Iteration
+    4      2.48e-01     00000 Davidson Iteration
+    5      1.74e-01     00000 Davidson Iteration
+    6      1.98e-01     00000 Davidson Iteration
+    7      1.55e-01     00000 Davidson Iteration
+    8      1.54e-01     00000 Davidson Iteration
+    9      1.58e-01     00000 Davidson Iteration
+   10      1.46e-01     00000 Davidson Iteration
+   11      9.75e-02     00000 Davidson Iteration
+   12      9.13e-02     00000 Davidson Iteration
+   13      3.48e-02     00000 Davidson Iteration
+   14      1.94e-02     00000 Davidson Iteration
+   15      2.22e-02     00000 Davidson Iteration
+   16      1.53e-02     00000 Davidson Iteration
+   17      1.18e-02     00000 Davidson Iteration
+   18      2.97e-02     00000 Davidson Iteration
+   19      9.03e-03     00000 Davidson Iteration
+   20      6.59e-03     00000 Davidson Iteration
+   21      6.97e-03     00000 Davidson Iteration
+   22      7.68e-03     00000 Davidson Iteration
+   23      7.72e-03     00000 Davidson Iteration
+   24      6.86e-03     00000 Davidson Iteration
+   25      4.98e-03     00000 Davidson Iteration
+   26      2.72e-03     00000 Davidson Iteration
+   27      1.81e-03     00000 Davidson Iteration
+   28      2.13e-03     00000 Davidson Iteration
+   29      1.44e-03     00000 Davidson Iteration
+   30      9.70e-04     00000 Davidson Iteration
+   31      1.18e-03     00000 Davidson Iteration
+   32      1.21e-03     00000 Davidson Iteration
+   33      1.25e-03     00000 Davidson Iteration
+   34      1.62e-03     00000 Davidson Iteration
+   35      1.69e-03     00000 Davidson Iteration
+   36      1.33e-03     00000 Davidson Iteration
+   37      7.15e-04     00000 Davidson Iteration
+   38      4.01e-04     00000 Davidson Iteration
+   39      3.91e-04     00000 Davidson Iteration
+   40      3.70e-04     00000 Davidson Iteration
+   41      2.31e-04     00000 Davidson Iteration
+   42      1.60e-04     00000 Davidson Iteration
+   43      1.12e-04     00000 Davidson Iteration
+   44      8.35e-05     00000 Davidson Iteration
+   45      6.02e-04     00000 Davidson Iteration
+   46      5.17e-04     00000 Davidson Iteration
+   47      6.22e-04     00000 Davidson Iteration
+   48      5.71e-04     00000 Davidson Iteration
+   49      4.59e-04     00000 Davidson Iteration
+   50      3.87e-04     00000 Davidson Iteration
+   51      2.49e-04     00000 Davidson Iteration
+   52      1.53e-04     00000 Davidson Iteration
+   53      1.26e-04     00000 Davidson Iteration
+   54      1.09e-04     00000 Davidson Iteration
+   55      7.38e-05     00000 Davidson Converged
+converged_eigenvalues
+   0.0087
+   0.0047
+Threshold for negative eigenvalues: -1.0e-05
+solution was a local minimum (stable)
+===================================================
+End Test for Internal Stability
+===================================================
+Our SCF solution is stable!
+Timing for Total SCF: 15558.00s (wall), 123765.75s (cpu)
+ Total energy in the final basis set =      -55.9506145309
+<S^2> =          0.000000000
+    ==================================================
+              The end of Object-Oriented SCFman       
+    ==================================================
+ 
+ --------------------------------------------------------------
+ 
+                    Orbital Energies (a.u.)
+ --------------------------------------------------------------
+ 
+ Alpha MOs
+ -- Occupied --
+-13.692  -0.441  -0.121   0.017   0.068
+ -- Virtual --
+  0.083   0.085   0.113   0.124   0.127   0.134   0.150   0.157
+  0.168   0.175   0.180   0.214   0.224   0.234   0.236   0.241
+  0.249   0.250   0.281   0.297   0.303   0.309   0.313   0.321
+  0.325   0.333   0.353   0.361   0.364   0.369   0.383   0.407
+  0.415   0.427   0.436   0.454   0.474   0.476   0.478   0.485
+  0.487   0.513   0.524   0.528   0.538   0.545   0.555   0.567
+  0.568   0.584   0.592   0.618   0.627   0.627   0.630   0.642
+  0.647   0.665   0.669   0.683   0.687   0.701   0.704   0.710
+  0.724   0.743   0.759   0.760   0.766   0.766   0.783   0.786
+  0.808   0.818   0.822   0.866   0.870   0.891   0.893   0.910
+  0.924   0.934   0.938   0.948   0.956   0.960   0.977   0.983
+  0.988   1.000   1.008   1.015   1.047   1.073   1.078   1.079
+  1.088   1.098   1.125   1.129   1.145   1.147   1.161   1.165
+  1.186   1.192   1.209   1.231   1.252   1.261   1.410   1.427
+  1.442   1.550   1.577   1.607   1.613   1.720   1.727   1.729
+  1.773   1.798   1.830   1.839   1.861   1.864   1.914   1.916
+  1.995   2.075   2.084   2.109   2.110   2.253   2.313   2.413
+  2.565   2.566   2.659   2.668   2.713   2.835   2.890   2.933
+  3.038   3.136   3.214   3.223   3.290   3.376   3.394   3.552
+  3.570   3.589   3.686   3.692   3.718   3.738   3.781   3.814
+  3.871   3.939   3.999   4.019   4.042   4.093   4.244   4.282
+  4.313   4.349   4.425   4.521   4.596   4.638   4.697   4.827
+  5.118   5.203   5.258   5.297   5.311   5.447   5.463   5.783
+  5.841   5.902   5.962   6.017   6.070   6.214   6.432   6.440
+  6.486   6.538   6.591   6.600   6.806   6.831   6.854   7.142
+  7.520   7.724   7.782   7.874   8.088   8.312   8.625   8.643
+  8.643   8.717   8.885   9.011   9.123   9.229   9.374   9.385
+  9.651   9.701   9.894   9.908  10.100  10.226  10.293  10.336
+ 11.544  11.618  11.627  11.629  11.666  11.672  11.775  11.828
+ 11.829  11.832  11.954  11.985  12.052  12.078  12.479  12.639
+ 12.666  12.761  12.792  12.946  12.957  13.039  13.109  13.145
+ 13.674  13.718  14.161  14.269  14.420  14.427  15.169  15.294
+ 15.342  15.432  15.567  15.639  15.662  15.689  15.989  16.144
+ 16.309  16.471  16.680  16.881  16.974  16.997  17.025  17.137
+ 17.311  17.392  17.440  17.471  17.581  17.767  17.933  17.988
+ 18.007  18.527  19.059  19.333  19.660  19.758  20.744  20.787
+ 20.977  21.138  21.207  22.249  23.704  23.749  23.862  23.919
+ 24.242  25.797  26.117  26.452  28.151  28.683  41.569  41.672
+ 48.129  48.228  48.329  48.587  49.451  91.357  91.399  91.462
+ 91.474  93.015  93.111 105.161
+ 
+ Beta MOs
+ -- Occupied --
+-13.692  -0.441  -0.121   0.017   0.068
+ -- Virtual --
+  0.083   0.085   0.113   0.124   0.127   0.134   0.150   0.157
+  0.168   0.175   0.180   0.214   0.224   0.234   0.236   0.241
+  0.249   0.250   0.281   0.297   0.303   0.309   0.313   0.321
+  0.325   0.333   0.353   0.361   0.364   0.369   0.383   0.407
+  0.415   0.427   0.436   0.454   0.474   0.476   0.478   0.485
+  0.487   0.513   0.524   0.528   0.538   0.545   0.555   0.567
+  0.568   0.584   0.592   0.618   0.627   0.627   0.630   0.642
+  0.647   0.665   0.669   0.683   0.687   0.701   0.704   0.710
+  0.724   0.743   0.759   0.760   0.766   0.766   0.783   0.786
+  0.808   0.818   0.822   0.866   0.870   0.891   0.893   0.910
+  0.924   0.934   0.938   0.948   0.956   0.960   0.977   0.983
+  0.988   1.000   1.008   1.015   1.047   1.073   1.078   1.079
+  1.088   1.098   1.125   1.129   1.145   1.147   1.161   1.165
+  1.186   1.192   1.209   1.231   1.252   1.261   1.410   1.427
+  1.442   1.550   1.577   1.607   1.613   1.720   1.727   1.729
+  1.773   1.798   1.830   1.839   1.861   1.864   1.914   1.916
+  1.995   2.075   2.084   2.109   2.110   2.253   2.313   2.413
+  2.565   2.566   2.659   2.668   2.713   2.835   2.890   2.933
+  3.038   3.136   3.214   3.223   3.290   3.376   3.394   3.552
+  3.570   3.589   3.686   3.692   3.718   3.738   3.781   3.814
+  3.871   3.939   3.999   4.019   4.042   4.093   4.244   4.282
+  4.313   4.349   4.425   4.521   4.596   4.638   4.697   4.827
+  5.118   5.203   5.258   5.297   5.311   5.447   5.463   5.783
+  5.841   5.902   5.962   6.017   6.070   6.214   6.432   6.440
+  6.486   6.538   6.591   6.600   6.806   6.831   6.854   7.142
+  7.520   7.724   7.782   7.874   8.088   8.312   8.625   8.643
+  8.643   8.717   8.885   9.011   9.123   9.229   9.374   9.385
+  9.651   9.701   9.894   9.908  10.100  10.226  10.293  10.336
+ 11.544  11.618  11.627  11.629  11.666  11.672  11.775  11.828
+ 11.829  11.832  11.954  11.985  12.052  12.078  12.479  12.639
+ 12.666  12.761  12.792  12.946  12.957  13.039  13.109  13.145
+ 13.674  13.718  14.161  14.269  14.420  14.427  15.169  15.294
+ 15.342  15.432  15.567  15.639  15.662  15.689  15.989  16.144
+ 16.309  16.471  16.680  16.881  16.974  16.997  17.025  17.137
+ 17.311  17.392  17.440  17.471  17.581  17.767  17.933  17.988
+ 18.007  18.527  19.059  19.333  19.660  19.758  20.744  20.787
+ 20.977  21.138  21.207  22.249  23.704  23.749  23.862  23.919
+ 24.242  25.797  26.117  26.452  28.151  28.683  41.569  41.672
+ 48.129  48.228  48.329  48.587  49.451  91.357  91.399  91.462
+ 91.474  93.015  93.111 105.161
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)    Spin (a.u.)
+  --------------------------------------------------------
+      1 N                     0.322967       0.000000
+      2 H                    -0.661484      -0.000000
+      3 H                    -0.661484      -0.000000
+  --------------------------------------------------------
+  Sum of atomic charges =    -1.000000
+  Sum of spin   charges =     0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -4.8032
+    Dipole Moment (Debye)
+         X       0.0527      Y      -0.0000      Z      -1.4940
+       Tot       1.4949
+    Quadrupole Moments (Debye-Ang)
+        XX     -20.1392     XY      -0.0000     YY     -12.9645
+        XZ      -0.1890     YZ       0.0000     ZZ     -15.5875
+    Octopole Moments (Debye-Ang^2)
+       XXX       1.2809    XXY      -0.0000    XYY      -0.5182
+       YYY      -0.0000    XXZ      -1.1243    XYZ       0.0000
+       YYZ      -0.2151    XZZ      -0.3217    YZZ       0.0000
+       ZZZ      -0.8937
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX    -147.5951   XXXY      -0.0000   XXYY     -34.5761
+      XYYY      -0.0000   YYYY     -57.2081   XXXZ      -2.9182
+      XXYZ      -0.0000   XYYZ      -0.9837   YYYZ       0.0000
+      XXZZ     -36.2007   XYZZ      -0.0000   YYZZ     -21.7102
+      XZZZ      -3.5658   YZZZ      -0.0000   ZZZZ     -72.9231
+ -----------------------------------------------------------------
+Archival summary:
+1\1\n0052.mhg0\SP\ProcedureUnspecified\BasisUnspecified\12(1-,1)\yhljason\MonSep1422:15:202020MonSep1422:15:202020\0\\#,ProcedureUnspecified,BasisUnspecified,\\-1,1\N\H,1,1.02852\H,1,1.02852,2,102.182\\\@
+
+ Total job time:  15575.14s(wall), 123884.47s(cpu) 
+ Mon Sep 14 22:15:20 2020
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+
