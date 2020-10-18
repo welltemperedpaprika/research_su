@@ -2,7 +2,7 @@ import argparse
 from pathlib import Path
 import re
 import json
-from get_electronic import get_electronic_dipole, get_electronic_quadrupole, get_stddev, get_spin_polarization
+from get_electronic import get_electronic_dipole, get_electronic_quadrupole, get_var, get_spin_polarization
 from get_quadrupoles_from_energy import quadrupoles_from_energy, dipoles_from_energy
 from collections import defaultdict
 import os
@@ -13,7 +13,7 @@ def find(l, molecule, method, basis):
             return c
     return False
 
-DH = ['DSD-PBEPBE-D3', 'XYGJ-OS', 'B2GPPLYP', 'wB97X-2', 'B2PLYP', 'PNPB95-D3', 'PTPSS-D3']
+DH = ['DSD-PBEPBE-D3', 'XYGJ-OS', 'B2GPPLYP', 'wB97X-2', 'B2PLYP', 'PNPB95-D3', 'PTPSS-D3', 'wB97X-2(TQZ)', 'XYG3', 'PWPB95-D3']
 parser = argparse.ArgumentParser(description='Processes a qchem output file and stores it as a dictionary with relevant params.')
 parser.add_argument('filename')
 args = parser.parse_args()
@@ -53,7 +53,7 @@ if method_type == "dft":
     object["dipoles"] = [float(x) for x in dipole]
     object["quadrupoles_elec"] = get_electronic_quadrupole(s, object["quadrupoles"])
     object["dipoles_elec"] = get_electronic_dipole(s, object["dipoles"])
-    object["std_dev"] = get_stddev(s, object["dipoles_elec"], object["quadrupoles_elec"])
+    object["var"] = get_var(s, object["dipoles_elec"], object["quadrupoles_elec"])).tolist()
     object["spin_polarized"] = get_spin_polarization(s)
 if method_type == "wft":
     if method == "ccsdT":
@@ -86,11 +86,20 @@ if method_type == "wft":
         object["spin_polarized"] = get_spin_polarization(s)
 
 if method_type == "d_h" or method_type == "rmp2":
-    if basis == 'aug-cc-pcV5Z':
-        object["quadrupoles_scf"] = quadrupoles_from_energy('total energy', s)
-        object["dipoles_scf"] = dipoles_from_energy('total energy', s)
+    if basis == 'aug-cc-pcV5Zp':
+        quadrupole_string = re.findall(r'Quadrupole((.*\n){3})', s)[0][0]
+        quadrupole = re.findall(r'(\-?[0-9][0-9.]*)', quadrupole_string)
+        object["quadrupoles_scf"] = [float(quadrupole[0]), float(quadrupole[2]), float(quadrupole[5])]
+        object["quadrupoles_scf_off_diag"] = [float(quadrupole[1]), float(quadrupole[3]), float(quadrupole[4])]
+        dipole_string = re.search(r'Dipole((.*\n){3})', s).group()
+        dipole = re.findall(r'(\-?[0-9][0-9.]*)', dipole_string)
+        object["dipoles_scf"] = [float(x) for x in dipole]
+        object["quadrupoles_scf_elec"] = get_electronic_quadrupole(s, object["quadrupoles_scf"])
+        object["dipoles_scf_elec"] = get_electronic_dipole(s, object["dipoles_scf"])
+        object["var_scf"] = get_var(s, object["dipoles_scf_elec"], object["quadrupoles_scf_elec"])
+        object["spin_polarized"] = get_spin_polarization(s)
     else:
-        quadrupole_string = re.findall(r'Quadrupole((.*\n){3})', s)[-1][0]
+        quadrupole_string = re.findall(r'Quadrupole((.*\n){3})', s)[0][0]
         quadrupole = re.findall(r'(\-?[0-9][0-9.]*)', quadrupole_string)
         object["quadrupoles_scf"] = [float(quadrupole[0]), float(quadrupole[2]), float(quadrupole[5])]
         object["quadrupoles_scf_off_diag"] = [float(quadrupole[1]), float(quadrupole[3]), float(quadrupole[4])] #XY XZ XY
@@ -100,7 +109,7 @@ if method_type == "d_h" or method_type == "rmp2":
         object["dipoles_scf"] = [float(x) for x in dipole]
         object["quadrupoles_scf_elec"] = get_electronic_quadrupole(s, object["quadrupoles_scf"])
         object["dipoles_scf_elec"] = get_electronic_dipole(s, object["dipoles_scf"])
-        object["std_dev_scf"] = get_stddev(s, object["dipoles_scf_elec"], object["quadrupoles_scf_elec"])
+        object["var_scf"] = get_var(s, object["dipoles_scf_elec"], object["quadrupoles_scf_elec"])
         object["spin_polarized"] = get_spin_polarization(s)
 
 if os.path.exists(output_path/"output.json"):

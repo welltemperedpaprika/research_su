@@ -52,7 +52,7 @@ def get_electronic_quadrupole(string, quadrupole):
     zz_elec = quadrupole[2] * debye_ang_to_ea02 - zz * ang2_to_bohr2
     return [xx_elec, yy_elec, zz_elec]
 
-def get_stddev(string, dipole, quadrupole):
+def get_var(string, dipole, quadrupole):
     info = re.search('molecule\s*\-?\d\s\d\s([\s\S]*?)\$end', string).group(1)
     tote = abs(int(re.search('molecule\s*(\-?\d\s\d\s)', string).group(1).splitlines()[0].split()[0]))
     for l in info.splitlines():
@@ -60,7 +60,7 @@ def get_stddev(string, dipole, quadrupole):
         if line != []:
             charge = Element(re.sub('\d+', '', line[0])).Z
             tote += Element(re.sub('\d+', '', line[0])).Z
-    xx_std = np.sqrt((quadrupole[0]/-tote) - (dipole[0]/-tote) ** 2)
-    yy_std = np.sqrt((quadrupole[1]/-tote) - (dipole[1]/-tote) ** 2)
-    zz_std = np.sqrt((quadrupole[2]/-tote) - (dipole[2]/-tote) ** 2)
-    return [xx_std, yy_std, zz_std]
+    xx_var = (quadrupole[0]/-tote) - (dipole[0]/-tote) ** 2
+    yy_var = (quadrupole[1]/-tote) - (dipole[1]/-tote) ** 2
+    zz_var = (quadrupole[2]/-tote) - (dipole[2]/-tote) ** 2
+    return [xx_var, yy_var, zz_var]
