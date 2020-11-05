@@ -13,7 +13,7 @@ def find(l, molecule, method, basis):
             return c
     return False
 
-DH = ['DSD-PBEPBE-D3', 'XYGJOS', 'B2GPPLYP', 'wB97X-2', 'B2PLYP', 'PNPB95-D3', 'PTPSS-D3', 'wB97X-2TQZ', 'XYG3', 'PWPB95-D3']
+DH = ['DSD-PBEPBE-D3', 'XYGJOS', 'B2GPPLYP', 'wB97X-2', 'B2PLYP', 'PNPB95-D3', 'PTPSS-D3', 'wB97X-2TQZ', 'XYG3', 'PWPB95-D3', 'wB97M2']
 parser = argparse.ArgumentParser(description='Processes a qchem output file and stores it as a dictionary with relevant params.')
 parser.add_argument('filename')
 args = parser.parse_args()
@@ -37,11 +37,14 @@ if method != "ccsdT" and method != "hf":
         method_type = "d_h"
     elif method == "rmp2":
         method_type = "rmp2"
+    elif method == 'accsd':
+        method_type = "analytic_cc"
     else:
         method_type = "dft"
 else:
     method_type = "wft"
 object["method_type"] = method_type
+
 if method_type == "dft":
     object["method_level"] = int(jacob_ladder[method])
     quadrupole_string = re.findall(r'Quadrupole((.*\n){3})', s)[-1][0]
@@ -55,6 +58,19 @@ if method_type == "dft":
     object["dipoles_elec"] = get_electronic_dipole(s, object["dipoles"])
     object["var"] = get_var(s, object["dipoles_elec"], object["quadrupoles_elec"])
     object["spin_polarized"] = get_spin_polarization(s)
+
+if method_type == "analytic_cc":
+    quadrupole_string = re.findall(r'Quadrupole((.*\n){3})', s)[-1][0]
+    quadrupole = re.findall(r'(\-?[0-9][0-9.]*)', quadrupole_string)
+    object["quadrupoles"] = [float(quadrupole[0]), float(quadrupole[2]), float(quadrupole[5])]
+    object["quadrupoles_off_diag"] = [float(quadrupole[1]), float(quadrupole[3]), float(quadrupole[4])] #XY XZ XY
+    dipole_string = re.search(r'Dipole((.*\n){3})', s).group()
+    dipole = re.findall(r'(\-?[0-9][0-9.]*)', dipole_string)
+    object["dipoles"] = [float(x) for x in dipole]
+    object["quadrupoles_elec"] = get_electronic_quadrupole(s, object["quadrupoles"])
+    object["dipoles_elec"] = get_electronic_dipole(s, object["dipoles"])
+    object["var"] = get_var(s, object["dipoles_elec"], object["quadrupoles_elec"])
+    
 if method_type == "wft":
     if method == "ccsdT":
         object["quadrupoles_ccsdt"] = quadrupoles_from_energy('CCSD\(T\) total', s)
@@ -87,7 +103,7 @@ if method_type == "wft":
 
 if method_type == "d_h" or method_type == "rmp2":
     if basis == 'aug-cc-pcV5Zp':
-        if method != 'XYG3' and method != 'XYGJOS':
+        if method != 'XYG3' and method != 'XYGJOS' and method != 'wB97M2':
             quadrupole_string = re.findall(r'Quadrupole((.*\n){3})', s)[0][0]
             quadrupole = re.findall(r'(\-?[0-9][0-9.]*)', quadrupole_string)
             object["quadrupoles_scf"] = [float(quadrupole[0]), float(quadrupole[2]), float(quadrupole[5])]
@@ -108,6 +124,7 @@ if method_type == "d_h" or method_type == "rmp2":
         object["quadrupoles_scf"] = [float(quadrupole[0]), float(quadrupole[2]), float(quadrupole[5])]
         object["quadrupoles_scf_off_diag"] = [float(quadrupole[1]), float(quadrupole[3]), float(quadrupole[4])] #XY XZ XY
         object["quadrupoles_mp2"] = quadrupoles_from_energy('MP2\s*total energy', s)
+        object["quadrupoles_scf_elec"] = get_electronic_quadrupole(s, object["quadrupoles_scf"])
         if method == 'XYG3':
             object["quadrupoles_mp2"] = quadrupoles_from_energy('XYG3\s*total energy', s)
             object["quadrupoles_scf"] = quadrupoles_from_energy('Total energy in the final basis set', s)
@@ -116,10 +133,12 @@ if method_type == "d_h" or method_type == "rmp2":
             object["quadrupoles_mp2"] = quadrupoles_from_energy('Total XYGJ-OS energy\s*', s)
             object["quadrupoles_scf"] = quadrupoles_from_energy('Total energy in the final basis set', s)
             object["quadrupoles_scf_elec"] = get_electronic_quadrupole(s, object["quadrupoles_scf"])
+        if method == 'wB97M2':
+            object["quadrupoles_scf"] = quadrupoles_from_energy('Total energy in the final basis set', s)
+            object["quadrupoles_scf_elec"] = get_electronic_quadrupole(s, object["quadrupoles_scf"])
         dipole_string = re.search(r'Dipole((.*\n){3})', s).group()
         dipole = re.findall(r'(\-?[0-9][0-9.]*)', dipole_string)
         object["dipoles_scf"] = [float(x) for x in dipole]
-        object["quadrupoles_scf_elec"] = get_electronic_quadrupole(s, object["quadrupoles_scf"])
         object["dipoles_scf_elec"] = get_electronic_dipole(s, object["dipoles_scf"])
         object["var_scf"] = get_var(s, object["dipoles_scf_elec"], object["quadrupoles_scf_elec"])
         object["spin_polarized"] = get_spin_polarization(s)
