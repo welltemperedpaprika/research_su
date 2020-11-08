@@ -1,0 +1,788 @@
+Q-Chem Developer Version!
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 5.1, Q-Chem, Inc., Pleasanton, CA (2018)
+
+ Yihan Shao,  Zhengting Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  Jia Deng,  Xintian Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  T. Kus,  A. Landau,  
+ Jie Liu,  E. I. Proynov,  R. M. Richard,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Albrecht,  E. Alguire,  
+ S. A. Baeppler,  D. Barton,  Z. Benda,  Y. A. Bernard,  E. J. Berquist,  
+ K. B. Bravaya,  H. Burton,  D. Casanova,  Chun-Min Chang,  Yunqing Chen,  
+ A. Chien,  K. D. Closser,  M. P. Coons,  S. Coriani,  S. Dasgupta,  
+ A. L. Dempwolff,  M. Diedenhofen,  Hainam Do,  R. G. Edgar,  Po-Tung Fang,  
+ S. Faraji,  S. Fatehi,  Qingguo Feng,  K. D. Fenk,  J. Fosso-Tande,  
+ Qinghui Ge,  A. Ghysels,  G. Gidofalvi,  J. Gomes,  J. Gonthier,  A. Gunina,  
+ D. Hait,  M. W. D. Hanson-Heine,  P. H. P. Harbach,  A. W. Hauser,  
+ J. E. Herr,  E. G. Hohenstein,  Z. C. Holden,  Kerwin Hui,  B. C. Huynh,  
+ T.-C. Jagau,  Hyunjun Ji,  B. Kaduk,  K. Khistyaev,  Jaehoon Kim,  
+ P. Klunzinger,  K. Koh,  D. Kosenkov,  L. Koulias,  T. Kowalczyk,  
+ C. M. Krauter,  A. Kunitsa,  Ka Un Lao,  A. Laurent,  K. V. Lawler,  
+ Joonho Lee,  D. Lefrancois,  S. Lehtola,  D. S. Levine,  Yi-Pei Li,  
+ You-Sheng Lin,  Fenglai Liu,  E. Livshits,  A. Luenser,  P. Manohar,  
+ E. Mansoor,  S. F. Manzer,  Shan-Ping Mao,  Yuezhi Mao,  N. Mardirossian,  
+ A. V. Marenich,  T. Markovich,  L. A. Martinez-Martinez,  S. A. Maurer,  
+ N. J. Mayhall,  S. C. McKenzie,  J.-M. Mewes,  A. F. Morrison,  
+ J. W. Mullinax,  K. Nanda,  T. S. Nguyen-Beck,  R. Olivares-Amaya,  
+ J. A. Parkhill,  T. M. Perrine,  F. Plasser,  P. Pokhilko,  S. Prager,  
+ A. Prociuk,  E. Ramos,  D. R. Rehn,  F. Rob,  M. Schneider,  N. Sergueev,  
+ S. M. Sharada,  S. Sharma,  D. W. Small,  T. Stauch,  T. Stein,  
+ Yu-Chuan Su,  A. J. W. Thom,  A. Tkatchenko,  T. Tsuchimochi,  N. M. Tubman,  
+ L. Vogt,  M. L. Vidal,  O. Vydrov,  M. A. Watson,  J. Wenzel,  
+ M. de Wergifosse,  T. A. Wesolowski,  A. White,  J. Witte,  A. Yamada,  
+ Jun Yang,  K. Yao,  S. Yeganeh,  S. R. Yost,  Zhi-Qiang You,  A. Zech,  
+ Igor Ying Zhang,  Xing Zhang,  Yan Zhao,  Ying Zhu,  B. R. Brooks,  
+ G. K. L. Chan,  C. J. Cramer,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  
+ M. W. Schmidt,  C. D. Sherrill,  D. G. Truhlar,  A. Aspuru-Guzik,  R. Baer,  
+ A. T. Bell,  N. A. Besley,  Jeng-Da Chai,  A. E. DePrince, III,  
+ R. A. DiStasio Jr.,  A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  
+ Chao-Ping Hsu,  Yousung Jung,  Jing Kong,  D. S. Lambrecht,  WanZhen Liang,  
+ C. Ochsenfeld,  V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  
+ T. Van Voorhis,  J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  B. Austin,  J. Baker,  G. J. O. Beran,  K. Brandhorst,  
+ S. T. Brown,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ Siu Hung Chien,  D. M. Chipman,  D. L. Crittenden,  H. Dachsel,  
+ R. J. Doerksen,  A. D. Dutoi,  L. Fusti-Molnar,  W. A. Goddard III,  
+ A. Golubeva-Zadorozhnaya,  S. R. Gwaltney,  G. Hawkins,  A. Heyden,  
+ S. Hirata,  G. Kedziora,  F. J. Keil,  C. Kelley,  Jihan Kim,  R. A. King,  
+ R. Z. Khaliullin,  P. P. Korambath,  W. Kurlancheek,  A. M. Lee,  M. S. Lee,  
+ S. V. Levchenko,  Ching Yeh Lin,  D. Liotard,  R. C. Lochan,  I. Lotan,  
+ P. E. Maslen,  N. Nair,  D. P. O'Neill,  D. Neuhauser,  E. Neuscamman,  
+ C. M. Oana,  R. Olson,  B. Peters,  R. Peverati,  P. A. Pieniazek,  
+ Y. M. Rhee,  J. Ritchie,  M. A. Rohrdanz,  E. Rosta,  N. J. Russ,  
+ H. F. Schaefer III,  N. E. Schultz,  N. Shenvi,  A. C. Simmonett,  A. Sodt,  
+ D. Stuck,  K. S. Thanthiriwatte,  V. Vanovschi,  Tao Wang,  A. Warshel,  
+ C. F. Williams,  Q. Wu,  X. Xu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 5.1.1 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 8.300.2 (Tropical Shenanigans).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Wed Nov  4 17:41:49 2020  
+
+Host: n0044.mhg0
+0
+
+     Scratch files written to /local/scratch/users/yhljason/F2_PW6B95_aug-pc-4.inp20201104174147//
+Input Ideriv = 2
+Curr. Ideriv = -1
+Max.  Ideriv = 2
+Input Ideriv = 1
+Curr. Ideriv = 2
+Max.  Ideriv = 1
+
+ Q-Chem warning in module libgen/rem_setup.C, line 1963:
+
+ Setting Thresh to 1e-14
+
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$molecule 
+0 1
+F1	0.0000	0.0000	0.0000
+F2	0.0000	0.0000	1.4119
+$end
+
+$rem
+jobtype sp
+method PW6B95
+xc_grid 000099000590
+basis aug-pc-4
+max_scf_cycles 200
+thresh 16
+scf_convergence 5
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+unrestricted True
+gen_scfman true
+internal_stability_iter 15
+internal_stability_davidson_iter 200
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+$end
+
+
+
+--------------------------------------------------------------
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      F       0.0000000000     0.0000000000     0.0000000000
+    2      F       0.0000000000     0.0000000000     1.4119000000
+ ----------------------------------------------------------------
+ Nuclear Repulsion Energy =    30.3586331006 hartrees
+ There are        9 alpha and        9 beta electrons
+ Requested basis set is aug-pc-4
+ There are 66 shells and 290 basis functions
+
+ Total QAlloc Memory Limit  64000 MB
+ Mega-Array Size      1467 MB
+ MEM_STATIC part      1500 MB
+
+                       Distance Matrix (Angstroms)
+             F (  1)
+   F (  2)  1.411900
+ 
+ A cutoff of  1.0D-16 yielded   2192 shell pairs
+ There are     42884 function pairs (     83772 Cartesian)
+ 
+ -------------------------------------------------------
+ OpenMP Integral Computing Module                       
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ Integral Job Info:
+ Integral job number is                      11
+ Integral operator is                         1
+ short-range coefficients                     0
+ long-range coefficients              100000000
+ Omega coefficients                           0
+ if combine SR and LR in K                    0
+ Integral screening is                        0
+ Integral computing path is                   2
+ max size of driver memory is           6400000
+ size of driver memory is               5498286
+ size of scratch memory is             29792225
+ max col of scratch BK array             194481
+ max len of scratch array in speh3         5572
+ max len of scratch index in speh4           72
+ max int batch size is                      520
+ min int batch size is                       52
+ fixed nKL is                                25
+ max L of basis functions is                  5
+ order of int derivative is                   0
+ number of shells is                         66
+ number of basis is                         404
+ number of cartesian basis is               404
+ number of contracted shell pairs          2192
+ number of primitive shell pairs           5536
+ maxK2 (contraction) of shell pair          121
+ max number of K2 of shell pair               1
+ max number of CS2 of shell pair            198
+ max number of PS2 of shell pair            308
+ mem total for path MDJ                  956866
+ -------------------------------------------------------
+ Smallest overlap matrix eigenvalue = 8.21E-06
+
+ Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =    -0.0000000019 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ SAD guess density has 18.000000 electrons
+
+ -----------------------------------------------------------------------
+  General SCF calculation program by
+  Eric Jon Sundstrom, Paul Horn, Yuezhi Mao, Dmitri Zuev, Alec White,
+  David Stuck, Shaama M.S., Shane Yost, Joonho Lee, David Small,
+  Daniel Levine, Susi Lehtola, Hugh Burton, Evgeny Epifanovsky
+ -----------------------------------------------------------------------
+ Exchange:     0.2800 Hartree-Fock + 1.0000 PW6B95
+ Correlation:  1.0000 PW6B95
+ Using Euler-Maclaurin-Lebedev (99,590) quadrature formula
+Running Object-Oriented UKS (UHF)
+performing a single roothaan step with Fock from read density so that orbitals are available to all algorithms
+ LTot/LBra/LKet=          18           9           9
+ LTot/LBra/LKet=          18           9           9
+
+ Q-Chem warning:
+
+ in GenH1, ket side, handled with new code
+
+
+ Q-Chem warning:
+
+ in GenH1, ket side, handled with new code
+
+ LTot/LBra/LKet=          18           9           9
+
+ Q-Chem warning:
+
+ in GenH1, ket side, handled with new code
+
+ LTot/LBra/LBra=          18           9           9
+
+ Q-Chem warning:
+
+ in GenH1, bra side, handled with new code
+
+energy of the guess density (C=0) -199.806505862264
+We will preform up to 15 macro iterations over saddle points until a stable solution is found
+Energy prior to optimization (guess energy) = -199.800449883001
+Begin Timing: Total SCF Calculation
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-05
+    1    -199.8004498830      6.42e-02     00000  Normal BFGS step
+    2    -199.8075922301      3.98e-02     00000  Normal BFGS step
+    3    -199.8113044008      2.84e-03     00000  Normal BFGS step
+    4    -199.8113457051      2.04e-03     00000  Normal BFGS step
+    5    -199.8113781959      2.49e-05     00000  Normal BFGS step
+    6    -199.8113782045      5.49e-06     00000 Convergence criterion met
+Timing for Single Stationary Point: 585.00s (wall), 4657.14s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      7.24e-01     00000 Davidson Iteration
+    2      1.10e-01     00000 Davidson Iteration
+    3      2.82e-02     00000 Davidson Iteration
+    4      6.34e-02     00000 Davidson Iteration
+    5      2.03e-02     00000 Davidson Iteration
+    6      4.90e-03     00000 Davidson Iteration
+    7      8.12e-03     00000 Davidson Iteration
+    8      6.06e-03     00000 Davidson Iteration
+    9      5.75e-03     00000 Davidson Iteration
+   10      3.77e-03     00000 Davidson Iteration
+   11      2.25e-03     00000 Davidson Iteration
+   12      2.39e-03     00000 Davidson Iteration
+   13      2.51e-03     00000 Davidson Iteration
+   14      2.03e-03     00000 Davidson Iteration
+   15      9.56e-04     00000 Davidson Iteration
+   16      3.36e-04     00000 Davidson Iteration
+   17      1.42e-04     00000 Davidson Iteration
+   18      7.92e-05     00000 Davidson Converged
+converged_eigenvalues
+  -0.3456
+  -0.3450
+Threshold for negative eigenvalues: -1.0e-05
+solution was a saddle point (unstable)
+displacing from saddle point as requested
+performing a line search along the lowest hessian eigenvector after a small displacement (1E-3) to give a non-zero gradient along this direction 
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 2802.00s (wall), 22332.07s (cpu)
+completed scf stability macro iteration 1
+beginning next scf after displacing from saddle point
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-05
+    1    -199.8113776109      3.79e-04     00000  Normal BFGS step
+    2    -199.8113782028      2.33e-05     00000  Normal BFGS step
+    3    -199.8113782999      2.21e-02     00000  Normal BFGS step
+    4    -199.8113782029      2.22e-05     00000  Normal BFGS step
+    5    -199.8113782029      2.02e-05     00000  Normal BFGS step
+    6    -199.8113782029      2.01e-05     00000  Normal BFGS step
+    7    -199.8113782029      2.02e-05     00000  Normal BFGS step
+    8    -199.8113782029      2.02e-05     00000  Normal BFGS step
+    9    -199.8113782029      2.02e-05     00000  Normal BFGS step
+   10    -199.8113782029      2.02e-05     00000  Normal BFGS step
+   11    -199.8113782030      2.02e-05     00000  Normal BFGS step
+   12    -199.8113782030      1.98e-05     00000  Normal BFGS step
+   13    -199.8113782031      1.87e-05     00000  Normal BFGS step
+   14    -199.8113782034      1.80e-05     00000  Normal BFGS step
+   15    -199.8113782038      2.10e-05     00000  Normal BFGS step
+   16    -199.8113782043      1.59e-05     00000  Normal BFGS step
+   17    -199.8113782095      5.74e-06     00000 Convergence criterion met
+Timing for Single Stationary Point: 1643.00s (wall), 13115.60s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      7.78e+04     00000 Davidson Iteration
+    2      1.07e+04     00000 Davidson Iteration
+    3      5.17e+02     00000 Davidson Iteration
+    4      4.23e+02     00000 Davidson Iteration
+    5      8.38e+01     00000 Davidson Iteration
+    6      1.03e+01     00000 Davidson Iteration
+    7      1.34e-01     00000 Davidson Iteration
+    8      7.27e-04     00000 Davidson Iteration
+    9      2.51e-04     00000 Davidson Iteration
+   10      2.25e-04     00000 Davidson Iteration
+   11      1.46e-04     00000 Davidson Iteration
+   12      1.45e-04     00000 Davidson Iteration
+   13      5.27e-05     00000 Davidson Iteration
+   14      1.06e-04     00000 Davidson Iteration
+   15      9.58e-05     00000 Davidson Converged
+converged_eigenvalues
+  -2.0790e+06
+  -2.7622e+06
+Threshold for negative eigenvalues: -1.0e-05
+solution was a saddle point (unstable)
+displacing from saddle point as requested
+performing a line search along the lowest hessian eigenvector after a small displacement (1E-3) to give a non-zero gradient along this direction 
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 2367.00s (wall), 18904.98s (cpu)
+completed scf stability macro iteration 2
+beginning next scf after displacing from saddle point
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-05
+    1    -199.8113773912      2.04e-03     00000  Normal BFGS step
+    2    -199.8113775032      4.35e-04     00000  Normal BFGS step
+    3    -199.8113774976      5.73e-04     00000  Normal BFGS step
+    4    -199.8113779226      3.89e-04     00000  Normal BFGS step
+    5    -199.8113779803      3.22e-04     00000  Normal BFGS step
+    6    -199.8113780380      2.67e-04     00000  Normal BFGS step
+    7    -199.8113781679      8.45e-05     00000  Normal BFGS step
+    8    -199.8113781986      3.00e-05     00000  Normal BFGS step
+    9    -199.8113782013      6.57e-05     00000  Normal BFGS step
+   10    -199.8113782033      3.66e-05     00000  Normal BFGS step
+   11    -199.8113782048      7.15e-06     00000 Convergence criterion met
+Timing for Single Stationary Point: 1063.00s (wall), 8490.54s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      4.39e+02     00000 Davidson Iteration
+    2      2.94e+01     00000 Davidson Iteration
+    3      1.06e+01     00000 Davidson Iteration
+    4      5.78e+00     00000 Davidson Iteration
+    5      4.80e-02     00000 Davidson Iteration
+    6      1.87e-04     00000 Davidson Iteration
+    7      3.41e-05     00000 Davidson Iteration
+    8      6.73e-06     00000 Davidson Converged
+converged_eigenvalues
+  -2.9999e+05
+  -8.4895e+04
+Threshold for negative eigenvalues: -1.0e-05
+solution was a saddle point (unstable)
+displacing from saddle point as requested
+performing a line search along the lowest hessian eigenvector after a small displacement (1E-3) to give a non-zero gradient along this direction 
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 1395.00s (wall), 11144.20s (cpu)
+completed scf stability macro iteration 3
+beginning next scf after displacing from saddle point
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-05
+    1    -199.8113773421      3.90e-04     00000  Normal BFGS step
+    2    -199.8113782030      2.04e-05     00000  Normal BFGS step
+    3    -199.8113782706      5.41e-01     00000 Line search: understep
+    4    -199.8113780652      1.93e-04     00000 Line search: overstep
+    5    -199.8113781828      8.35e-05     00000 Line search: overstep
+    6    -199.8113782040      2.21e-03     00000  Normal BFGS step
+    7    -199.8076210436      3.01e-02     00000 Line search: overstep
+    8    -199.8113396333      3.00e-03     00000 Line search: overstep
+    9    -199.8113777790      3.26e-04     00000 Line search: overstep
+   10    -199.8113781953      5.85e-05     00000 Line search: overstep
+   11    -199.8113782043      2.74e-03     00000  Dog-leg BFGS step
+   12    -199.7637200180      1.11e-01     00000 Line search: overstep
+   13    -199.8108850041      1.08e-02     00000 Line search: overstep
+   14    -199.8113730466      1.10e-03     00000 Line search: overstep
+   15    -199.8113781330      1.41e-04     00000 Line search: overstep
+   16    -199.8113781976      5.23e-05     00000  Dog-leg BFGS step
+   17    -199.7568036024      1.18e-01     00000 Line search: overstep
+   18    -199.8108157523      1.17e-02     00000 Line search: overstep
+   19    -199.8113728961      1.14e-03     00000 Line search: overstep
+   20    -199.8113781800      7.89e-05     00000 Line search: overstep
+   21    -199.8113782114      2.60e-03     00000  Normal BFGS step
+   22    -199.8113781846      6.06e-04     00000  Normal BFGS step
+   23    -199.8113722723      1.28e-03     00000 Line search: overstep
+   24    -199.8113781629      7.08e-05     00000  Normal BFGS step
+   25    -199.8113746573      9.15e-04     00000 Line search: overstep
+   26    -199.8113781939      8.61e-05     00000  Normal BFGS step
+   27    -199.8113781505      2.98e-04     00000 Line search: overstep
+   28    -199.8113781989      3.06e-05     00000  Normal BFGS step
+   29    -199.8113782010      3.34e-05     00000  Normal BFGS step
+   30    -199.8113782007      3.09e-05     00000  Normal BFGS step
+   31    -199.8113782022      5.26e-05     00000  Normal BFGS step
+   32    -199.8113781367      8.84e-05     00000 Line search: overstep
+   33    -199.8113782015      2.80e-05     00000  Normal BFGS step
+   34    -199.8113782026      2.48e-05     00000  Normal BFGS step
+   35    -199.8113782033      2.88e-05     00000  Normal BFGS step
+   36    -199.8113781991      3.95e-05     00000 Line search: overstep
+   37    -199.8113782033      2.48e-05     00000  Normal BFGS step
+   38    -199.8113782044      9.29e-06     00000 Convergence criterion met
+Timing for Single Stationary Point: 3673.00s (wall), 29329.91s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      1.15e+02     00000 Davidson Iteration
+    2      4.22e+01     00000 Davidson Iteration
+    3      5.81e-03     00000 Davidson Iteration
+    4      8.86e-08     00000 Davidson Iteration
+    5      3.27e+00     00000 Davidson Iteration
+    6      3.67e-01     00000 Davidson Iteration
+    7      2.03e-02     00000 Davidson Iteration
+    8      5.26e-03     00000 Davidson Iteration
+    9      9.49e-06     00000 Davidson Converged
+converged_eigenvalues
+  -3.2871e+05
+  -2.2773e+03
+  -1.5923e+03
+Threshold for negative eigenvalues: -1.0e-05
+solution was a saddle point (unstable)
+displacing from saddle point as requested
+performing a line search along the lowest hessian eigenvector after a small displacement (1E-3) to give a non-zero gradient along this direction 
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 1535.00s (wall), 12259.63s (cpu)
+completed scf stability macro iteration 4
+beginning next scf after displacing from saddle point
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-05
+    1    -199.8113773462      4.12e-04     00000  Normal BFGS step
+    2    -199.8113781992      3.95e-05     00000  Normal BFGS step
+    3    -199.8113782313      2.95e-01     00000 Line search: understep
+    4    -199.8113777351      3.40e-04     00000 Line search: overstep
+    5    -199.8113781368      1.27e-04     00000 Line search: overstep
+    6    -199.8113782015      2.00e-05     00000  Normal BFGS step
+    7    -199.8113782418      5.43e-01     00000 Line search: understep
+    8    -199.8113779202      3.30e-04     00000 Line search: overstep
+    9    -199.8113781610      1.38e-04     00000 Line search: overstep
+   10    -199.8113782021      4.31e-05     00000  Normal BFGS step
+   11    -199.8113782040      7.86e-04     00000  Normal BFGS step
+   12    -199.8113737423      2.56e-03     00000 Line search: overstep
+   13    -199.8113781533      2.84e-04     00000 Line search: overstep
+   14    -199.8113782338      1.96e-02     00000  Normal BFGS step
+   15    -199.8113774240      9.69e-04     00000 Line search: overstep
+   16    -199.8113781282      5.99e-04     00000  Dog-leg BFGS step
+   17    -199.7001228760      3.62e-01     00000 Line search: overstep
+   18    -199.8102771827      3.75e-02     00000 Line search: overstep
+   19    -199.8113686456      3.42e-03     00000 Line search: overstep
+   20    -199.8113781857      7.20e-05     00000  Normal BFGS step
+   21    -199.8113781871      5.24e-05     00000  Normal BFGS step
+   22    -199.8113782095      4.41e-03     00000  Normal BFGS step
+   23    -199.8110684694      6.49e-03     00000 Line search: overstep
+   24    -199.8113751065      6.43e-04     00000 Line search: overstep
+   25    -199.8113781727      6.28e-05     00000 Line search: overstep
+   26    -199.8113782014      2.44e-05     00000  Normal BFGS step
+   27    -199.8113779142      1.94e-04     00000 Line search: overstep
+   28    -199.8113782024      1.27e-05     00000  Normal BFGS step
+   29    -199.8113780863      1.24e-04     00000 Line search: overstep
+   30    -199.8113782039      1.25e-05     00000  Normal BFGS step
+   31    -199.8113782044      3.73e-04     00000  Normal BFGS step
+   32    -199.8112980829      3.89e-03     00000 Line search: overstep
+   33    -199.8113773757      3.91e-04     00000 Line search: overstep
+   34    -199.8113781932      3.87e-05     00000 Line search: overstep
+   35    -199.8113782034      1.54e-04     00000  Normal BFGS step
+   36    -199.8113781756      4.41e-05     00000 Line search: overstep
+   37    -199.8113782023      1.74e-05     00000  Normal BFGS step
+   38    -199.8113782035      8.37e-06     00000 Convergence criterion met
+Timing for Single Stationary Point: 3681.00s (wall), 29288.23s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      7.49e-01     00000 Davidson Iteration
+    2      5.17e-01     00000 Davidson Iteration
+    3      1.88e-01     00000 Davidson Iteration
+    4      2.42e-02     00000 Davidson Iteration
+    5      1.66e-03     00000 Davidson Iteration
+    6      5.18e-05     00000 Davidson Iteration
+    7      1.43e-02     00000 Davidson Iteration
+    8      1.25e-02     00000 Davidson Iteration
+    9      1.31e-03     00000 Davidson Iteration
+   10      8.35e-04     00000 Davidson Iteration
+   11      8.42e-04     00000 Davidson Iteration
+   12      2.24e-04     00000 Davidson Iteration
+   13      2.03e-05     00000 Davidson Converged
+converged_eigenvalues
+  -31.8489
+   -1.4174
+Threshold for negative eigenvalues: -1.0e-05
+solution was a saddle point (unstable)
+displacing from saddle point as requested
+performing a line search along the lowest hessian eigenvector after a small displacement (1E-3) to give a non-zero gradient along this direction 
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 2087.00s (wall), 16670.19s (cpu)
+completed scf stability macro iteration 5
+beginning next scf after displacing from saddle point
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-05
+    1    -199.8113774415      4.22e-04     00000  Normal BFGS step
+    2    -199.8113782106      2.68e-03     00000  Normal BFGS step
+    3    -199.8110135519      7.76e-03     00000 Line search: overstep
+    4    -199.8113746623      7.67e-04     00000 Line search: overstep
+    5    -199.8113780194      1.72e-04     00000 Line search: overstep
+    6    -199.8113781802      5.54e-05     00000  Normal BFGS step
+    7    -199.8113781046      1.29e-04     00000 Line search: overstep
+    8    -199.8113781858      4.70e-05     00000  Normal BFGS step
+    9    -199.8113778998      4.86e-04     00000 Line search: overstep
+   10    -199.8113782007      6.73e-05     00000  Normal BFGS step
+   11    -199.8113781950      9.96e-05     00000  Normal BFGS step
+   12    -199.8113782134      9.55e-03     00000  Normal BFGS step
+   13    -199.8113743798      2.11e-03     00000 Line search: overstep
+   14    -199.8113781580      2.34e-04     00000  Normal BFGS step
+   15    -199.8040863351      7.88e-02     00000 Line search: overstep
+   16    -199.8113072858      7.66e-03     00000 Line search: overstep
+   17    -199.8113777301      5.56e-04     00000 Line search: overstep
+   18    -199.8113782132      1.04e-01     00000 Line search: understep
+   19    -199.8113778177      4.93e-04     00000 Line search: overstep
+   20    -199.8113781801      4.39e-05     00000  Normal BFGS step
+   21    -199.8113782030      2.60e-04     00000  Normal BFGS step
+   22    -199.8113781297      3.80e-04     00000 Line search: overstep
+   23    -199.8113781985      3.29e-05     00000  Normal BFGS step
+   24    -199.8113782034      2.40e-05     00000  Normal BFGS step
+   25    -199.8113782040      1.67e-04     00000  Normal BFGS step
+   26    -199.8113776832      4.23e-04     00000 Line search: overstep
+   27    -199.8113782007      2.12e-05     00000  Normal BFGS step
+   28    -199.8113782061      4.69e-03     00000  Normal BFGS step
+   29    -199.8113761455      4.83e-04     00000 Line search: overstep
+   30    -199.8113781641      1.02e-04     00000  Normal BFGS step
+   31    -199.8113694128      1.41e-03     00000 Line search: overstep
+   32    -199.8113781872      3.83e-05     00000  Normal BFGS step
+   33    -199.8113782045      3.56e-06     00000 Convergence criterion met
+Timing for Single Stationary Point: 3199.00s (wall), 25443.83s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      8.31e-01     00000 Davidson Iteration
+    2      7.60e-01     00000 Davidson Iteration
+    3      9.20e-01     00000 Davidson Iteration
+    4      4.26e-03     00000 Davidson Iteration
+    5      1.72e-06     00000 Davidson Iteration
+    6      5.31e-05     00000 Davidson Converged
+converged_eigenvalues
+  -5.5258e+03
+  -1.2874e+04
+Threshold for negative eigenvalues: -1.0e-05
+solution was a saddle point (unstable)
+displacing from saddle point as requested
+performing a line search along the lowest hessian eigenvector after a small displacement (1E-3) to give a non-zero gradient along this direction 
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 1117.00s (wall), 8921.78s (cpu)
+completed scf stability macro iteration 6
+beginning next scf after displacing from saddle point
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-05
+    1    -199.8113773377      4.07e-04     00000  Normal BFGS step
+    2    -199.8113781969      5.36e-05     00000  Normal BFGS step
+    3    -199.8113782056      1.27e-02     00000 Line search: understep
+    4    -199.8113775281      4.68e-04     00000 Line search: overstep
+    5    -199.8113781490      1.31e-04     00000 Line search: overstep
+    6    -199.8113782043      3.12e-03     00000  Normal BFGS step
+    7    -199.8113733387      9.31e-04     00000 Line search: overstep
+    8    -199.8113781446      1.01e-04     00000 Line search: overstep
+    9    -199.8113781985      3.60e-05     00000  Normal BFGS step
+   10    -199.8113719457      1.02e-03     00000 Line search: overstep
+   11    -199.8113781698      6.96e-05     00000 Line search: overstep
+   12    -199.8113782038      1.35e-05     00000  Normal BFGS step
+   13    -199.8113782059      4.71e-03     00000  Normal BFGS step
+   14    -199.8113781119      7.48e-05     00000 Line search: overstep
+   15    -199.8113781953      4.05e-05     00000  Normal BFGS step
+   16    -199.8104464096      1.36e-02     00000 Line search: overstep
+   17    -199.8113693981      1.33e-03     00000 Line search: overstep
+   18    -199.8113781584      9.59e-05     00000 Line search: overstep
+   19    -199.8113782039      5.72e-05     00000  Normal BFGS step
+   20    -199.8113781965      2.92e-05     00000  Normal BFGS step
+   21    -199.8113782033      1.88e-05     00000  Normal BFGS step
+   22    -199.8113782041      3.04e-04     00000  Normal BFGS step
+   23    -199.8113774385      4.50e-04     00000 Line search: overstep
+   24    -199.8113781961      5.65e-05     00000 Line search: overstep
+   25    -199.8113782037      3.26e-05     00000  Normal BFGS step
+   26    -199.8113782035      7.30e-04     00000  Normal BFGS step
+   27    -199.8113781994      4.07e-05     00000  Normal BFGS step
+   28    -199.8113782032      1.72e-05     00000  Normal BFGS step
+   29    -199.8113782040      1.88e-04     00000  Normal BFGS step
+   30    -199.8113781878      7.36e-05     00000 Line search: overstep
+   31    -199.8113782023      3.07e-05     00000  Normal BFGS step
+   32    -199.8113782031      2.41e-05     00000  Normal BFGS step
+   33    -199.8113782047      1.62e-03     00000  Normal BFGS step
+   34    -199.8113763156      8.91e-04     00000 Line search: overstep
+   35    -199.8113781856      8.83e-05     00000 Line search: overstep
+   36    -199.8113782037      1.71e-05     00000  Normal BFGS step
+   37    -199.8113682381      1.22e-03     00000 Line search: overstep
+   38    -199.8113781091      1.19e-04     00000 Line search: overstep
+   39    -199.8113782033      1.69e-05     00000  Normal BFGS step
+   40    -199.8113782017      2.06e-05     00000  Normal BFGS step
+   41    -199.8113782042      6.85e-05     00000  Normal BFGS step
+   42    -199.8112006603      4.31e-03     00000 Line search: overstep
+   43    -199.8113764222      4.32e-04     00000 Line search: overstep
+   44    -199.8113781859      4.38e-05     00000 Line search: overstep
+   45    -199.8113772923      7.35e-06     00000 Convergence criterion met
+Timing for Single Stationary Point: 4345.00s (wall), 34695.48s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      7.48e-01     00000 Davidson Iteration
+    2      3.48e-01     00000 Davidson Iteration
+    3      1.36e-01     00000 Davidson Iteration
+    4      2.76e-02     00000 Davidson Iteration
+    5      2.57e-03     00000 Davidson Iteration
+    6      7.94e-04     00000 Davidson Iteration
+    7      1.19e-04     00000 Davidson Iteration
+    8      2.82e-05     00000 Davidson Converged
+converged_eigenvalues
+   0.1564
+   0.1564
+Threshold for negative eigenvalues: -1.0e-05
+solution was a local minimum (stable)
+===================================================
+End Test for Internal Stability
+===================================================
+Our SCF solution is stable!
+Timing for Total SCF: 30597.00s (wall), 244085.33s (cpu)
+ Total energy in the final basis set =     -199.8113772923
+<S^2> =          0.000001262
+    ==================================================
+              The end of Object-Oriented SCFman       
+    ==================================================
+ 
+ --------------------------------------------------------------
+ 
+                    Orbital Energies (a.u.)
+ --------------------------------------------------------------
+ 
+ Alpha MOs
+ -- Occupied --
+-24.987 -24.987  -1.393  -1.154  -0.627  -0.575  -0.575  -0.445
+ -0.445
+ -- Virtual --
+ -0.144   0.037   0.043   0.052   0.052   0.088   0.088   0.088
+  0.154   0.215   0.215   0.216   0.216   0.256   0.256   0.257
+  0.260   0.275   0.275   0.287   0.287   0.371   0.396   0.396
+  0.408   0.448   0.448   0.498   0.498   0.542   0.573   0.573
+  0.582   0.582   0.595   0.629   0.629   0.672   0.672   0.734
+  0.734   0.749   0.749   0.763   0.766   0.766   0.776   0.828
+  0.828   0.832   0.848   0.848   0.898   0.898   0.919   0.927
+  0.927   0.952   0.952   1.062   1.062   1.064   1.064   1.100
+  1.139   1.139   1.139   1.139   1.169   1.169   1.238   1.254
+  1.254   1.273   1.273   1.308   1.308   1.317   1.317   1.321
+  1.321   1.401   1.401   1.463   1.490   1.509   1.509   1.520
+  1.520   1.522   1.522   1.523   1.523   1.702   1.722   1.783
+  1.783   1.911   2.013   2.013   2.072   2.072   2.101   2.261
+  2.261   2.269   2.307   2.307   2.371   2.371   2.427   2.485
+  2.485   2.496   2.496   2.517   2.741   2.741   2.844   2.844
+  2.901   2.901   2.980   2.980   3.251   3.375   3.590   3.590
+  4.431   5.151   5.201   5.201   5.241   5.241   5.295   5.409
+  5.409   5.453   5.453   5.482   5.596   5.596   5.703   5.927
+  5.927   5.962   5.962   6.007   6.031   6.031   6.273   6.273
+  6.447   6.447   6.500   6.500   6.533   6.784   6.784   6.803
+  6.904   6.904   6.981   6.981   7.157   7.157   7.226   7.226
+  7.489   7.489   7.527   7.696   7.696   8.311   8.311   9.208
+  9.642   9.642  10.462  11.897  11.897  12.003  12.087  12.087
+ 12.292  12.292  12.348  12.348  12.380  12.380  12.417  12.417
+ 12.651  12.651  12.759  12.759  12.774  12.774  12.831  12.831
+ 12.904  12.921  12.921  13.116  13.173  13.173  13.865  13.865
+ 13.999  13.999  14.232  14.232  14.273  14.308  14.681  14.681
+ 14.862  14.949  14.949  15.076  15.076  15.082  15.098  15.098
+ 15.245  15.245  15.415  15.439  15.439  15.892  16.798  16.798
+ 18.893  19.983  19.983  20.021  20.021  20.158  20.158  20.199
+ 20.199  20.348  20.348  20.620  20.620  21.012  21.012  22.049
+ 22.386  22.386  23.016  30.388  30.388  30.478  30.478  30.533
+ 30.533  30.586  30.670  30.670  32.138  41.626  41.626  41.758
+ 41.913  41.913  42.247  42.256  44.248  91.555  91.555  91.608
+ 91.608  91.649  91.649  91.685  91.724  91.724  92.672 201.509
+202.729
+ 
+ Beta MOs
+ -- Occupied --
+-24.987 -24.987  -1.393  -1.154  -0.627  -0.575  -0.575  -0.445
+ -0.445
+ -- Virtual --
+ -0.144   0.037   0.043   0.052   0.052   0.088   0.088   0.088
+  0.154   0.215   0.215   0.216   0.216   0.256   0.256   0.257
+  0.260   0.275   0.275   0.287   0.287   0.371   0.396   0.396
+  0.408   0.448   0.448   0.498   0.498   0.542   0.573   0.573
+  0.582   0.582   0.595   0.629   0.629   0.672   0.672   0.734
+  0.734   0.749   0.749   0.763   0.766   0.766   0.776   0.828
+  0.828   0.832   0.848   0.848   0.898   0.898   0.919   0.927
+  0.927   0.952   0.952   1.062   1.062   1.064   1.064   1.100
+  1.139   1.139   1.139   1.139   1.169   1.169   1.238   1.254
+  1.254   1.273   1.273   1.308   1.308   1.317   1.317   1.321
+  1.321   1.401   1.401   1.463   1.490   1.509   1.509   1.520
+  1.520   1.522   1.522   1.523   1.523   1.702   1.722   1.783
+  1.783   1.911   2.013   2.013   2.072   2.072   2.101   2.261
+  2.261   2.269   2.307   2.307   2.371   2.371   2.427   2.485
+  2.485   2.496   2.496   2.517   2.741   2.741   2.844   2.844
+  2.901   2.901   2.980   2.980   3.251   3.375   3.590   3.590
+  4.431   5.151   5.201   5.201   5.241   5.241   5.295   5.409
+  5.409   5.453   5.453   5.482   5.596   5.596   5.703   5.927
+  5.927   5.962   5.962   6.007   6.031   6.031   6.273   6.273
+  6.447   6.447   6.500   6.500   6.533   6.784   6.784   6.803
+  6.904   6.904   6.981   6.981   7.157   7.157   7.226   7.226
+  7.489   7.489   7.527   7.696   7.696   8.311   8.311   9.208
+  9.642   9.642  10.462  11.897  11.897  12.003  12.087  12.087
+ 12.292  12.292  12.348  12.348  12.380  12.380  12.417  12.417
+ 12.651  12.651  12.759  12.759  12.774  12.774  12.831  12.831
+ 12.904  12.921  12.921  13.116  13.173  13.173  13.865  13.865
+ 13.999  13.999  14.232  14.232  14.273  14.308  14.681  14.681
+ 14.862  14.949  14.949  15.076  15.076  15.082  15.098  15.098
+ 15.245  15.245  15.415  15.439  15.439  15.892  16.798  16.798
+ 18.893  19.983  19.983  20.021  20.021  20.158  20.158  20.199
+ 20.199  20.348  20.348  20.620  20.620  21.012  21.012  22.049
+ 22.386  22.386  23.016  30.388  30.388  30.478  30.478  30.533
+ 30.533  30.586  30.670  30.670  32.138  41.626  41.626  41.758
+ 41.913  41.913  42.247  42.256  44.248  91.555  91.555  91.608
+ 91.608  91.649  91.649  91.685  91.724  91.724  92.672 201.509
+202.729
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)    Spin (a.u.)
+  --------------------------------------------------------
+      1 F                    -0.000147      -0.002795
+      2 F                     0.000147       0.002795
+  --------------------------------------------------------
+  Sum of atomic charges =     0.000000
+  Sum of spin   charges =    -0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -0.0000
+    Dipole Moment (Debye)
+         X      -0.0000      Y       0.0000      Z      -0.0009
+       Tot       0.0009
+    Quadrupole Moments (Debye-Ang)
+        XX      -9.6516     XY      -0.0000     YY      -9.6516
+        XZ      -0.0000     YZ       0.0001     ZZ      -8.8548
+    Octopole Moments (Debye-Ang^2)
+       XXX      -0.0001    XXY      -0.0000    XYY      -0.0000
+       YYY       0.0001    XXZ      -6.8135    XYZ      -0.0000
+       YYZ      -6.8135    XZZ      -0.0002    YZZ       0.0001
+       ZZZ     -18.7527
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX      -6.1088   XXXY      -0.0001   XXYY      -2.0363
+      XYYY      -0.0001   YYYY      -6.1089   XXXZ      -0.0002
+      XXYZ       0.0001   XYYZ      -0.0001   YYYZ       0.0004
+      XXZZ     -11.6629   XYZZ      -0.0002   YYZZ     -11.6632
+      XZZZ      -0.0007   YZZZ       0.0006   ZZZZ     -56.7040
+ -----------------------------------------------------------------
+Archival summary:
+1\1\n0044.mhg0\SP\ProcedureUnspecified\BasisUnspecified\2\yhljason\ThuNov502:13:452020ThuNov502:13:452020\0\\#,ProcedureUnspecified,BasisUnspecified,\\0,1\F\F,1,1.4119\\\@
+
+ Total job time:  30716.98s(wall), 245009.64s(cpu) 
+ Thu Nov  5 02:13:46 2020
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+
