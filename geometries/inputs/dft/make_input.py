@@ -49,13 +49,14 @@ basis {1}
 CC_REF_PROP true
 cc_fullresponse true
 n_frozen_core 0
+unrestricted true
 scf_convergence 8
 scf_algorithm gdm
 thresh 14
 symmetry false
 sym_ignore true
-cc_memory 128000
-mem_total 156000
+cc_memory 48000
+mem_total 63000
 mem_static  1500
 internal_stability_iter 15
 $end
@@ -70,7 +71,7 @@ if args.method != 'ccsdT' and not args.double_hybrid:
         method_line = 'method {0}'.format(args.method)
     basis_real = ''
     if args.basis == 'aug-cc-pcV5Z':
-        if args.molecule in ['LiBH4', 'LiCl', 'Li', 'BeH2', 'BeH', 'NaCl', 'LiH', 'Na', 'Na2', 'Mg', 'Mg2', 'NaLi', 'NaH', 'Be']:
+        if args.molecule in ['LiBH4', 'LiCl', 'Li', 'BeH2', 'BeH', 'NaCl', 'LiH', 'Na', 'Na2', 'Mg', 'Mg2', 'NaLi', 'NaH', 'Be', 'LiF', 'CH3Li']:
             basis = 'gen'
             basis_file = basis_path / "{0}.txt".format(args.molecule)
             with open(basis_file, 'r') as f:
@@ -99,7 +100,117 @@ $end
 {3}
     '''.format(method_line, basis, ur, basis_real)
     if args.old_stability:
-        input = molecule + '''
+        if args.method == 'wB97M-V' or args.method == 'wB97X-V':
+            input = molecule + '''
+
+$rem
+jobtype sp
+exchange gen
+xc_grid 000099000590
+basis {0}
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+omega 300
+lrc_dft true
+combine_k true
+HFK_SR_COEF 015000000
+HFK_LR_COEF 100000000
+unrestricted {1}
+gen_scfman true
+internal_stability_iter 15
+internal_stability_davidson_iter 200
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+$end
+
+$xc_functional
+X {2} 1.0
+C {3} 1.0
+$end
+
+@@@@@@@
+
+$molecule
+read
+$end
+
+$rem
+jobtype sp
+method {4}
+xc_grid 000099000590
+basis {5}
+max_scf_cycles 200
+thresh 14
+scf_convergence 5
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+unrestricted {6}
+gen_scfman true
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+scf_guess read
+$end
+'''.format(basis, ur, args.method, args.method, args.method, basis, ur)
+        elif args.method == 'B97M-V':
+            input = molecule + '''
+
+$rem
+jobtype sp
+exchange gen
+xc_grid 000099000590
+basis {0}
+max_scf_cycles 200
+thresh 14
+scf_convergence 8
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+unrestricted {1}
+gen_scfman true
+internal_stability_iter 15
+internal_stability_davidson_iter 200
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+$end
+
+$xc_functional
+X {2} 1.0
+C {3} 1.0
+$end
+@@@@@@@@@@@
+$molecule
+read
+$end
+
+$rem
+jobtype sp
+method {4}
+xc_grid 000099000590
+basis {5}
+max_scf_cycles 400
+thresh 14
+scf_convergence 8
+scf_algorithm gdm
+symmetry false
+sym_ignore true
+unrestricted {6}
+gen_scfman true
+mem_total 64000
+mem_static 1500
+n_frozen_core 0
+scf_guess read
+$end
+'''.format(basis, ur, args.method, args.method, args.method, basis, ur)
+        else:
+            input = molecule + '''
 $rem
 jobtype sp
 {0}
@@ -175,7 +286,7 @@ $end
 if args.method == 'ccsdT':
     basis_real = ''
     if args.basis == 'aug-cc-pcV5Z':
-        if args.molecule in ['LiBH4', 'LiCl', 'Li', 'BeH2', 'BeH', 'NaCl', 'LiH', 'Na', 'Na2', 'Mg', 'Mg2', 'NaLi', 'NaH', 'Be']:
+        if args.molecule in ['LiBH4', 'LiCl', 'Li', 'BeH2', 'BeH', 'NaCl', 'LiH', 'Na', 'Na2', 'Mg', 'Mg2', 'NaLi', 'NaH', 'Be', 'LiF', 'CH3Li']:
             basis = 'gen'
             basis_file = basis_path / "{0}.txt".format(args.molecule)
             with open(basis_file, 'r') as f:
@@ -256,13 +367,13 @@ if args.double_hybrid == True:
             aux_basis = 'aux_basis rimp2-aug-cc-pVTZ'
         if args.basis == 'aug-cc-pcVQZ' or args.basis == 'aug-cc-pcV5Z':
             aux_basis = 'aux_basis rimp2-aug-cc-pVQZ'
-        if args.molecule in ['LiBH4', 'LiCl', 'Li', 'BeH2', 'BeH', 'NaCl', 'LiH', 'Na', 'Na2', 'Mg', 'Mg2', 'NaLi', 'NaH', 'Be']:
+        if args.molecule in ['LiBH4', 'LiCl', 'Li', 'BeH2', 'BeH', 'NaCl', 'LiH', 'Na', 'Na2', 'Mg', 'Mg2', 'NaLi', 'NaH', 'Be', 'LiF', 'CH3Li']:
             if args.basis == 'aug-cc-pcVTZ':
                 aux_basis = 'aux_basis rimp2-cc-pVTZ'
             if args.basis == 'aug-cc-pcVQZ' or args.basis == 'aug-cc-pcV5Z':
                 aux_basis = 'aux_basis rimp2-cc-pVQZ'
     if args.basis == 'aug-cc-pcV5Z':
-        if args.molecule in ['LiBH4', 'LiCl', 'Li', 'BeH2', 'BeH', 'NaCl', 'LiH', 'Na', 'Na2', 'Mg', 'Mg2', 'NaLi', 'NaH', 'Be']:
+        if args.molecule in ['LiBH4', 'LiCl', 'Li', 'BeH2', 'BeH', 'NaCl', 'LiH', 'Na', 'Na2', 'Mg', 'Mg2', 'NaLi', 'NaH', 'Be', 'LiF', 'CH3Li']:
             basis = 'gen'
             basis_file = basis_path / "{0}.txt".format(args.molecule)
             with open(basis_file, 'r') as f:

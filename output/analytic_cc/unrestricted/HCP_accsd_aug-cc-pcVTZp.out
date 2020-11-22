@@ -1,0 +1,702 @@
+Q-Chem Developer Version!
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 5.1, Q-Chem, Inc., Pleasanton, CA (2018)
+
+ Yihan Shao,  Zhengting Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  Jia Deng,  Xintian Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  T. Kus,  A. Landau,  
+ Jie Liu,  E. I. Proynov,  R. M. Richard,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Albrecht,  E. Alguire,  
+ S. A. Baeppler,  D. Barton,  Z. Benda,  Y. A. Bernard,  E. J. Berquist,  
+ K. B. Bravaya,  H. Burton,  D. Casanova,  Chun-Min Chang,  Yunqing Chen,  
+ A. Chien,  K. D. Closser,  M. P. Coons,  S. Coriani,  S. Dasgupta,  
+ A. L. Dempwolff,  M. Diedenhofen,  Hainam Do,  R. G. Edgar,  Po-Tung Fang,  
+ S. Faraji,  S. Fatehi,  Qingguo Feng,  K. D. Fenk,  J. Fosso-Tande,  
+ Qinghui Ge,  A. Ghysels,  G. Gidofalvi,  J. Gomes,  J. Gonthier,  A. Gunina,  
+ D. Hait,  M. W. D. Hanson-Heine,  P. H. P. Harbach,  A. W. Hauser,  
+ J. E. Herr,  E. G. Hohenstein,  Z. C. Holden,  Kerwin Hui,  B. C. Huynh,  
+ T.-C. Jagau,  Hyunjun Ji,  B. Kaduk,  K. Khistyaev,  Jaehoon Kim,  
+ P. Klunzinger,  K. Koh,  D. Kosenkov,  L. Koulias,  T. Kowalczyk,  
+ C. M. Krauter,  A. Kunitsa,  Ka Un Lao,  A. Laurent,  K. V. Lawler,  
+ Joonho Lee,  D. Lefrancois,  S. Lehtola,  D. S. Levine,  Yi-Pei Li,  
+ You-Sheng Lin,  Fenglai Liu,  E. Livshits,  A. Luenser,  P. Manohar,  
+ E. Mansoor,  S. F. Manzer,  Shan-Ping Mao,  Yuezhi Mao,  N. Mardirossian,  
+ A. V. Marenich,  T. Markovich,  L. A. Martinez-Martinez,  S. A. Maurer,  
+ N. J. Mayhall,  S. C. McKenzie,  J.-M. Mewes,  A. F. Morrison,  
+ J. W. Mullinax,  K. Nanda,  T. S. Nguyen-Beck,  R. Olivares-Amaya,  
+ J. A. Parkhill,  T. M. Perrine,  F. Plasser,  P. Pokhilko,  S. Prager,  
+ A. Prociuk,  E. Ramos,  D. R. Rehn,  F. Rob,  M. Schneider,  N. Sergueev,  
+ S. M. Sharada,  S. Sharma,  D. W. Small,  T. Stauch,  T. Stein,  
+ Yu-Chuan Su,  A. J. W. Thom,  A. Tkatchenko,  T. Tsuchimochi,  N. M. Tubman,  
+ L. Vogt,  M. L. Vidal,  O. Vydrov,  M. A. Watson,  J. Wenzel,  
+ M. de Wergifosse,  T. A. Wesolowski,  A. White,  J. Witte,  A. Yamada,  
+ Jun Yang,  K. Yao,  S. Yeganeh,  S. R. Yost,  Zhi-Qiang You,  A. Zech,  
+ Igor Ying Zhang,  Xing Zhang,  Yan Zhao,  Ying Zhu,  B. R. Brooks,  
+ G. K. L. Chan,  C. J. Cramer,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  
+ M. W. Schmidt,  C. D. Sherrill,  D. G. Truhlar,  A. Aspuru-Guzik,  R. Baer,  
+ A. T. Bell,  N. A. Besley,  Jeng-Da Chai,  A. E. DePrince, III,  
+ R. A. DiStasio Jr.,  A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  
+ Chao-Ping Hsu,  Yousung Jung,  Jing Kong,  D. S. Lambrecht,  WanZhen Liang,  
+ C. Ochsenfeld,  V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  
+ T. Van Voorhis,  J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  B. Austin,  J. Baker,  G. J. O. Beran,  K. Brandhorst,  
+ S. T. Brown,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ Siu Hung Chien,  D. M. Chipman,  D. L. Crittenden,  H. Dachsel,  
+ R. J. Doerksen,  A. D. Dutoi,  L. Fusti-Molnar,  W. A. Goddard III,  
+ A. Golubeva-Zadorozhnaya,  S. R. Gwaltney,  G. Hawkins,  A. Heyden,  
+ S. Hirata,  G. Kedziora,  F. J. Keil,  C. Kelley,  Jihan Kim,  R. A. King,  
+ R. Z. Khaliullin,  P. P. Korambath,  W. Kurlancheek,  A. M. Lee,  M. S. Lee,  
+ S. V. Levchenko,  Ching Yeh Lin,  D. Liotard,  R. C. Lochan,  I. Lotan,  
+ P. E. Maslen,  N. Nair,  D. P. O'Neill,  D. Neuhauser,  E. Neuscamman,  
+ C. M. Oana,  R. Olson,  B. Peters,  R. Peverati,  P. A. Pieniazek,  
+ Y. M. Rhee,  J. Ritchie,  M. A. Rohrdanz,  E. Rosta,  N. J. Russ,  
+ H. F. Schaefer III,  N. E. Schultz,  N. Shenvi,  A. C. Simmonett,  A. Sodt,  
+ D. Stuck,  K. S. Thanthiriwatte,  V. Vanovschi,  Tao Wang,  A. Warshel,  
+ C. F. Williams,  Q. Wu,  X. Xu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 5.1.1 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 8.300.2 (Tropical Shenanigans).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Thu Nov 19 15:24:18 2020  
+
+Host: n0067.mhg0
+0
+
+     Scratch files written to /local/scratch/users/yhljason/HCP_ccsd_aug-cc-pcVTZ.inp20201119151825//
+Input Ideriv = 1
+Curr. Ideriv = -1
+Max.  Ideriv = 1
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$molecule
+0 1
+C1      0.0000  0.0000  0.0000
+H2      0.0000  0.0000  1.0670
+P3      0.0000  0.0000  -1.5420
+$end
+
+$rem
+method ccsd
+basis aug-cc-pcVTZ
+CC_REF_PROP true
+cc_fullresponse true
+n_frozen_core 0
+unrestricted true
+scf_convergence 8
+scf_algorithm gdm
+thresh 14
+symmetry false
+sym_ignore true
+cc_memory 48000
+mem_total 63000
+mem_static  1500
+internal_stability_iter 15
+$end
+--------------------------------------------------------------
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      C       0.0000000000     0.0000000000     0.0000000000
+    2      H       0.0000000000     0.0000000000     1.0670000000
+    3      P       0.0000000000     0.0000000000    -1.5420000000
+ ----------------------------------------------------------------
+ Nuclear Repulsion Energy =    36.9039353450 hartrees
+ There are       11 alpha and       11 beta electrons
+ Requested basis set is aug-cc-pCVTZ
+ There are 51 shells and 157 basis functions
+ Total memory of 63000MB is distributed as follows: 
+   QALLOC including MEM_STATIC uses 15000MB
+   MEM_STATIC is set to 1500MB
+   CCMAN JOB total memory use is  48000MB
+ Warning: actual memory use might exceed 63000MB
+
+ Total QAlloc Memory Limit  15000 MB
+ Mega-Array Size      1467 MB
+ MEM_STATIC part      1500 MB
+
+                       Distance Matrix (Angstroms)
+             C (  1)   H (  2)
+   H (  2)  1.067000
+   P (  3)  1.542000  2.609000
+ 
+ A cutoff of  1.0D-14 yielded   1312 shell pairs
+ There are     12504 function pairs (     17053 Cartesian)
+ 
+ -------------------------------------------------------
+ OpenMP Integral Computing Module                       
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ Integral Job Info:
+ Integral job number is                      11
+ Integral operator is                         1
+ short-range coefficients                     0
+ long-range coefficients              100000000
+ Omega coefficients                           0
+ if combine SR and LR in K                    0
+ Integral screening is                        0
+ Integral computing path is                   2
+ max size of driver memory is            800000
+ size of driver memory is                776718
+ size of scratch memory is             29531563
+ max col of scratch BK array              10000
+ max len of scratch array in speh3          662
+ max len of scratch index in speh4           32
+ max int batch size is                      520
+ min int batch size is                       52
+ fixed nKL is                                31
+ max L of basis functions is                  3
+ order of int derivative is                   0
+ number of shells is                         51
+ number of basis is                         183
+ number of cartesian basis is               183
+ number of contracted shell pairs          1312
+ number of primitive shell pairs           6289
+ maxK2 (contraction) of shell pair          169
+ max number of K2 of shell pair               1
+ max number of CS2 of shell pair            168
+ max number of PS2 of shell pair           1014
+ mem total for path MDJ                  568920
+ -------------------------------------------------------
+ Smallest overlap matrix eigenvalue = 6.09E-05
+
+ Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =    -0.0000000039 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ SAD guess density has 22.000000 electrons
+
+ -----------------------------------------------------------------------
+  General SCF calculation program by
+  Eric Jon Sundstrom, Paul Horn, Yuezhi Mao, Dmitri Zuev, Alec White,
+  David Stuck, Shaama M.S., Shane Yost, Joonho Lee, David Small,
+  Daniel Levine, Susi Lehtola, Hugh Burton, Evgeny Epifanovsky
+ -----------------------------------------------------------------------
+Running Object-Oriented UHF
+performing a single roothaan step with Fock from read density so that orbitals are available to all algorithms
+energy of the guess density (C=0) -379.310502733359
+We will preform up to 15 macro iterations over saddle points until a stable solution is found
+Energy prior to optimization (guess energy) = -379.139016118644
+Begin Timing: Total SCF Calculation
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-08
+    1    -379.1390161186      4.25e-02     00000  Normal BFGS step
+    2    -379.1524488671      1.14e-02     00000  Normal BFGS step
+    3    -379.1536170017      1.01e-02     00000  Normal BFGS step
+    4    -379.1540162313      1.30e-03     00000  Normal BFGS step
+    5    -379.1540291375      2.15e-04     00000  Normal BFGS step
+    6    -379.1540301821      1.28e-04     00000  Normal BFGS step
+    7    -379.1540303307      2.26e-05     00000  Normal BFGS step
+    8    -379.1540303385      5.77e-06     00000  Normal BFGS step
+    9    -379.1540303392      1.50e-06     00000  Normal BFGS step
+   10    -379.1540303392      3.10e-07     00000  Normal BFGS step
+   11    -379.1540303392      4.89e-08     00000  Normal BFGS step
+   12    -379.1540303392      1.35e-08     00000  Normal BFGS step
+   13    -379.1540303392      5.35e-09     00000 Convergence criterion met
+Timing for Single Stationary Point: 25.00s (wall), 303.83s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      7.05e-01     00000 Davidson Iteration
+    2      6.37e-01     00000 Davidson Iteration
+    3      6.33e-02     00000 Davidson Iteration
+    4      2.36e-01     00000 Davidson Iteration
+    5      3.28e-01     00000 Davidson Iteration
+    6      1.94e-01     00000 Davidson Iteration
+    7      1.78e-01     00000 Davidson Iteration
+    8      1.06e-01     00000 Davidson Iteration
+    9      8.62e-02     00000 Davidson Iteration
+   10      1.84e-02     00000 Davidson Iteration
+   11      1.02e-02     00000 Davidson Iteration
+   12      1.31e-02     00000 Davidson Iteration
+   13      6.84e-03     00000 Davidson Iteration
+   14      2.16e-03     00000 Davidson Iteration
+   15      5.53e-04     00000 Davidson Iteration
+   16      3.44e-04     00000 Davidson Iteration
+   17      1.19e-04     00000 Davidson Iteration
+   18      5.01e-05     00000 Davidson Converged
+converged_eigenvalues
+  -0.0681
+   0.0227
+Threshold for negative eigenvalues: -1.0e-05
+solution was a saddle point (unstable)
+displacing from saddle point as requested
+performing a line search along the lowest hessian eigenvector after a small displacement (1E-3) to give a non-zero gradient along this direction 
+===================================================
+End Test for Internal Stability
+===================================================
+Timing for Internal Stability: 59.00s (wall), 825.72s (cpu)
+completed scf stability macro iteration 1
+beginning next scf after displacing from saddle point
+Begin Timing: SCF Single Stationary Point Calculation
+begin iterations for algorithm: GDM          
+the SCF tolerance is set to 1.00e-08
+    1    -379.1583308871      6.89e-03     00000  Normal BFGS step
+    2    -379.1587683129      3.15e-03     00000  Normal BFGS step
+    3    -379.1588324008      1.52e-03     00000  Normal BFGS step
+    4    -379.1588463619      1.01e-03     00000  Normal BFGS step
+    5    -379.1588616083      8.02e-04     00000  Normal BFGS step
+    6    -379.1588748828      5.53e-04     00000  Normal BFGS step
+    7    -379.1588789204      3.36e-04     00000  Normal BFGS step
+    8    -379.1588800975      9.25e-05     00000  Normal BFGS step
+    9    -379.1588802208      3.31e-05     00000  Normal BFGS step
+   10    -379.1588802357      1.53e-05     00000  Normal BFGS step
+   11    -379.1588802372      6.13e-06     00000  Normal BFGS step
+   12    -379.1588802374      2.04e-06     00000  Normal BFGS step
+   13    -379.1588802375      6.90e-07     00000  Normal BFGS step
+   14    -379.1588802375      1.36e-07     00000  Normal BFGS step
+   15    -379.1588802375      3.92e-08     00000  Normal BFGS step
+   16    -379.1588802375      1.12e-08     00000  Normal BFGS step
+   17    -379.1588802375      7.34e-09     00000 Convergence criterion met
+Timing for Single Stationary Point: 30.00s (wall), 421.66s (cpu)
+Begin Timing: Stability
+===================================================
+Beginning Test for Internal Stability
+===================================================
+generating davidson guess vectors based on koopmans excitations
+    1      6.90e-01     00000 Davidson Iteration
+    2      9.31e-01     00000 Davidson Iteration
+    3      4.17e-01     00000 Davidson Iteration
+    4      2.66e-01     00000 Davidson Iteration
+    5      4.91e-01     00000 Davidson Iteration
+    6      2.04e-01     00000 Davidson Iteration
+    7      2.04e-01     00000 Davidson Iteration
+    8      1.70e-01     00000 Davidson Iteration
+    9      1.51e-01     00000 Davidson Iteration
+   10      2.04e-01     00000 Davidson Iteration
+   11      1.02e-01     00000 Davidson Iteration
+   12      2.81e-02     00000 Davidson Iteration
+   13      1.72e-02     00000 Davidson Iteration
+   14      1.29e-02     00000 Davidson Iteration
+   15      9.26e-03     00000 Davidson Iteration
+   16      5.09e-03     00000 Davidson Iteration
+   17      3.75e-03     00000 Davidson Iteration
+   18      1.80e-03     00000 Davidson Iteration
+   19      5.52e-04     00000 Davidson Iteration
+   20      1.56e-04     00000 Davidson Iteration
+   21      7.81e-05     00000 Davidson Iteration
+   22      2.91e-04     00000 Davidson Iteration
+   23      1.05e-04     00000 Davidson Iteration
+   24      5.51e-05     00000 Davidson Converged
+converged_eigenvalues
+   0.1661
+   0.1260
+Threshold for negative eigenvalues: -1.0e-05
+solution was a local minimum (stable)
+===================================================
+End Test for Internal Stability
+===================================================
+Our SCF solution is stable!
+Timing for Total SCF: 166.00s (wall), 2374.98s (cpu)
+ Total energy in the final basis set =     -379.1588802375
+<S^2> =          0.529944706
+    ==================================================
+              The end of Object-Oriented SCFman       
+    ==================================================
+
+
+ ------------------------------------------------------------------------------
+
+   CCMAN2: suite of methods based on coupled cluster
+           and equation of motion theories.
+
+   Components:
+   * libvmm-1.3-trunk
+     by Evgeny Epifanovsky, Ilya Kaliman.
+   * libtensor-2.5-trunk
+     by Evgeny Epifanovsky, Michael Wormit, Dmitry Zuev, Sam Manzer, 
+        Ilya Kaliman.
+   * libcc-2.5-trunk
+     by Evgeny Epifanovsky, Arik Landau, Tomasz Kus, Kirill Khistyaev, 
+        Dmitry Zuev, Prashant Manohar, Xintian Feng, Anna Krylov, 
+        Matthew Goldey, Alec White, Thomas Jagau, Kaushik Nanda, 
+        Anastasia Gunina, Alexander Kunitsa, Joonho Lee.
+
+   CCMAN original authors:
+   Anna I. Krylov, C. David Sherrill, Steven R. Gwaltney,
+   Edward F. C. Byrd (2000)
+   Sergey V. Levchenko, Lyudmila V. Slipchenko, Tao Wang,
+   Ana-Maria C. Cristian (2003)
+   Piotr A. Pieniazek, C. Melania Oana, Evgeny Epifanovsky (2007)
+   Prashant Manohar (2009)
+
+ ------------------------------------------------------------------------------
+
+
+ Allocating and initializing 48000MB of RAM...
+ Calculation will run on 16 cores.
+
+ 
+ Alpha MOs, Unrestricted
+ -- Occupied --                  
+-79.950 -11.254  -7.496  -5.393  -5.393  -5.387  -0.948  -0.726
+  1 A     2 A     3 A     4 A     5 A     6 A     7 A     8 A                  
+ -0.501  -0.381  -0.381
+  9 A    10 A    11 A                                                          
+ -- Virtual --                   
+  0.031   0.054   0.069   0.069   0.089   0.089   0.101   0.140
+ 12 A    13 A    14 A    15 A    16 A    17 A    18 A    19 A                  
+  0.140   0.141   0.190   0.206   0.206   0.224   0.264   0.264
+ 20 A    21 A    22 A    23 A    24 A    25 A    26 A    27 A                  
+  0.279   0.349   0.349   0.365   0.365   0.379   0.394   0.404
+ 28 A    29 A    30 A    31 A    32 A    33 A    34 A    35 A                  
+  0.434   0.434   0.543   0.543   0.571   0.571   0.628   0.649
+ 36 A    37 A    38 A    39 A    40 A    41 A    42 A    43 A                  
+  0.652   0.652   0.706   0.706   0.733   0.733   0.775   0.775
+ 44 A    45 A    46 A    47 A    48 A    49 A    50 A    51 A                  
+  0.794   0.812   0.873   0.873   0.911   0.966   0.966   0.970
+ 52 A    53 A    54 A    55 A    56 A    57 A    58 A    59 A                  
+  0.970   1.007   1.112   1.173   1.173   1.265   1.265   1.387
+ 60 A    61 A    62 A    63 A    64 A    65 A    66 A    67 A                  
+  1.387   1.405   1.530   1.530   1.605   1.605   1.609   1.609
+ 68 A    69 A    70 A    71 A    72 A    73 A    74 A    75 A                  
+  1.614   1.713   1.841   1.841   1.875   1.875   1.955   1.955
+ 76 A    77 A    78 A    79 A    80 A    81 A    82 A    83 A                  
+  2.077   2.109   2.115   2.115   2.138   2.138   2.304   2.528
+ 84 A    85 A    86 A    87 A    88 A    89 A    90 A    91 A                  
+  2.528   2.532   3.003   3.053   3.053   3.177   3.481   3.481
+ 92 A    93 A    94 A    95 A    96 A    97 A    98 A    99 A                  
+  3.531   3.531   3.543   3.543   3.643   3.643   3.670   3.884
+100 A   101 A   102 A   103 A   104 A   105 A   106 A   107 A                  
+  3.884   3.884   4.235   4.235   4.484   4.605   4.801   4.801
+108 A   109 A   110 A   111 A   112 A   113 A   114 A   115 A                  
+  5.438   5.438   5.776   6.790   7.521   7.521   7.865   7.865
+116 A   117 A   118 A   119 A   120 A   121 A   122 A   123 A                  
+  8.444  10.237  10.237  10.882  12.753  15.845  15.845  17.078
+124 A   125 A   126 A   127 A   128 A   129 A   130 A   131 A                  
+ 17.372  27.311  27.311  27.320  27.320  27.330  27.330  27.345
+132 A   133 A   134 A   135 A   136 A   137 A   138 A   139 A                  
+ 33.671  33.671  33.837  33.837  34.185  41.486  41.486  41.566
+140 A   141 A   142 A   143 A   144 A   145 A   146 A   147 A                  
+ 41.566  41.797  42.313  42.313  43.090  72.198  81.380  81.380
+148 A   149 A   150 A   151 A   152 A   153 A   154 A   155 A                  
+ 82.279  87.116
+156 A   157 A                                                                  
+ 
+ Beta MOs, Unrestricted
+ -- Occupied --                  
+-79.942 -11.278  -7.487  -5.381  -5.372  -5.372  -0.995  -0.725
+  1 A     2 A     3 A     4 A     5 A     6 A     7 A     8 A                  
+ -0.479  -0.422  -0.422
+  9 A    10 A    11 A                                                          
+ -- Virtual --                   
+  0.030   0.054   0.056   0.056   0.098   0.098   0.103   0.132
+ 12 A    13 A    14 A    15 A    16 A    17 A    18 A    19 A                  
+  0.132   0.139   0.194   0.223   0.223   0.227   0.262   0.262
+ 20 A    21 A    22 A    23 A    24 A    25 A    26 A    27 A                  
+  0.277   0.334   0.334   0.358   0.358   0.384   0.390   0.398
+ 28 A    29 A    30 A    31 A    32 A    33 A    34 A    35 A                  
+  0.444   0.444   0.568   0.568   0.623   0.623   0.633   0.645
+ 36 A    37 A    38 A    39 A    40 A    41 A    42 A    43 A                  
+  0.667   0.667   0.669   0.669   0.738   0.738   0.782   0.782
+ 44 A    45 A    46 A    47 A    48 A    49 A    50 A    51 A                  
+  0.797   0.818   0.868   0.868   0.903   0.952   0.952   0.969
+ 52 A    53 A    54 A    55 A    56 A    57 A    58 A    59 A                  
+  0.969   1.003   1.109   1.159   1.159   1.233   1.233   1.373
+ 60 A    61 A    62 A    63 A    64 A    65 A    66 A    67 A                  
+  1.373   1.403   1.530   1.530   1.601   1.601   1.608   1.629
+ 68 A    69 A    70 A    71 A    72 A    73 A    74 A    75 A                  
+  1.629   1.709   1.831   1.831   1.911   1.911   1.957   1.957
+ 76 A    77 A    78 A    79 A    80 A    81 A    82 A    83 A                  
+  2.074   2.105   2.137   2.137   2.153   2.153   2.302   2.527
+ 84 A    85 A    86 A    87 A    88 A    89 A    90 A    91 A                  
+  2.527   2.543   3.003   3.026   3.026   3.180   3.432   3.432
+ 92 A    93 A    94 A    95 A    96 A    97 A    98 A    99 A                  
+  3.491   3.491   3.522   3.522   3.610   3.610   3.656   3.863
+100 A   101 A   102 A   103 A   104 A   105 A   106 A   107 A                  
+  3.863   3.869   4.225   4.225   4.472   4.588   4.800   4.800
+108 A   109 A   110 A   111 A   112 A   113 A   114 A   115 A                  
+  5.429   5.429   5.773   6.785   7.529   7.529   7.869   7.869
+116 A   117 A   118 A   119 A   120 A   121 A   122 A   123 A                  
+  8.448  10.252  10.252  10.885  12.762  15.823  15.823  17.070
+124 A   125 A   126 A   127 A   128 A   129 A   130 A   131 A                  
+ 17.356  27.314  27.314  27.322  27.322  27.331  27.331  27.347
+132 A   133 A   134 A   135 A   136 A   137 A   138 A   139 A                  
+ 33.684  33.684  33.845  33.845  34.192  41.472  41.472  41.557
+140 A   141 A   142 A   143 A   144 A   145 A   146 A   147 A                  
+ 41.557  41.790  42.322  42.322  43.094  72.204  81.374  81.374
+148 A   149 A   150 A   151 A   152 A   153 A   154 A   155 A                  
+ 82.275  87.111
+156 A   157 A                                                                  
+
+ Occupation and symmetry of molecular orbitals
+
+ Point group: C1 (1 irreducible representation).
+
+                           A     All 
+ -------------------------------------
+ All molecular orbitals:
+  - Alpha                  157   157 
+  - Beta                   157   157 
+ -------------------------------------
+ Alpha orbitals:
+  - Frozen occupied        0     0   
+  - Active occupied        11    11  
+  - Active virtual         146   146 
+  - Frozen virtual         0     0   
+ -------------------------------------
+ Beta orbitals:
+  - Frozen occupied        0     0   
+  - Active occupied        11    11  
+  - Active virtual         146   146 
+  - Frozen virtual         0     0   
+ -------------------------------------
+
+ Import integrals:   CPU 0.00 s  wall 0.00 s
+
+ Import integrals:   CPU 525.81 s  wall 36.40 s
+
+ MP2 amplitudes:   CPU 5.30 s  wall 0.41 s
+
+Running a double precision version
+           CCSD T amplitudes will be solved using DIIS.
+
+           Start     Size      MaxIter   EConv     TConv     
+           3         7         100       1.00e-06  1.00e-04  
+ ------------------------------------------------------------------------------
+           Energy (a.u.)   Ediff      Tdiff       Comment
+ ------------------------------------------------------------------------------
+          -379.80113573                           
+     1    -379.81251907   1.14e-02   5.75e-01     
+     2    -379.82676989   1.43e-02   6.46e-02     
+     3    -379.82973920   2.97e-03   2.67e-02     
+     4    -379.83464152   4.90e-03   1.66e-02     Switched to DIIS steps.
+     5    -379.84138484   6.74e-03   2.67e-02     
+     6    -379.84344587   2.06e-03   1.21e-02     
+     7    -379.84419947   7.54e-04   3.33e-03     
+     8    -379.84426913   6.97e-05   1.38e-03     
+     9    -379.84422279   4.63e-05   3.57e-04     
+    10    -379.84424469   2.19e-05   1.33e-04     
+    11    -379.84424238   2.31e-06   6.11e-05     
+    12    -379.84424311   7.32e-07   1.69e-05     
+ ------------------------------------------------------------------------------
+          -379.84424311                           CCSD T converged.
+
+End of double precision
+ SCF energy                 = -379.15888024
+ MP2 energy                 = -379.80113573
+ CCSD correlation energy     =   -0.68536288
+ CCSD total energy           = -379.84424311
+
+ CCSD  T1^2 = 0.1506  T2^2 = 0.1941  Leading amplitudes:
+
+ Amplitude    Orbitals with energies
+ -0.1319       10 (A) A                  ->    15 (A) A                   
+              -0.3811                          0.0690                     
+  0.1319       11 (A) A                  ->    14 (A) A                   
+              -0.3811                          0.0690                     
+  0.1290       10 (A) B                  ->    15 (A) B                   
+              -0.4215                          0.0557                     
+  0.1290       11 (A) B                  ->    14 (A) B                   
+              -0.4215                          0.0557                     
+ -0.1151       10 (A) A                  ->    20 (A) A                   
+              -0.3811                          0.1401                     
+  0.1151       11 (A) A                  ->    19 (A) A                   
+              -0.3811                          0.1401                     
+  0.1084       10 (A) B                  ->    20 (A) B                   
+              -0.4215                          0.1324                     
+  0.1084       11 (A) B                  ->    19 (A) B                   
+              -0.4215                          0.1324                     
+
+ Amplitude    Orbitals with energies
+  0.0548       11 (A) A      11 (A) B    ->    14 (A) A      14 (A) B     
+              -0.3811       -0.4215            0.0690        0.0557       
+ -0.0548       11 (A) A      11 (A) B    ->    14 (A) B      14 (A) A     
+              -0.3811       -0.4215            0.0557        0.0690       
+ -0.0548       11 (A) B      11 (A) A    ->    14 (A) A      14 (A) B     
+              -0.4215       -0.3811            0.0690        0.0557       
+  0.0548       11 (A) B      11 (A) A    ->    14 (A) B      14 (A) A     
+              -0.4215       -0.3811            0.0557        0.0690       
+ -0.0548       10 (A) A      10 (A) B    ->    15 (A) A      15 (A) B     
+              -0.3811       -0.4215            0.0690        0.0557       
+  0.0548       10 (A) A      10 (A) B    ->    15 (A) B      15 (A) A     
+              -0.3811       -0.4215            0.0557        0.0690       
+  0.0548       10 (A) B      10 (A) A    ->    15 (A) A      15 (A) B     
+              -0.4215       -0.3811            0.0690        0.0557       
+ -0.0548       10 (A) B      10 (A) A    ->    15 (A) B      15 (A) A     
+              -0.4215       -0.3811            0.0557        0.0690       
+
+ Computing CCSD intemediates for later calculations in double precision
+ Finished.
+
+Running a double precision version
+           CCSD Lambda amplitudes will be solved using DIIS.
+           Start     Size      MaxIter   EConv     LConv     
+           3         7         100       1.00e-06  1.00e-04  
+ ------------------------------------------------------------------------------
+            Enorm      Ldiff       Comment
+ ------------------------------------------------------------------------------
+     1     9.39e-02   4.89e-02     
+     2     2.59e-02   8.39e-03     
+     3     1.49e-02   4.06e-03     
+     4     7.99e-03   7.12e-03     Switched to DIIS steps.
+     5     3.80e-03   5.66e-03     
+     6     1.79e-03   5.06e-03     
+     7     8.12e-04   2.38e-03     
+     8     2.70e-04   1.33e-03     
+     9     1.11e-04   2.96e-04     
+    10     4.03e-05   1.12e-04     
+    11     1.34e-05   1.88e-05     
+    12     4.34e-06   1.00e-06     
+    13     1.74e-06   8.75e-07     
+    14     6.47e-07   7.58e-07     
+ ------------------------------------------------------------------------------
+                                   CCSD Lambda converged.
+
+ Computing density matrices in double precision...
+           Orbital response amplitudes will be solved using DIIS.
+           Start     Size      MaxIter   EConv     LConv     
+           3         7         100       1.00e-06  1.00e-06  
+ ------------------------------------------------------------------------------
+            Enorm      Ldiff       Comment
+ ------------------------------------------------------------------------------
+     1     4.90e-02   4.91e-03     
+     2     4.23e-02   6.23e-03     
+     3     5.93e-02   1.39e-02     
+     4     9.60e-03   1.06e-02     Switched to DIIS steps.
+     5     7.86e-03   6.61e-03     
+     6     1.61e-03   3.43e-02     
+     7     5.40e-04   2.72e-03     
+     8     1.52e-04   2.44e-05     
+     9     4.47e-05   8.26e-05     
+    10     1.85e-05   9.20e-06     
+    11     3.39e-06   6.91e-06     
+    12     6.57e-07   1.30e-06     
+    13     2.20e-07   6.01e-07     
+ ------------------------------------------------------------------------------
+                                   Orbital response converged.
+
+ Computing density matrices... Done.
+ Reference state properties
+ Relaxed dipole moment (a.u.): 0.124955 (X 0.000000, Y 0.000000, Z 0.124955)
+ Relaxed R-squared (a.u.): 173.131150 (XX 14.875548, YY 14.875548, ZZ 143.380055)
+ Relaxed density matrix was written to a file for further analysis.
+
+ CCSD calculation:   CPU 5705.00 s  wall 1386.40 s
+
+ Total ccman2 time:   CPU 6334.51 s  wall 1433.44 s
+
+ 
+ --------------------------------------------------------------
+ 
+                    Orbital Energies (a.u.)
+ --------------------------------------------------------------
+ 
+ Alpha MOs
+ -- Occupied --
+-79.950 -11.254  -7.496  -5.393  -5.393  -5.387  -0.948  -0.726
+ -0.501  -0.381  -0.381
+ -- Virtual --
+  0.031   0.054   0.069   0.069   0.089   0.089   0.101   0.140
+  0.140   0.141   0.190   0.206   0.206   0.224   0.264   0.264
+  0.279   0.349   0.349   0.365   0.365   0.379   0.394   0.404
+  0.434   0.434   0.543   0.543   0.571   0.571   0.628   0.649
+  0.652   0.652   0.706   0.706   0.733   0.733   0.775   0.775
+  0.794   0.812   0.873   0.873   0.911   0.966   0.966   0.970
+  0.970   1.007   1.112   1.173   1.173   1.265   1.265   1.387
+  1.387   1.405   1.530   1.530   1.605   1.605   1.609   1.609
+  1.614   1.713   1.841   1.841   1.875   1.875   1.955   1.955
+  2.077   2.109   2.115   2.115   2.138   2.138   2.304   2.528
+  2.528   2.532   3.003   3.053   3.053   3.177   3.481   3.481
+  3.531   3.531   3.543   3.543   3.643   3.643   3.670   3.884
+  3.884   3.884   4.235   4.235   4.484   4.605   4.801   4.801
+  5.438   5.438   5.776   6.790   7.521   7.521   7.865   7.865
+  8.444  10.237  10.237  10.882  12.753  15.845  15.845  17.078
+ 17.372  27.311  27.311  27.320  27.320  27.330  27.330  27.345
+ 33.671  33.671  33.837  33.837  34.185  41.486  41.486  41.566
+ 41.566  41.797  42.313  42.313  43.090  72.198  81.380  81.380
+ 82.279  87.116
+ 
+ Beta MOs
+ -- Occupied --
+-79.942 -11.278  -7.487  -5.381  -5.372  -5.372  -0.995  -0.725
+ -0.479  -0.422  -0.422
+ -- Virtual --
+  0.030   0.054   0.056   0.056   0.098   0.098   0.103   0.132
+  0.132   0.139   0.194   0.223   0.223   0.227   0.262   0.262
+  0.277   0.334   0.334   0.358   0.358   0.384   0.390   0.398
+  0.444   0.444   0.568   0.568   0.623   0.623   0.633   0.645
+  0.667   0.667   0.669   0.669   0.738   0.738   0.782   0.782
+  0.797   0.818   0.868   0.868   0.903   0.952   0.952   0.969
+  0.969   1.003   1.109   1.159   1.159   1.233   1.233   1.373
+  1.373   1.403   1.530   1.530   1.601   1.601   1.608   1.629
+  1.629   1.709   1.831   1.831   1.911   1.911   1.957   1.957
+  2.074   2.105   2.137   2.137   2.153   2.153   2.302   2.527
+  2.527   2.543   3.003   3.026   3.026   3.180   3.432   3.432
+  3.491   3.491   3.522   3.522   3.610   3.610   3.656   3.863
+  3.863   3.869   4.225   4.225   4.472   4.588   4.800   4.800
+  5.429   5.429   5.773   6.785   7.529   7.529   7.869   7.869
+  8.448  10.252  10.252  10.885  12.762  15.823  15.823  17.070
+ 17.356  27.314  27.314  27.322  27.322  27.331  27.331  27.347
+ 33.684  33.684  33.845  33.845  34.192  41.472  41.472  41.557
+ 41.557  41.790  42.322  42.322  43.094  72.204  81.374  81.374
+ 82.275  87.111
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)    Spin (a.u.)
+  --------------------------------------------------------
+      1 C                    -0.847347      -0.053926
+      2 H                     0.523278      -0.003713
+      3 P                     0.324070       0.057640
+  --------------------------------------------------------
+  Sum of atomic charges =    -0.000000
+  Sum of spin   charges =    -0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                 0.0000
+    Dipole Moment (Debye)
+         X       0.0000      Y       0.0000      Z       0.3176
+       Tot       0.3176
+    Quadrupole Moments (Debye-Ang)
+        XX     -20.0081     XY       0.0000     YY     -20.0081
+        XZ      -0.0000     YZ      -0.0000     ZZ     -16.0694
+    Octopole Moments (Debye-Ang^2)
+       XXX       0.0000    XXY       0.0000    XYY       0.0000
+       YYY       0.0000    XXZ      18.7130    XYZ      -0.0000
+       YYZ      18.7130    XZZ       0.0000    YZZ       0.0000
+       ZZZ      54.8663
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX     -29.3240   XXXY       0.0000   XXYY      -9.7747
+      XYYY       0.0000   YYYY     -29.3240   XXXZ      -0.0000
+      XXYZ      -0.0000   XYYZ      -0.0000   YYYZ      -0.0000
+      XXZZ     -38.8847   XYZZ       0.0000   YYZZ     -38.8847
+      XZZZ      -0.0000   YZZZ      -0.0000   ZZZZ    -203.3522
+ -----------------------------------------------------------------
+Archival summary:
+1\1\n0067.mhg0\SP\ProcedureUnspecified\BasisUnspecified\111\yhljason\ThuNov1915:51:332020ThuNov1915:51:332020\0\\#,ProcedureUnspecified,BasisUnspecified,\\0,1\P\C,1,1.542\H,2,1.067,1,180\\HF=-379.15888\\@
+
+ Total job time:  1634.69s(wall), 8788.62s(cpu) 
+ Thu Nov 19 15:51:33 2020
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+
