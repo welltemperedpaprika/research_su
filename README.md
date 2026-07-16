@@ -45,7 +45,7 @@ same matrix is available as a table in `output/coverage_matrix.csv`.
 
 | Path | What it is |
 |------|------------|
-| `geometries/` | Benchmark species geometries and Q-Chem input files (`geometries.zip` is an archived copy) |
+| `geometries/` | Benchmark species geometries and Q-Chem input files (incl. `cbs_limit/` reference inputs and `test/` pilot inputs) |
 | `sample.inp` | Annotated Q-Chem input template encoding the SCF robustness settings used throughout (GDM, internal stability analysis, tight convergence thresholds) |
 | `jacob_ladder.json` | Registry of 145 density functionals grouped by Jacob's-ladder rung (rung 1, LDA, through rung 9, double hybrids) |
 | `output/` | Raw Q-Chem outputs in dated batch folders (`dft/`, `hf/`, `mp2/`), CCSD(T) basis-set-convergence references (`cbs_limit/`), extraction scripts, derived CSV/XLSX tables, and paper figures (`images/`) |
