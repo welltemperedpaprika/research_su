@@ -32,6 +32,15 @@ output/output.json                         document store: 4,630 calculation rec
 output/analysis.ipynb                      queries, statistics, tables, and figures for the paper
 ```
 
+## The data store at a glance
+
+![Coverage of the calculation data store](output/images/data_store_coverage.png)
+
+The coverage matrix is complete: all 930 (species, rung) combinations hold at
+least one record, with per-cell depth reflecting basis-set coverage. The figure
+is regenerated from the store itself by `output/coverage_figure.py`, and the
+same matrix is available as a table in `output/coverage_matrix.csv`.
+
 ## Repository layout
 
 | Path | What it is |
